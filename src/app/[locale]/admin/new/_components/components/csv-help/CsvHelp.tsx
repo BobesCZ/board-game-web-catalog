@@ -1,6 +1,8 @@
 import { CSV_COLUMNS_OPTIONS } from '@/app/[locale]/admin/_components/config';
 import {
+  FormControlLabel,
   Paper,
+  Switch,
   Table,
   TableBody,
   TableCell,
@@ -15,11 +17,19 @@ import { CSV_COLUMNS_HELPS } from './config';
 import { CsvColumnOption, CsvColumnsOptions } from '@/csvParser';
 import { pickBy } from 'lodash-es';
 import { CsvColumnsHelpDemand } from './types';
+import { ChangeEvent, Dispatch, SetStateAction } from 'react';
 
-export const CsvHelp = () => {
+type Props = {
+  enableTypeGame: boolean;
+  setEnableTypeGame: Dispatch<SetStateAction<boolean>>;
+  modifiedCsvColumnsOptions: CsvColumnsOptions;
+};
+
+export const CsvHelp = ({ enableTypeGame, setEnableTypeGame, modifiedCsvColumnsOptions }: Props) => {
   const columns = pickBy(
     CSV_COLUMNS_HELPS,
-    (_, column) => (CSV_COLUMNS_OPTIONS[column as keyof CsvColumnsOptions] as CsvColumnOption<true>)?.enabled !== false,
+    (_, column) =>
+      (modifiedCsvColumnsOptions[column as keyof CsvColumnsOptions] as CsvColumnOption<true>)?.enabled !== false,
   );
 
   const getDemandBackground = (demand: `${CsvColumnsHelpDemand}`, theme: Theme) => {
@@ -44,11 +54,19 @@ export const CsvHelp = () => {
     }
   };
 
+  const handleSwitch = (event: ChangeEvent<HTMLInputElement>) => setEnableTypeGame(event.target.checked);
+
   return (
     <>
       <Typography variant="h3">Nastavení CSV sloupců</Typography>
 
-      <TableContainer component={Paper} elevation={4} sx={{ my: 4, maxHeight: '500px', overflow: 'auto' }}>
+      <FormControlLabel
+        control={<Switch checked={enableTypeGame} onChange={handleSwitch} />}
+        label="Použít rozdělení na Hry a Poznámky"
+        sx={{ my: 2 }}
+      />
+
+      <TableContainer component={Paper} elevation={4} sx={{ my: 2, maxHeight: '500px', overflow: 'auto' }}>
         <Table stickyHeader>
           <TableHead>
             <TableRow>
