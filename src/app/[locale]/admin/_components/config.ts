@@ -30,7 +30,7 @@ export const DISABLE_CREDENTIALS_ON_PRODUCTION = false;
  */
 export const CSV_COLUMNS_OPTIONS: CsvColumnsOptions = {
   type: {
-    enabled: true,
+    enabled: false,
     colName: 'Hra / Poznámka',
     typeGame: 'GAME',
   },
