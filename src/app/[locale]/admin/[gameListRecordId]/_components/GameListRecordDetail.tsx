@@ -13,6 +13,7 @@ import { Urls } from '@/config';
 import { theme } from '@/theme/theme';
 import { IS_DEVELOPMENT } from '../../_components/config';
 import dynamic from 'next/dynamic';
+import { DuplicitGamesAlert } from '../../_components/duplicit-games-alert';
 
 const ReactJson = dynamic(() => import('react-json-view'), {
   ssr: false,
@@ -37,7 +38,6 @@ export const GameListRecordDetail = ({ activeGameListRecord, gameListRecord }: P
     () => ({
       newCount: gameList?.filter((game) => game.status === Status.NEW).length,
       unfinishedCount: gameList?.filter((game) => game.status === Status.UNFINISHED).length,
-      finishedCount: gameList?.filter((game) => game.status === Status.FINISHED).length,
     }),
     [gameList],
   );
@@ -111,7 +111,7 @@ export const GameListRecordDetail = ({ activeGameListRecord, gameListRecord }: P
         </ButtonAction>
       </Stack>
 
-      <Stack direction="row" gap={2} alignItems="center" my={4}>
+      <Stack direction="row" gap={2} alignItems="flex-start" my={4}>
         {gameListRecord.status === GameListRecordStatus.COMPLETED ? (
           <Alert severity="success" sx={{ width: '50%' }}>
             <AlertTitle>Všechny hry staženy ({gameList.length})</AlertTitle>
@@ -136,6 +136,8 @@ export const GameListRecordDetail = ({ activeGameListRecord, gameListRecord }: P
           </Alert>
         )}
       </Stack>
+
+      <DuplicitGamesAlert gameList={gameList} />
 
       <Stack direction="row" gap={2} alignItems="center" my={4}>
         <Button

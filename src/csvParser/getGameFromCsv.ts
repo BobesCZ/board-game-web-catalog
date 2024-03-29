@@ -3,10 +3,11 @@ import { Game, Lang, Status } from '@/types';
 import { CsvColumnsOptions, CsvGame } from './types';
 import { VALID_LANGS } from './config';
 
-const getGameUid = (csvGame: CsvGame, langs: Lang[], options: CsvColumnsOptions): string =>
-  camelCase(`${csvGame[options.name.colName]} ${langs.join(' ')} ${csvGame?.notes?.[0]?.substring(0, 15) ?? ''}`);
+const getGameUid = (sourceName: string, id: number | undefined, langs: Lang[], csvGame: CsvGame): string =>
+  camelCase(`${sourceName} ${id ?? ''} ${langs.join(' ')} ${csvGame?.notes?.[0]?.substring(0, 15) ?? ''}`);
 
 export const getGameFromCsv = (csvGame: CsvGame, options: CsvColumnsOptions): Game => {
+  const sourceName = csvGame[options.name.colName].toString();
   const id = options.id.enabled ? parseInt(csvGame[options.id.colName]) || undefined : undefined;
   const location = options.location.enabled ? csvGame[options.location.colName]?.toString() : undefined;
 
@@ -32,8 +33,8 @@ export const getGameFromCsv = (csvGame: CsvGame, options: CsvColumnsOptions): Ga
   const status = Object.keys(customData).length ? Status.FINISHED : Status.NEW;
 
   return {
-    uid: getGameUid(csvGame, langs, options),
-    sourceName: csvGame[options.name.colName].toString(),
+    uid: getGameUid(sourceName, id, langs, csvGame),
+    sourceName,
     id,
     langs,
     notes: csvGame.notes,

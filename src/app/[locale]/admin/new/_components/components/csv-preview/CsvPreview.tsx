@@ -4,6 +4,7 @@ import { Game } from '@/types';
 import { Paper, Table, TableBody, TableCell, TableContainer, TableHead, TableRow, Typography } from '@mui/material';
 import { pickBy } from 'lodash-es';
 import { CsvPreviewColumn } from './components';
+import { DuplicitGamesAlert } from '@/app/[locale]/admin/_components/duplicit-games-alert';
 
 type Props = {
   gameList: Game[];
@@ -21,6 +22,8 @@ export const CsvPreview = ({ gameList }: Props) => {
       <Typography variant="body1" color="text.secondary">
         Seznam her z CSV obsahuje {gameList?.length || 0} položek.
       </Typography>
+
+      <DuplicitGamesAlert gameList={gameList} />
 
       <TableContainer component={Paper} elevation={4} sx={{ my: 4, maxHeight: '500px', overflow: 'auto' }}>
         <Table stickyHeader>
