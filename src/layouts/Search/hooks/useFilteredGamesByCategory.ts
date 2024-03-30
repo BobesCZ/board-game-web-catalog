@@ -13,12 +13,11 @@ import {
 import { orderBy } from 'lodash-es';
 import { ControlledSelectOption, ControlleAutocompleteOption } from '@/components';
 import { Game, GameOrdering } from '@/types';
-import { useTranslations } from 'next-intl';
+import { useLocale, useTranslations } from 'next-intl';
+import { useAppStore } from '@/store';
 
 type Props = {
   filters: CategoryFilters;
-  gameList: Game[];
-  locale: string;
 };
 
 type Return = {
@@ -31,8 +30,10 @@ type Return = {
   orderingOptions: ControlledSelectOption<CategoryFilters, 'ordering'>[];
 };
 
-export const useFilteredGamesByCategory = ({ filters, gameList, locale }: Props): Return => {
+export const useFilteredGamesByCategory = ({ filters }: Props): Return => {
   const t = useTranslations();
+  const { gameList } = useAppStore();
+  const locale = useLocale();
 
   const gameFilteredList = useMemo(() => {
     const list = (gameList || []).filter((game) => filterGamebyCategory(game, filters));

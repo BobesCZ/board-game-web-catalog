@@ -2,17 +2,14 @@ import { Box, Container, Divider, Grid, Stack, Typography } from '@mui/material'
 import { FooterLink } from './components';
 import { useTranslations } from 'next-intl';
 import { Urls } from '@/config';
-import { GameListInfo } from '@/types';
 import { Link } from '../Link';
+import { useAppStore } from '@/store';
 
-type Props = {
-  gameListInfo?: GameListInfo;
-};
-
-export const AppFooter = ({ gameListInfo }: Props) => {
+export const AppFooter = () => {
   const t = useTranslations();
-  const gamesCount = gameListInfo?.gamesCount;
-  const recordCreated = gameListInfo?.recordCreated;
+  const { gameList, activeGameListRecord } = useAppStore();
+  const gamesCount = gameList?.length;
+  const recordCreated = activeGameListRecord;
 
   return (
     <Box sx={(theme) => ({ backgroundColor: theme.palette.secondary.dark })}>

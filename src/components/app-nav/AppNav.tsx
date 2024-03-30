@@ -1,5 +1,5 @@
 import { AppBar, Box, Container, Stack, Toolbar, Typography } from '@mui/material';
-import { AppMenu, LangSwitch } from './components';
+import { AppMenu, LangSwitch, SearchBar } from './components';
 import { useTranslations } from 'next-intl';
 import { Urls } from '@/config';
 import { Link } from '../Link';
@@ -20,10 +20,13 @@ export const AppNav = () => {
               </Stack>
             </Link>
           </Box>
-          <LangSwitch />
-          <Box ml={2} mr={-1}>
-            <AppMenu />
-          </Box>
+          <Stack direction="row" alignItems="center" gap={2}>
+            <SearchBar />
+            <LangSwitch />
+            <Box mr={-1}>
+              <AppMenu />
+            </Box>
+          </Stack>
         </Toolbar>
       </Container>
     </AppBar>

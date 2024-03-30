@@ -25,7 +25,12 @@ export const AppMenu = () => {
       <IconButton size="large" color="secondary" edge="start" onClick={toggleDrawer(true)}>
         <MenuIcon />
       </IconButton>
-      <Drawer anchor="right" open={open} onClose={toggleDrawer(false)}>
+      <Drawer
+        anchor="right"
+        open={open}
+        onClose={toggleDrawer(false)}
+        PaperProps={{ sx: (theme) => ({ backgroundColor: theme.palette.background.default }) }}
+      >
         <Box component="div" role="presentation" onClick={toggleDrawer(false)} onKeyDown={toggleDrawer(false)}>
           <List>
             <MenuLink to={Urls.SEARCH} i18nKey="search.pageTitle" />

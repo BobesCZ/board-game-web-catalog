@@ -364,5 +364,6 @@
     "gamesCount": "Catalog contains {gamesCount} games.",
     "recordCreated": "Last update {recordCreated}.",
     "createdBy": "Created by"
-  }
+  },
+  "searchBar": "Search"
 }

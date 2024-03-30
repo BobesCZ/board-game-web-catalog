@@ -364,5 +364,6 @@
     "gamesCount": "Katalog obsahuje {gamesCount} her.",
     "recordCreated": "Poslední aktualizace {recordCreated}.",
     "createdBy": "Vytvořil"
-  }
+  },
+  "searchBar": "Vyhledat hru"
 }

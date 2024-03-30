@@ -2,10 +2,10 @@ import { useMemo } from 'react';
 import { filterGameByName } from '../utils';
 import { NameFilters } from '../types';
 import { Game } from '@/types';
+import { useAppStore } from '@/store';
 
 type Props = {
   filters: NameFilters;
-  gameList: Game[];
 };
 
 type Return = {
@@ -13,7 +13,9 @@ type Return = {
   gameListOptions: string[];
 };
 
-export const useFilteredGamesByName = ({ filters, gameList }: Props): Return => {
+export const useFilteredGamesByName = ({ filters }: Props): Return => {
+  const { gameList } = useAppStore();
+
   const gameFilteredList = useMemo(() => {
     if ((filters.name?.length ?? 0) < 3) {
       return [];

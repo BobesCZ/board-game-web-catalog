@@ -7,6 +7,8 @@ import { LIGHT_THEME } from './config';
 const theme = createTheme({
   typography: {
     fontFamily: GoogleFont.style.fontFamily,
+    fontWeightRegular: 400,
+    fontWeightBold: 700,
     fontSize: 16,
   },
   ...LIGHT_THEME,
