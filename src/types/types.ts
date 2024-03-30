@@ -69,8 +69,3 @@ export enum LogRecordState {
 export type LogRecord = { sourceName: string; status: LogRecordState; statusMessage?: string };
 
 export type TFunction = ReturnType<typeof useTranslations<string>>;
-
-export type GameListInfo = {
-  gamesCount: number;
-  recordCreated?: number;
-};

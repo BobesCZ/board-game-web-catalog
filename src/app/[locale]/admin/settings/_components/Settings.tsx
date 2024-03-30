@@ -2,7 +2,7 @@
 
 import { createGameListRecord } from '@/actions';
 import { GameListRecord } from '@/actions/types';
-import { revalidateAllAdminPaths } from '@/actions/utils';
+import { revalidateAllAdminPaths, revalidateAllTags } from '@/actions/utils';
 import { ButtonAction, VisuallyHiddenInput, processFileUpload } from '@/components';
 import { Urls } from '@/config';
 import { Cached, Upload } from '@mui/icons-material';
@@ -18,6 +18,7 @@ export const Settings = () => {
   const handleRevalidateAdmin = () => {
     startTransition(() => {
       revalidateAllAdminPaths();
+      revalidateAllTags();
       enqueueSnackbar('Chache byla úspěšně vymazána', {
         variant: 'success',
       });

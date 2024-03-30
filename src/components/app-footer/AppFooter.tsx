@@ -2,17 +2,14 @@ import { Box, Container, Divider, Grid, Stack, Typography } from '@mui/material'
 import { FooterLink } from './components';
 import { useTranslations } from 'next-intl';
 import { Urls } from '@/config';
-import { GameListInfo } from '@/types';
 import { Link } from '../Link';
+import { useAppStore } from '@/store';
 
-type Props = {
-  gameListInfo?: GameListInfo;
-};
-
-export const AppFooter = ({ gameListInfo }: Props) => {
+export const AppFooter = () => {
   const t = useTranslations();
-  const gamesCount = gameListInfo?.gamesCount;
-  const recordCreated = gameListInfo?.recordCreated;
+  const { gameList, activeGameListRecord } = useAppStore();
+  const gamesCount = gameList?.length;
+  const recordCreated = activeGameListRecord;
 
   return (
     <Box sx={(theme) => ({ backgroundColor: theme.palette.secondary.dark })}>
@@ -56,21 +53,22 @@ export const AppFooter = ({ gameListInfo }: Props) => {
         </Stack>
       </Container>
 
-      {(gamesCount || recordCreated) && (
+      {!!(gamesCount || recordCreated) && (
         <>
           <Divider />
-
-          <Typography variant="body2" color="secondary.main" textAlign="center" my={2}>
-            {gamesCount && t('footer.gamesCount', { gamesCount })}
-            {recordCreated &&
-              ' ' +
-                t('footer.recordCreated', { recordCreated: new Date(recordCreated ?? 0).toLocaleDateString() })}{' '}
-            {t('footer.createdBy')}{' '}
-            <Link color="secondary.main" href="https://github.com/BobesCZ" target="_blank">
-              Bobeš
-            </Link>
-            .
-          </Typography>
+          <Container maxWidth="md">
+            <Typography variant="body2" color="secondary.main" textAlign="center" my={2}>
+              {gamesCount && t('footer.gamesCount', { gamesCount })}
+              {recordCreated &&
+                ' ' +
+                  t('footer.recordCreated', { recordCreated: new Date(recordCreated ?? 0).toLocaleDateString() })}{' '}
+              {t('footer.createdBy')}{' '}
+              <Link color="secondary.main" href="https://github.com/BobesCZ" target="_blank">
+                Bobeš
+              </Link>
+              .
+            </Typography>
+          </Container>
         </>
       )}
     </Box>

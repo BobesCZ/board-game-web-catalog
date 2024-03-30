@@ -8,10 +8,10 @@ import { getRankNameOptions } from './utils';
 import { Game } from '@/types';
 import { ControlledSelectOption } from '@/components';
 import { useTranslations } from 'next-intl';
+import { useAppStore } from '@/store';
 
 type Props = {
   filters: RankFilters;
-  gameList: Game[];
 };
 
 type Return = {
@@ -19,8 +19,9 @@ type Return = {
   rankNameOptions: ControlledSelectOption<RankFilters, 'rankName'>[];
 };
 
-export const useFilteredGamesByRank = ({ filters, gameList }: Props): Return => {
+export const useFilteredGamesByRank = ({ filters }: Props): Return => {
   const t = useTranslations();
+  const { gameList } = useAppStore();
 
   const gameFilteredList = useMemo(() => {
     const list = (gameList || []).filter((game) => filterGamebyRank(game, filters));
