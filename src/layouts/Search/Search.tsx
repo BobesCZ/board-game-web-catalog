@@ -2,7 +2,7 @@
 
 import Container from '@mui/material/Container';
 import Box from '@mui/material/Box';
-import { GameList, PageTitle, Pagination, usePagination } from '@/components';
+import { AppTabs, GameList, PageTitle, Pagination, usePagination } from '@/components';
 import { FormProvider, useForm } from 'react-hook-form';
 import { CategoryFilters } from './types';
 import { CATEGORY_DEFAULT_VALUES } from './config';
@@ -24,7 +24,9 @@ export default function Search() {
 
   return (
     <>
-      <PageTitle i18nKey="search.pageTitle" dense />
+      <PageTitle i18nKey="search.pageTitle" />
+      <AppTabs />
+
       <FormProvider {...methods}>
         <Box component="form" onSubmit={methods.handleSubmit((_, e) => e?.preventDefault())}>
           <CategoryForm {...options} />

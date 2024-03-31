@@ -32,6 +32,7 @@
   },
   "rank": {
     "pageTitle": "Nejlepší hry",
+    "tabLabel": "Nejlepší hry",
     "form": {
       "rankName": {
         "label": "Žebříček her",
@@ -61,6 +62,7 @@
   },
   "search": {
     "pageTitle": "Najít hru podle parametrů",
+    "tabLabel": "Podle parametrů",
     "form": {
       "playersCount": {
         "label": "Pro kolik lidí?",
@@ -122,6 +124,7 @@
   },
   "name": {
     "pageTitle": "Najít hru podle jména",
+    "tabLabel": "Podle jména",
     "form": {
       "name": {
         "label": "Název hry (český nebo původní)"

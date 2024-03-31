@@ -2,7 +2,7 @@ export const STANDARD_PADDING = {
   ptMobile: 3.5,
   pbMobile: 2.5,
   pt: 4,
-  pb: 2.5,
+  pb: 3,
 };
 
 export const DENSE_PADDING = {

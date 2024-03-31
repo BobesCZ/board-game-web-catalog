@@ -4,7 +4,7 @@ import { Box, Container } from '@mui/material';
 import { useEffect, useRef } from 'react';
 import { FormProvider, useForm } from 'react-hook-form';
 import { useFilteredGamesByName } from './hooks';
-import { PageTitle, GameList, usePagination, Pagination } from '@/components';
+import { PageTitle, GameList, usePagination, Pagination, AppTabs } from '@/components';
 import { NAME_DEFAULT_VALUES, NAME_URL_QUERY } from './config';
 import { NameFilters } from './types';
 import { NameForm } from './components';
@@ -32,7 +32,9 @@ export default function Name() {
 
   return (
     <>
-      <PageTitle i18nKey="name.pageTitle" dense />
+      <PageTitle i18nKey="name.pageTitle" />
+      <AppTabs />
+
       <FormProvider {...methods}>
         <Box component="form" onSubmit={methods.handleSubmit((_, e) => e?.preventDefault())}>
           <NameForm />

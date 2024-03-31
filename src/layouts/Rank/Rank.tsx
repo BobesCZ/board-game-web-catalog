@@ -7,7 +7,7 @@ import { RANK_DEFAULT_VALUES } from './config';
 import { RankForm } from './components';
 import { RankFilters } from './types';
 import { useFilteredGamesByRank } from './hooks';
-import { PageTitle, GameList, usePagination, Pagination } from '@/components';
+import { PageTitle, GameList, usePagination, Pagination, AppTabs } from '@/components';
 
 export default function Rank() {
   const methods = useForm<RankFilters>({
@@ -23,7 +23,8 @@ export default function Rank() {
 
   return (
     <>
-      <PageTitle i18nKey="rank.pageTitle" dense />
+      <PageTitle i18nKey="rank.pageTitle" />
+      <AppTabs />
 
       <FormProvider {...methods}>
         <Box component="form" onSubmit={methods.handleSubmit((_, e) => e?.preventDefault())}>

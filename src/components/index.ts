@@ -1,5 +1,7 @@
 export * from './app-footer';
+export * from './app-loader';
 export * from './app-nav';
+export * from './app-tabs';
 export * from './file-upload';
 export * from './form';
 export * from './page-title';

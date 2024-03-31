@@ -1,23 +1,24 @@
 'use client';
 
-import { AppFooter, AppNav } from '@/components';
+import { AppFooter, AppLoader, AppNav } from '@/components';
 import { AppStoreProvider, AppStoreValue } from '@/store';
 import { ThemeRegistry } from '@/theme/ThemeRegistry';
 import { Box, Stack } from '@mui/material';
 import { ReactNode } from 'react';
 
 type Props = {
-  children: ReactNode;
+  children?: ReactNode;
   value: AppStoreValue;
+  isLoading?: boolean;
 };
 
-export function AppLayout({ children, value }: Props) {
+export function AppLayout({ children, value, isLoading }: Props) {
   return (
     <ThemeRegistry>
       <AppStoreProvider value={value}>
         <Stack sx={{ minHeight: '100vh' }}>
           <AppNav />
-          <Box flexGrow={1}>{children}</Box>
+          {isLoading ? <AppLoader /> : <Box flexGrow={1}>{children}</Box>}
           <AppFooter />
         </Stack>
       </AppStoreProvider>
