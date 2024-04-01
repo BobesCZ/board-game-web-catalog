@@ -9,15 +9,15 @@ export const LIGHT_THEME: ThemeOptions = {
     },
     secondary: {
       // Form background
-      light: '#e7dbc5',
+      light: '#e0e0e0',
       // Header + Footer text
-      main: '#ede4d4',
+      main: '#e0e0e0',
       // Header + Footer background
-      dark: '#292112',
+      dark: '#212121',
     },
     background: {
       // Body background
-      default: '#f9f6f1',
+      default: '#fafafa',
     },
     divider: '#e1d4b7',
   },
