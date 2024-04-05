@@ -2,16 +2,16 @@
 
 import { ThemeProvider } from '@mui/material/styles';
 import CssBaseline from '@mui/material/CssBaseline';
-import { NextAppDirEmotionCacheProvider } from '@/theme/EmotionCache';
+import { AppRouterCacheProvider } from '@mui/material-nextjs/v13-appRouter';
 import { theme } from './theme';
 
 export function ThemeRegistry({ children }: { children: React.ReactNode }) {
   return (
-    <NextAppDirEmotionCacheProvider options={{ key: 'mui' }}>
+    <AppRouterCacheProvider>
       <ThemeProvider theme={theme}>
         <CssBaseline />
         {children}
       </ThemeProvider>
-    </NextAppDirEmotionCacheProvider>
+    </AppRouterCacheProvider>
   );
 }

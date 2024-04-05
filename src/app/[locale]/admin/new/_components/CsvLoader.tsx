@@ -9,11 +9,11 @@ import { Upload } from '@mui/icons-material';
 import { Game } from '@/types';
 import { parse } from 'papaparse';
 import { CsvPreview } from './components/csv-preview';
-import { useRouter } from 'next/navigation';
 import { Urls } from '@/config';
 import { enqueueSnackbar } from 'notistack';
 import { CsvHelp } from './components';
 import { CSV_COLUMNS_OPTIONS } from '../../_components/config';
+import { useRouter } from '@/navigation';
 
 export const CsvLoader = () => {
   const [isPending, startTransition] = useTransition();

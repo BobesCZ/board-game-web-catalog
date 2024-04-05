@@ -1,10 +1,12 @@
 import createMiddleware from 'next-intl/middleware';
+import { APP_LOCALES, APP_LOCALE_PREFIX } from './i18n';
 
 export default createMiddleware({
   // A list of all locales that are supported
-  locales: ['cs', 'en'],
+  locales: APP_LOCALES,
+  localePrefix: APP_LOCALE_PREFIX,
 
-  // If this locale is matched, pathnames work without a prefix (e.g. `/about`)
+  // Used when no locale matches
   defaultLocale: 'cs',
 });
 

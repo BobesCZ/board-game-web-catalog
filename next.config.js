@@ -1,3 +1,7 @@
+const createNextIntlPlugin = require('next-intl/plugin');
+
+const withNextIntl = createNextIntlPlugin();
+
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   reactStrictMode: true,
@@ -6,9 +10,6 @@ const nextConfig = {
     '@mui/icons-material': {
       transform: '@mui/icons-material/{{member}}',
     },
-  },
-  experimental: {
-    serverActions: true,
   },
   webpack: (config) => {
     config.module.rules.push({
@@ -49,4 +50,4 @@ const nextConfig = {
   },
 };
 
-module.exports = nextConfig;
+module.exports = withNextIntl(nextConfig);

@@ -1,10 +1,5 @@
 import { ReactNode } from 'react';
-import { notFound } from 'next/navigation';
-import { NextIntlClientProvider } from 'next-intl';
-
-export function generateStaticParams() {
-  return [{ locale: 'cs' }, { locale: 'en' }];
-}
+import { NextIntlClientProvider, useMessages } from 'next-intl';
 
 export const metadata = {
   title: 'Webový katalog deskových her',
@@ -20,13 +15,8 @@ type Props = {
   };
 };
 
-export default async function RootLayout({ children, params: { locale } }: Props) {
-  let messages;
-  try {
-    messages = (await import(`../../messages/${locale}.json`)).default;
-  } catch (error) {
-    notFound();
-  }
+export default function RootLayout({ children, params: { locale } }: Props) {
+  const messages = useMessages();
 
   return (
     <html lang={locale}>

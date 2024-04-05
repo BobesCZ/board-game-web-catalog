@@ -5,9 +5,9 @@ import { GameListRecord } from '@/actions/types';
 import { revalidateAllAdminPaths, revalidateAllTags } from '@/actions/utils';
 import { ButtonAction, VisuallyHiddenInput, processFileUpload } from '@/components';
 import { Urls } from '@/config';
+import { useRouter } from '@/navigation';
 import { Cached, Upload } from '@mui/icons-material';
 import { Box, Divider, Stack, Typography } from '@mui/material';
-import { useRouter } from 'next/navigation';
 import { enqueueSnackbar } from 'notistack';
 import { ChangeEventHandler, useTransition } from 'react';
 

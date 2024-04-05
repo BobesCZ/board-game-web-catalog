@@ -1,6 +1,5 @@
 'use client';
 
-import { useRouter } from 'next/navigation';
 import { Autocomplete, AutocompleteProps, Box, ListItemProps, TextField, createFilterOptions } from '@mui/material';
 import { SyntheticEvent, useState } from 'react';
 import { Search } from '@mui/icons-material';
@@ -10,6 +9,7 @@ import { NAME_URL_QUERY } from '@/layouts/Name/config';
 import { AutocompleteOption } from '../autocomplete-option';
 import { useAppStore } from '@/store';
 import { useTranslations } from 'next-intl';
+import { useRouter } from '@/navigation';
 
 type Props = {
   handleDrawerClose?: () => void;

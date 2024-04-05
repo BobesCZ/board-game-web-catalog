@@ -1,22 +1,22 @@
 'use client';
 
-import { usePathname, useRouter, useSearchParams } from 'next/navigation';
+import { useSearchParams } from 'next/navigation';
 import { useLocale } from 'next-intl';
 import { ToggleButton, ToggleButtonGroup, alpha } from '@mui/material';
 import { localeLangOptions } from './config';
 import { MouseEvent } from 'react';
+import { usePathname, useRouter } from '@/navigation';
 
 export function LangSwitch() {
   const locale = useLocale();
-  const { push } = useRouter();
+  const { replace } = useRouter();
   const pathname = usePathname();
   const searchParams = useSearchParams();
 
   const handleChange = (_e: MouseEvent<HTMLElement>, newValue: string | null) => {
     if (newValue !== null) {
-      const path = pathname.startsWith(`/${locale}`) ? pathname.substring(3) : pathname;
-      const url = `/${newValue}${path}?${searchParams}`;
-      push(url);
+      const url = `/${pathname}?${searchParams}`;
+      replace(url, { locale: newValue });
     }
   };
 

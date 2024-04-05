@@ -1,11 +1,11 @@
 'use client';
 
 import { Box, Container, Tabs, alpha } from '@mui/material';
-import { usePathname } from 'next/navigation';
 import { SyntheticEvent, useState } from 'react';
 import { LinkTab } from './components';
 import { APP_TABS } from './config';
 import { useTranslations } from 'next-intl';
+import { usePathname } from '@/navigation';
 
 export function AppTabs() {
   const t = useTranslations();

@@ -8,12 +8,12 @@ import { ButtonAction, GameList, Link } from '@/components';
 import { GameListRecord, GameListRecordStatus } from '@/actions/types';
 import { Status } from '@/types';
 import { BggLoader } from './components';
-import { useRouter } from 'next/navigation';
 import { Urls } from '@/config';
 import { theme } from '@/theme/theme';
 import { IS_DEVELOPMENT } from '../../_components/config';
 import dynamic from 'next/dynamic';
 import { DuplicitGamesAlert } from '../../_components/duplicit-games-alert';
+import { useRouter } from '@/navigation';
 
 const ReactJson = dynamic(() => import('react-json-view'), {
   ssr: false,

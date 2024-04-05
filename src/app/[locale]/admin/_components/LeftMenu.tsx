@@ -5,7 +5,7 @@ import { Add, OpenInNewOutlined, People, Settings, ViewList } from '@mui/icons-m
 import { Link } from '@/components';
 import { Urls } from '@/config';
 import { LEFT_MENU_WIDTH } from './config';
-import { usePathname } from 'next/navigation';
+import { usePathname } from '@/navigation';
 
 export default function LeftMenu() {
   const pathname = usePathname();
