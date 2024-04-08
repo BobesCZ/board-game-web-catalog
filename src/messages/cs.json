@@ -28,7 +28,8 @@
       "eng": "anglicky",
       "de": "německy"
     },
-    "location": "Umístění"
+    "location": "Umístění",
+    "locationTag": "Hru najdete na polici s názvem {location}"
   },
   "rank": {
     "pageTitle": "Nejlepší hry",

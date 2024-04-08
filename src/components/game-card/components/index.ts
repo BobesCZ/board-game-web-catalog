@@ -4,6 +4,7 @@ export * from './card-image';
 export * from './game-info-item';
 export * from './game-weight';
 export * from './lang-item';
+export * from './location-tag';
 export * from './note-tag';
 export * from './players-count-string';
 export * from './rank-tag';

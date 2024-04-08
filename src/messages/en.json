@@ -28,7 +28,8 @@
       "eng": "English",
       "de": "German"
     },
-    "location": "Location"
+    "location": "Location",
+    "locationTag": "Game is placed on shelf named {location}"
   },
   "rank": {
     "pageTitle": "Best games",

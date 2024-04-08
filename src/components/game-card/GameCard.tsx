@@ -8,6 +8,7 @@ import {
   GameInfoItem,
   GameWeight,
   LangItem,
+  LocationTag,
   NoteTag,
   PlayersCountString,
   RankTag,
@@ -62,12 +63,13 @@ export const GameCard = ({
         <Box position="relative">
           <CardImage image={image} />
 
-          {!!filteredRanks.length && (
+          {(!!location || !!filteredRanks.length) && (
             <Stack
               alignItems="flex-start"
               gap={1}
               sx={(theme) => ({ position: 'absolute', top: theme.spacing(-1.5), left: theme.spacing(-1.5) })}
             >
+              {location && <LocationTag location={location} />}
               {filteredRanks.map((rank) => (
                 <RankTag key={rank.name} rank={rank} />
               ))}
