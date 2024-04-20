@@ -13,4 +13,8 @@ export const APP_TABS = [
     url: Urls.RANK,
     label: 'rank.tabLabel',
   },
+  {
+    url: Urls.ADDED,
+    label: 'added.tabLabel',
+  },
 ];

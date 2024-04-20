@@ -10,6 +10,7 @@ export const getGameFromCsv = (csvGame: CsvGame, options: CsvColumnsOptions): Ga
   const sourceName = csvGame[options.name.colName].toString();
   const id = options.id.enabled ? parseInt(csvGame[options.id.colName]) || undefined : undefined;
   const location = options.location.enabled ? csvGame[options.location.colName]?.toString() || undefined : undefined;
+  const added = options.added.enabled ? csvGame[options.added.colName]?.toString() || undefined : undefined;
 
   const langs = options.langs.enabled
     ? ((csvGame[options.langs.colName] as string) ?? '')
@@ -39,6 +40,7 @@ export const getGameFromCsv = (csvGame: CsvGame, options: CsvColumnsOptions): Ga
     langs,
     notes: csvGame.notes,
     location,
+    added,
     ...customData,
     status: status,
   };

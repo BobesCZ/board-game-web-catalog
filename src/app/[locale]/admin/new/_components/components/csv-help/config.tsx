@@ -37,6 +37,11 @@ export const CSV_COLUMNS_HELPS: CsvColumnsHelps = {
     values: ['[text]'],
     description: 'Umístění hry v místnosti nebo regálu',
   },
+  added: {
+    demand: CsvColumnsHelpDemand.Unrequired,
+    values: ['[text]'],
+    description: 'Datum přidání hry do seznamu (např. 1.1.2023), bude seskupeno podle měsíce a roku',
+  },
   id: {
     demand: CsvColumnsHelpDemand.Unrequired,
     values: ['[text]'],

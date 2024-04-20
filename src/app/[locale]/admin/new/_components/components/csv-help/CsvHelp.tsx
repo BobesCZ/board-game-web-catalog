@@ -27,6 +27,7 @@ export const CsvHelp = () => {
       case 'name':
       case 'langs':
       case 'location':
+      case 'added':
         return '#cfe7f5';
 
       case 'id':

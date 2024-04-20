@@ -1,3 +1,4 @@
+import { GameGroupedList } from '@/components/game-list';
 import { Game } from '@/types';
 import { ChangeEvent } from 'react';
 
@@ -10,4 +11,8 @@ export type UsePaginationReturn = {
   showMoreButton: boolean;
   showMoreButtonCount: number;
   handleMoreButton: () => void;
+};
+
+export type UseGroupedPaginationReturn = Omit<UsePaginationReturn, 'currentPageGameList'> & {
+  currentPageGameGroupedList: GameGroupedList;
 };

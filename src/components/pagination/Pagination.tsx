@@ -2,7 +2,7 @@ import { Button, Pagination as MuiPagination, Stack } from '@mui/material';
 import { UsePaginationReturn } from './hooks';
 import { useTranslations } from 'next-intl';
 
-type Props = Omit<UsePaginationReturn, 'currentPageGameList'>;
+type Props = Omit<UsePaginationReturn, 'currentPageGameList'> & { isGrouped?: boolean };
 
 export const Pagination = ({
   showPagination,
@@ -12,6 +12,7 @@ export const Pagination = ({
   showMoreButton,
   showMoreButtonCount,
   handleMoreButton,
+  isGrouped = false,
 }: Props) => {
   const t = useTranslations();
 
@@ -19,7 +20,7 @@ export const Pagination = ({
     <Stack alignItems="center" gap={3} mb={4}>
       {showMoreButton && (
         <Button variant="contained" size="large" onClick={handleMoreButton}>
-          {t('pagination.showMore', { itemsCount: showMoreButtonCount })}
+          {t(`pagination.${isGrouped ? 'showMoreGroups' : 'showMore'}`, { itemsCount: showMoreButtonCount })}
         </Button>
       )}
       {showPagination && (

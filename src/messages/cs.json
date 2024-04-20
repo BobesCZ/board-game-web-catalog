@@ -59,7 +59,8 @@
     }
   },
   "pagination": {
-    "showMore": "{itemsCount, plural, one {Další} few {Další} other {Dalších}} {itemsCount} {itemsCount, plural, one {hra} few {hry} other {her}}"
+    "showMore": "{itemsCount, plural, one {Další} few {Další} other {Dalších}} {itemsCount} {itemsCount, plural, one {hra} few {hry} other {her}}",
+    "showMoreGroups": "{itemsCount, plural, one {Další} few {Další} other {Dalších}} {itemsCount} {itemsCount, plural, one {sekci} few {sekce} other {sekcí}}"
   },
   "search": {
     "pageTitle": "Najít hru podle parametrů",
@@ -131,6 +132,10 @@
         "label": "Název hry (český nebo původní)"
       }
     }
+  },
+  "added": {
+    "pageTitle": "Nově přidané hry",
+    "tabLabel": "Nově přidané hry"
   },
   "bgg": {
     "categories": {
