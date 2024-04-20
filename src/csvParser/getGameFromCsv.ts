@@ -9,7 +9,7 @@ const getGameUid = (sourceName: string, id: number | undefined, langs: Lang[], c
 export const getGameFromCsv = (csvGame: CsvGame, options: CsvColumnsOptions): Game => {
   const sourceName = csvGame[options.name.colName].toString();
   const id = options.id.enabled ? parseInt(csvGame[options.id.colName]) || undefined : undefined;
-  const location = options.location.enabled ? csvGame[options.location.colName]?.toString() : undefined;
+  const location = options.location.enabled ? csvGame[options.location.colName]?.toString() || undefined : undefined;
 
   const langs = options.langs.enabled
     ? ((csvGame[options.langs.colName] as string) ?? '')

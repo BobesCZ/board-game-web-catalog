@@ -16,7 +16,7 @@ const config: Config = {
     '^.+\\.csv$': './jest-csv-transformer.js',
   },
   moduleNameMapper: {
-    '^lodash-es/(.*)$': 'lodash/$1',
+    '^lodash-es$': 'lodash',
   },
 };
 
