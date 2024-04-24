@@ -22,9 +22,15 @@ export function AppTabs() {
     <Box sx={(theme) => ({ backgroundColor: theme.palette.secondary.light })}>
       <Container>
         <Box sx={(theme) => ({ borderBottom: 1, borderColor: alpha(theme.palette.text.secondary, 0.15) })}>
-          <Tabs value={tab} onChange={handleTabChange} textColor="secondary" variant="scrollable">
+          <Tabs
+            value={tab}
+            onChange={handleTabChange}
+            textColor="secondary"
+            indicatorColor="primary"
+            variant="scrollable"
+          >
             {APP_TABS.map(({ url, label }) => (
-              <LinkTab key={url} label={t(label)} href={url} />
+              <LinkTab key={url.toString()} label={t(label)} href={url} />
             ))}
           </Tabs>
         </Box>

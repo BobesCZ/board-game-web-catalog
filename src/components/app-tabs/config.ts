@@ -1,6 +1,7 @@
 import { Urls } from '@/config';
+import { AppTab } from './types';
 
-export const APP_TABS = [
+export const APP_TABS: AppTab[] = [
   {
     url: Urls.SEARCH,
     label: 'search.tabLabel',

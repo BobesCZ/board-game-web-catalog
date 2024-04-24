@@ -63,8 +63,8 @@
     "showMoreGroups": "Load {itemsCount} more {itemsCount, plural, one {section} other {sections}}"
   },
   "search": {
-    "pageTitle": "Find game by parameters",
-    "tabLabel": "Parameters",
+    "pageTitle": "Search by parameters",
+    "tabLabel": "Search by parameters",
     "form": {
       "playersCount": {
         "label": "How many people?",
@@ -125,7 +125,7 @@
     }
   },
   "name": {
-    "pageTitle": "Find game by name",
+    "pageTitle": "Search by name",
     "tabLabel": "Search by name",
     "form": {
       "name": {

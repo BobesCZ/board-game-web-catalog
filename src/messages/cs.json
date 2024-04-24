@@ -63,7 +63,7 @@
     "showMoreGroups": "{itemsCount, plural, one {Další} few {Další} other {Dalších}} {itemsCount} {itemsCount, plural, one {sekci} few {sekce} other {sekcí}}"
   },
   "search": {
-    "pageTitle": "Najít hru podle parametrů",
+    "pageTitle": "Hledat hru podle parametrů",
     "tabLabel": "Podle parametrů",
     "form": {
       "playersCount": {
@@ -125,7 +125,7 @@
     }
   },
   "name": {
-    "pageTitle": "Najít hru podle jména",
+    "pageTitle": "Hledat hru podle jména",
     "tabLabel": "Podle jména",
     "form": {
       "name": {
