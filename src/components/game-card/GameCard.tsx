@@ -15,7 +15,7 @@ import {
   ZhLink,
 } from './components';
 import { Group, Alarm } from '@mui/icons-material';
-import { Game, Status } from '@/types';
+import { Game, LocaleLang, Status } from '@/types';
 import { useLocale, useTranslations } from 'next-intl';
 import { MAX_RANK_LIMIT } from '@/config';
 
@@ -92,7 +92,7 @@ export const GameCard = ({
         </Box>
 
         <Typography variant="h3" sx={{ mb: 0.25 }}>
-          {sourceName}{' '}
+          {resolvedLanguage === LocaleLang.CS ? sourceName : primaryName}{' '}
           {yearpublished && (
             <Typography variant="h3" component="span" color="text.secondary">
               ({yearpublished})
@@ -150,8 +150,8 @@ export const GameCard = ({
 
         {status === Status.FINISHED && (
           <Collapse in={expanded}>
-            <Stack mt={3} alignItems="flex-start" gap={1} mb={1}>
-              <BggLink id={id} primaryName={primaryName} />
+            <Stack mt={3} alignItems="flex-start" gap={0.5} mb={1}>
+              <BggLink id={id} />
               <ZhLink sourceName={sourceName} />
 
               {!!minage && (

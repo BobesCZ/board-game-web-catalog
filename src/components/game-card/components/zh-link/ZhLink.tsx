@@ -18,7 +18,7 @@ export const ZhLink = ({ sourceName }: Props) => {
       href={`${Urls.EXTERNAL_ZH}?fType=ftx&keyword=${parseName(sourceName)}`}
       target="_blank"
     >
-      <Stack direction="row" alignItems="center" gap={1}>
+      <Stack direction="row" alignItems="center" gap={0.5}>
         {t('gameCard.goToZh')}
         <Launch fontSize="inherit" />
       </Stack>

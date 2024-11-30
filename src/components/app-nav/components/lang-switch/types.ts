@@ -1,7 +1,4 @@
-export enum LocaleLang {
-  CS = 'cs',
-  EN = 'en',
-}
+import { LocaleLang } from '@/types';
 
 export type LocaleLangOption = {
   label: string;

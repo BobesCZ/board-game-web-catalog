@@ -18,8 +18,8 @@
       "hardcore": "Hardcore hra (obtížnost 1–5)"
     },
     "minage": "Doporučený věk: od {minage} let",
-    "goToBgg": "Přejít na BoardGameGeek.com",
-    "goToZh": "Vyhledat na Zatrolenkách",
+    "goToBgg": "BoardGameGeek.com",
+    "goToZh": "Zatrolene-hry.cz",
     "usersCount": "{usersCount} hodnocení",
     "noInfo": "O této hře nemáme více informací",
     "langs": {

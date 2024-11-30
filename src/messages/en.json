@@ -18,8 +18,8 @@
       "hardcore": "Hardcore game (complexity 1–5)"
     },
     "minage": "Minimum age: {minage}+",
-    "goToBgg": "Go to BoardGameGeek.com",
-    "goToZh": "Search game on Zatrolene-hry.cz",
+    "goToBgg": "BoardGameGeek.com",
+    "goToZh": "Zatrolene-hry.cz",
     "usersCount": "{usersCount} votes",
     "noInfo": "No additional information",
     "langs": {

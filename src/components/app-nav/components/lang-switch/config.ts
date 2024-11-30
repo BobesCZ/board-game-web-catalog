@@ -1,4 +1,5 @@
-import { LocaleLang, LocaleLangOption } from './types';
+import { LocaleLang } from '@/types';
+import { LocaleLangOption } from './types';
 
 export const localeLangOptions: LocaleLangOption[] = [
   {
