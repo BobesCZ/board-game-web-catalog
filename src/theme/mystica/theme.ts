@@ -62,4 +62,4 @@ theme.typography.body2 = {
   },
 };
 
-export { theme };
+export { theme as mysticaTheme };

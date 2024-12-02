@@ -40,7 +40,8 @@
     "react-json-view": "^1.21.3",
     "string-similarity-js": "^2.1.4",
     "ts-node": "^10.9.2",
-    "typescript": "^5.4.3"
+    "typescript": "^5.4.3",
+    "usehooks-ts": "^3.0.2"
   },
   "devDependencies": {
     "@testing-library/jest-dom": "^6.4.2",
