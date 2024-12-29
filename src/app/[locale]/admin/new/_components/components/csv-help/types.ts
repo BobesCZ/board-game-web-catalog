@@ -1,5 +1,5 @@
 import { ReactNode } from 'react';
-import { CsvColumnsOptions } from '@/csvParser';
+import { CsvColumnsOptions } from '@/admin/csvParser';
 
 export enum CsvColumnsHelpDemand {
   Required = 'REQUIRED',

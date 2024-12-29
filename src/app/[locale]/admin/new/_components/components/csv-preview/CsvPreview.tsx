@@ -1,8 +1,8 @@
 import { Paper, Table, TableBody, TableCell, TableContainer, TableHead, TableRow, Typography } from '@mui/material';
 import { pickBy } from 'lodash-es';
+import { CsvColumnOption } from '@/admin/csvParser';
 import { CSV_COLUMNS_OPTIONS } from '@/app/[locale]/admin/_components/config';
 import { DuplicitGamesAlert } from '@/app/[locale]/admin/_components/duplicit-games-alert';
-import { CsvColumnOption } from '@/csvParser';
 import { Game } from '@/types';
 import { CsvPreviewColumn } from './components';
 

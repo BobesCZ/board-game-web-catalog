@@ -1,5 +1,5 @@
+import { VALID_LANGS } from '@/admin/csvParser';
 import { CSV_COLUMNS_OPTIONS } from '@/app/[locale]/admin/_components/config';
-import { VALID_LANGS } from '@/csvParser/config';
 import { Lang } from '@/types';
 import { CsvColumnsHelpDemand, CsvColumnsHelps } from './types';
 

@@ -1,5 +1,5 @@
 import { Typography } from '@mui/material';
-import { CsvColumnsOptions } from '@/csvParser';
+import { CsvColumnsOptions } from '@/admin/csvParser';
 import { Game } from '@/types';
 import { getColumnValue } from './utils';
 

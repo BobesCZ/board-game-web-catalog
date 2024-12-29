@@ -10,8 +10,8 @@ import {
   alpha,
 } from '@mui/material';
 import { pickBy } from 'lodash-es';
+import { CsvColumnOption, CsvColumnsOptions } from '@/admin/csvParser';
 import { CSV_COLUMNS_OPTIONS } from '@/app/[locale]/admin/_components/config';
-import { CsvColumnOption, CsvColumnsOptions } from '@/csvParser';
 import { CSV_COLUMNS_HELPS } from './config';
 import { CsvColumnsHelpDemand } from './types';
 
