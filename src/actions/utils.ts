@@ -1,7 +1,7 @@
 'use server';
 
-import { Urls } from '@/config';
 import { revalidatePath, revalidateTag } from 'next/cache';
+import { Urls } from '@/config';
 import { CacheTags } from './types';
 
 export const revalidateAllAdminPaths = () => {

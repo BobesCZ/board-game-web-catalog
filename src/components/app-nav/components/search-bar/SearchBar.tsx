@@ -1,8 +1,8 @@
 'use client';
 
+import { Search } from '@mui/icons-material';
 import { Drawer, Hidden, IconButton } from '@mui/material';
 import { useState } from 'react';
-import { Search } from '@mui/icons-material';
 import { SearchInput } from './components';
 
 export const SearchBar = () => {

@@ -1,10 +1,10 @@
 'use client';
 
-import { ReactNode } from 'react';
 import { Alert, Box, Container } from '@mui/material';
+import { ReactNode } from 'react';
 import { ButtonAction } from '@/components';
-import { UseUserAuthReturn, UserAuthStatus } from './types';
 import { APPLY_AUTH } from './config';
+import { UseUserAuthReturn, UserAuthStatus } from './types';
 
 type Props = UseUserAuthReturn & {
   children: ReactNode;

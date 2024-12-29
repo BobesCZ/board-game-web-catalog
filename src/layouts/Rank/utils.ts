@@ -1,6 +1,6 @@
+import { MAX_RANK_LIMIT } from '@/config';
 import { Game, Rank } from '@/types';
 import { RankFilters } from './types';
-import { MAX_RANK_LIMIT } from '@/config';
 
 const hasRank = (game: Game, { rankName }: RankFilters): boolean =>
   !!game.ranks?.find((rank: Rank) => rank.name === rankName && rank.value < MAX_RANK_LIMIT);

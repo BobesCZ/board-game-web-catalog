@@ -1,11 +1,11 @@
 'use client';
 
-import { Divider, Drawer, List, ListItem, ListItemButton, ListItemIcon, ListItemText, Toolbar } from '@mui/material';
 import { Add, OpenInNewOutlined, People, Settings, ViewList } from '@mui/icons-material';
+import { Divider, Drawer, List, ListItem, ListItemButton, ListItemIcon, ListItemText, Toolbar } from '@mui/material';
 import { Link } from '@/components';
 import { Urls } from '@/config';
-import { LEFT_MENU_WIDTH } from './config';
 import { usePathname } from '@/navigation';
+import { LEFT_MENU_WIDTH } from './config';
 
 export default function LeftMenu() {
   const pathname = usePathname();

@@ -1,5 +1,5 @@
-import { CardMedia } from '@mui/material';
 import { Image } from '@mui/icons-material';
+import { CardMedia } from '@mui/material';
 import { Game } from '@/types';
 
 type Props = {

@@ -1,9 +1,9 @@
 import { AppBar, Avatar, Box, Button, Container, Stack, Toolbar, Typography } from '@mui/material';
 import { signIn, signOut, useSession } from 'next-auth/react';
-import { LEFT_MENU_WIDTH } from './config';
-import { APPLY_AUTH, UseUserAuthReturn, UserAuthStatus } from './userAuth';
 import { Link } from '@/components';
 import { Urls } from '@/config';
+import { LEFT_MENU_WIDTH } from './config';
+import { APPLY_AUTH, UseUserAuthReturn, UserAuthStatus } from './userAuth';
 
 type Props = Pick<UseUserAuthReturn, 'userAuthRecord'>;
 

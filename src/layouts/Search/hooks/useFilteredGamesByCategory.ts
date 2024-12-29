@@ -1,6 +1,11 @@
+import { orderBy } from 'lodash-es';
+import { useLocale, useTranslations } from 'next-intl';
 import { useMemo } from 'react';
-import { filterGamebyCategory, orderGameByRating, orderGameByWeight } from '../utils';
+import { ControlleAutocompleteOption, ControlledSelectOption } from '@/components';
+import { useAppStore } from '@/store';
+import { Game, GameOrdering } from '@/types';
 import { CategoryFilters, CategoryGroup, MechanicGroup } from '../types';
+import { filterGamebyCategory, orderGameByRating, orderGameByWeight } from '../utils';
 import {
   getAutocompleteOptions,
   getCategoryGroup,
@@ -10,11 +15,6 @@ import {
   getPlayersCountOptions,
   getPlayingTimeOptions,
 } from './utils';
-import { orderBy } from 'lodash-es';
-import { ControlledSelectOption, ControlleAutocompleteOption } from '@/components';
-import { Game, GameOrdering } from '@/types';
-import { useLocale, useTranslations } from 'next-intl';
-import { useAppStore } from '@/store';
 
 type Props = {
   filters: CategoryFilters;

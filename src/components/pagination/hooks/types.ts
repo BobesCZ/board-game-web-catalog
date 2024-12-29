@@ -1,6 +1,6 @@
+import { ChangeEvent } from 'react';
 import { GameGroupedList } from '@/components/game-list';
 import { Game } from '@/types';
-import { ChangeEvent } from 'react';
 
 export type UsePaginationReturn = {
   currentPageGameList: Game[];

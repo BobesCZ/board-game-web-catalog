@@ -1,9 +1,9 @@
 import { AppBar, Box, Container, Stack, Toolbar, Typography } from '@mui/material';
-import { AppMenu, LangSwitch, SearchBar } from './components';
 import { useTranslations } from 'next-intl';
+import Image from 'next/image';
 import { Urls } from '@/config';
 import { Link } from '../Link';
-import Image from 'next/image';
+import { AppMenu, LangSwitch, SearchBar } from './components';
 
 export const AppNav = () => {
   const t = useTranslations();

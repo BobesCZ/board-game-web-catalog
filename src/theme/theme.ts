@@ -1,8 +1,8 @@
 'use client';
 
 import { createTheme } from '@mui/material/styles';
-import { GoogleFont } from './fonts';
 import { LIGHT_THEME } from './config';
+import { GoogleFont } from './fonts';
 
 const theme = createTheme({
   typography: {

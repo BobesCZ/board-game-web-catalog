@@ -3,11 +3,11 @@
 import { Box, Container } from '@mui/material';
 import { useRef } from 'react';
 import { FormProvider, useForm } from 'react-hook-form';
-import { RANK_DEFAULT_VALUES } from './config';
+import { AppTabs, GameList, PageTitle, Pagination, usePagination } from '@/components';
 import { RankForm } from './components';
-import { RankFilters } from './types';
+import { RANK_DEFAULT_VALUES } from './config';
 import { useFilteredGamesByRank } from './hooks';
-import { PageTitle, GameList, usePagination, Pagination, AppTabs } from '@/components';
+import { RankFilters } from './types';
 
 export default function Rank() {
   const methods = useForm<RankFilters>({

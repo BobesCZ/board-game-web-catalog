@@ -1,7 +1,7 @@
-import { CSV_COLUMNS_OPTIONS } from '@/app/[locale]/admin/_components/config';
-import { Game } from '@/types';
 import { Alert, AlertTitle, Stack, Typography } from '@mui/material';
 import { useMemo } from 'react';
+import { CSV_COLUMNS_OPTIONS } from '@/app/[locale]/admin/_components/config';
+import { Game } from '@/types';
 import { getDuplicitGames } from './getDuplicitGames';
 
 type Props = {

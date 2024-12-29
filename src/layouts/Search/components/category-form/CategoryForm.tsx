@@ -1,15 +1,14 @@
-import { Box, Container, Grid, Stack } from '@mui/material';
-import { useFormContext } from 'react-hook-form';
-
-import { CategoryFilters } from '../../types';
 import { Alarm, Group } from '@mui/icons-material';
+import { Box, Container, Grid, Stack } from '@mui/material';
 import { useTranslations } from 'next-intl';
+import { useFormContext } from 'react-hook-form';
 import {
-  ControlledSelectOption,
   ControlleAutocompleteOption,
-  ControlledSelect,
   ControlledAutocomplete,
+  ControlledSelect,
+  ControlledSelectOption,
 } from '@/components';
+import { CategoryFilters } from '../../types';
 
 type Props = {
   playersCountOptions: ControlledSelectOption<CategoryFilters, 'playersCount'>[];

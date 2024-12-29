@@ -1,9 +1,9 @@
-import { Box, Tooltip, Typography } from '@mui/material';
 import { Bookmark } from '@mui/icons-material';
-import { getColorByWeightLevel, getWeightLevel } from './utils';
+import { Box, Tooltip, Typography } from '@mui/material';
 import { floor } from 'lodash-es';
 import { useTranslations } from 'next-intl';
 import { Rating } from '@/types';
+import { getColorByWeightLevel, getWeightLevel } from './utils';
 
 type Props = {
   averageWeight: Rating;

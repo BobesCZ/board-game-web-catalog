@@ -1,9 +1,9 @@
-import { CircleFlag } from 'react-circle-flags';
-import { COUNTRY_FLAG_BY_LANG } from './config';
+import { Language } from '@mui/icons-material';
 import { Box, Tooltip } from '@mui/material';
 import { useTranslations } from 'next-intl';
+import { CircleFlag } from 'react-circle-flags';
 import { Lang } from '@/types';
-import { Language } from '@mui/icons-material';
+import { COUNTRY_FLAG_BY_LANG } from './config';
 
 type Props = {
   lang: Lang;

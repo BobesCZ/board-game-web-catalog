@@ -1,6 +1,6 @@
 import { Box, Paper, Table, TableBody, TableCell, TableContainer, TableRow, Typography } from '@mui/material';
-import { getRowColor, getStatusText } from './utils';
 import { LogRecord, LogRecordState } from '@/types';
+import { getRowColor, getStatusText } from './utils';
 
 type Props = {
   log?: LogRecord[];

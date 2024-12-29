@@ -1,9 +1,9 @@
 import { Box, Container, Divider, Grid, Stack, Typography } from '@mui/material';
-import { FooterLink } from './components';
 import { useTranslations } from 'next-intl';
 import { Urls } from '@/config';
-import { Link } from '../Link';
 import { useAppStore } from '@/store';
+import { Link } from '../Link';
+import { FooterLink } from './components';
 
 export const AppFooter = () => {
   const t = useTranslations();

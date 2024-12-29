@@ -1,7 +1,7 @@
 import { CSV_COLUMNS_OPTIONS } from '@/app/[locale]/admin/_components/config';
-import { CsvColumnsHelpDemand, CsvColumnsHelps } from './types';
 import { VALID_LANGS } from '@/csvParser/config';
 import { Lang } from '@/types';
+import { CsvColumnsHelpDemand, CsvColumnsHelps } from './types';
 
 export const CSV_COLUMNS_HELPS: CsvColumnsHelps = {
   type: {

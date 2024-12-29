@@ -1,10 +1,10 @@
 'use client';
 
+import { Delete } from '@mui/icons-material';
 import { Box, Button, Modal, Stack, Typography } from '@mui/material';
 import { useTransition } from 'react';
-import { ButtonAction } from '@/components';
 import { deleteGameListRecords } from '@/actions';
-import { Delete } from '@mui/icons-material';
+import { ButtonAction } from '@/components';
 
 const style = {
   position: 'absolute',

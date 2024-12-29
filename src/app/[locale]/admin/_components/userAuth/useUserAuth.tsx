@@ -1,10 +1,10 @@
 'use client';
 
-import { UseUserAuthReturn, UserAuthRecord } from './types';
 import { useSession } from 'next-auth/react';
-import { getUserAuthRecord } from './utils';
 import { useTransition } from 'react';
 import { createUserAuthRecord } from '@/actions/userAuth';
+import { UseUserAuthReturn, UserAuthRecord } from './types';
+import { getUserAuthRecord } from './utils';
 
 export const useUserAuth = (userAuthRecords: UserAuthRecord[]): UseUserAuthReturn => {
   const { data: session } = useSession();

@@ -1,7 +1,7 @@
 import { camelCase, pickBy } from 'lodash-es';
 import { Game, Lang, Status } from '@/types';
-import { CsvColumnsOptions, CsvGame } from './types';
 import { VALID_LANGS } from './config';
+import { CsvColumnsOptions, CsvGame } from './types';
 
 const getGameUid = (sourceName: string, id: number | undefined, langs: Lang[], csvGame: CsvGame): string =>
   camelCase(`${sourceName} ${id ?? ''} ${langs.join(' ')} ${csvGame?.notes?.[0]?.substring(0, 15) ?? ''}`);

@@ -1,8 +1,8 @@
 import { Sort } from '@mui/icons-material';
 import { Stack } from '@mui/material';
 import { useFormContext } from 'react-hook-form';
-import { CategoryFilters } from '../../types';
 import { ControlledSelect, ControlledSelectOption } from '@/components';
+import { CategoryFilters } from '../../types';
 
 type Props = {
   orderingOptions: ControlledSelectOption<CategoryFilters, 'ordering'>[];

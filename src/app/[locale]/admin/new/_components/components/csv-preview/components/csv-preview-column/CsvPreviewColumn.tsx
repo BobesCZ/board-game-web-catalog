@@ -1,6 +1,6 @@
+import { Typography } from '@mui/material';
 import { CsvColumnsOptions } from '@/csvParser';
 import { Game } from '@/types';
-import { Typography } from '@mui/material';
 import { getColumnValue } from './utils';
 
 type Props = {

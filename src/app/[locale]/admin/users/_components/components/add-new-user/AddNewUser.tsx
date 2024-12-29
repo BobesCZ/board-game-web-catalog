@@ -2,8 +2,8 @@
 
 import { Stack, TextField, Typography } from '@mui/material';
 import { ChangeEvent, useState, useTransition } from 'react';
-import { ButtonAction } from '@/components';
 import { createUserAuthRecord } from '@/actions/userAuth';
+import { ButtonAction } from '@/components';
 
 type Props = {
   onClose?: () => void;

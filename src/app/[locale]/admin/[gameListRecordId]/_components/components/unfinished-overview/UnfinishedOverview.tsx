@@ -1,6 +1,6 @@
-import { Game, Status } from '@/types';
 import { Paper, Table, TableBody, TableCell, TableContainer, TableHead, TableRow, Typography } from '@mui/material';
 import { useMemo } from 'react';
+import { Game, Status } from '@/types';
 
 type Props = {
   gameList?: Game[];

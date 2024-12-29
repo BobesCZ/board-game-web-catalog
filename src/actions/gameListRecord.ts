@@ -1,11 +1,11 @@
 'use server';
 
-import { Game, Status } from '@/types';
 import { kv } from '@vercel/kv';
 import { revalidatePath, revalidateTag, unstable_cache } from 'next/cache';
-import { CacheTags, GameListRecord, GameListRecordStatus } from './types';
-import { GAMELIST_RECORDS_KEY } from './config';
 import { Urls } from '@/config';
+import { Game, Status } from '@/types';
+import { GAMELIST_RECORDS_KEY } from './config';
+import { CacheTags, GameListRecord, GameListRecordStatus } from './types';
 
 const getGameListRecordsPromise = async (): Promise<GameListRecord[]> => await kv.zrange(GAMELIST_RECORDS_KEY, 0, -1);
 
@@ -53,7 +53,10 @@ export const updateGameListRecord = async (record: GameListRecord, gameList: Gam
   };
 
   await kv.zremrangebyscore(GAMELIST_RECORDS_KEY, record.recordId, record.recordId);
-  await kv.zadd<GameListRecord>(GAMELIST_RECORDS_KEY, { score: record.recordId, member: gameListRecord });
+  await kv.zadd<GameListRecord>(GAMELIST_RECORDS_KEY, {
+    score: record.recordId,
+    member: gameListRecord,
+  });
 
   revalidateTag(CacheTags.GAMELIST_RECORDS);
   revalidatePath(Urls.ADMIN);

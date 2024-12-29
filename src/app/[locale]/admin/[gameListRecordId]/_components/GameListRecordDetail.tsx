@@ -1,19 +1,19 @@
 'use client';
 
+import { ChevronLeft, Delete, Download, ExpandMore, Settings, Visibility, VisibilityOff } from '@mui/icons-material';
 import { Alert, AlertTitle, Box, Button, Divider, Stack, ThemeProvider, Typography } from '@mui/material';
+import dynamic from 'next/dynamic';
 import { useMemo, useState, useTransition } from 'react';
 import { deleteGameListRecord, setActiveGameListRecord } from '@/actions';
-import { ChevronLeft, Delete, Download, ExpandMore, Settings, Visibility, VisibilityOff } from '@mui/icons-material';
-import { ButtonAction, GameList, Link } from '@/components';
 import { GameListRecord, GameListRecordStatus } from '@/actions/types';
-import { Status } from '@/types';
-import { BggLoader } from './components';
+import { ButtonAction, GameList, Link } from '@/components';
 import { Urls } from '@/config';
-import { theme } from '@/theme/theme';
-import { IS_DEVELOPMENT } from '../../_components/config';
-import dynamic from 'next/dynamic';
-import { DuplicitGamesAlert } from '../../_components/duplicit-games-alert';
 import { useRouter } from '@/navigation';
+import { theme } from '@/theme/theme';
+import { Status } from '@/types';
+import { IS_DEVELOPMENT } from '../../_components/config';
+import { DuplicitGamesAlert } from '../../_components/duplicit-games-alert';
+import { BggLoader } from './components';
 
 const ReactJson = dynamic(() => import('react-json-view'), {
   ssr: false,

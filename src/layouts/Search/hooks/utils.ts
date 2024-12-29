@@ -1,10 +1,10 @@
 import { findKey, uniq } from 'lodash-es';
+import { CategoryKey, MechanicKey } from '@/bggData';
+import { ControlleAutocompleteOption, ControlledSelectOption } from '@/components';
+import { GameOrdering, GamePlayingTimeType, Lang, TFunction } from '@/types';
 import { GROUPED_CATEGORIES, GROUPED_MECHANICS } from '../config';
 import { CategoryFilters, CategoryGroup, MechanicGroup, PlayersCount } from '../types';
 import { GetAutocompleteOptionsProps } from './types';
-import { CategoryKey, MechanicKey } from '@/bggData';
-import { ControlledSelectOption, ControlleAutocompleteOption } from '@/components';
-import { GamePlayingTimeType, GameOrdering, TFunction, Lang } from '@/types';
 
 export const getPlayersCountOptions = (t: TFunction): ControlledSelectOption<CategoryFilters, 'playersCount'>[] => {
   const values: PlayersCount[] = [0, 1, 200, 2, 3, 4, 5, 6, 7];

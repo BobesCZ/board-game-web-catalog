@@ -1,6 +1,6 @@
-import { ReactNode } from 'react';
-import { NextIntlClientProvider, useMessages } from 'next-intl';
 import { Analytics } from '@vercel/analytics/react';
+import { NextIntlClientProvider, useMessages } from 'next-intl';
+import { ReactNode } from 'react';
 import { IS_DEVELOPMENT } from './admin/_components/config';
 
 export const metadata = {

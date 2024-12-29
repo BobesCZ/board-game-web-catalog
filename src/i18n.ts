@@ -1,7 +1,7 @@
-import { notFound } from 'next/navigation';
-import { getRequestConfig } from 'next-intl/server';
-import { Urls } from './config';
 import { Pathnames } from 'next-intl/navigation';
+import { getRequestConfig } from 'next-intl/server';
+import { notFound } from 'next/navigation';
+import { Urls } from './config';
 
 // A list of all locales that are supported
 export const APP_LOCALES = ['cs', 'en'];

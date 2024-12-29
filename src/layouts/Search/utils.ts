@@ -1,8 +1,8 @@
+import { CategoryKey, MechanicKey } from '@/bggData';
 import { Game, Lang } from '@/types';
+import { getDateFromCzechDate } from '@/utils';
 import { CATEGORY_PLAYING_TIME_INTERVALS } from './config';
 import { CategoryFilters } from './types';
-import { CategoryKey, MechanicKey } from '@/bggData';
-import { getDateFromCzechDate } from '@/utils';
 
 const hasPlayersCount = (game: Game, { playersCount }: CategoryFilters): boolean => {
   switch (playersCount) {

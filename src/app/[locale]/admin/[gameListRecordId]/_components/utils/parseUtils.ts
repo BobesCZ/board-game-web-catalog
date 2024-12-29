@@ -1,7 +1,7 @@
-import { CategoryKey, BGG_CATEGORIES, MechanicKey, BGG_MECHANICS, RankNameKey } from '@/bggData';
-import { Game, Rank } from '@/types';
 import { BggGame, BggThing, BggThingType } from '@code-bucket/board-game-geek';
 import { findKey, uniq } from 'lodash-es';
+import { BGG_CATEGORIES, BGG_MECHANICS, CategoryKey, MechanicKey, RankNameKey } from '@/bggData';
+import { Game, Rank } from '@/types';
 
 export const getGameFromBggThing = (game: Game, bggThing?: BggThing): Game => {
   if (bggThing?.type === BggThingType.boardGame) {

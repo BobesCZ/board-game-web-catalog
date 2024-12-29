@@ -1,6 +1,10 @@
+import { Alarm, Group } from '@mui/icons-material';
 import { Box, Card, CardContent, Chip, Collapse, Rating, Stack, Tooltip, Typography } from '@mui/material';
 import { grey } from '@mui/material/colors';
+import { useLocale, useTranslations } from 'next-intl';
 import { useState } from 'react';
+import { MAX_RANK_LIMIT } from '@/config';
+import { Game, LocaleLang, Status } from '@/types';
 import {
   BggLink,
   CardActions,
@@ -14,10 +18,6 @@ import {
   RankTag,
   ZhLink,
 } from './components';
-import { Group, Alarm } from '@mui/icons-material';
-import { Game, LocaleLang, Status } from '@/types';
-import { useLocale, useTranslations } from 'next-intl';
-import { MAX_RANK_LIMIT } from '@/config';
 
 type Props = {
   game: Game;
@@ -84,9 +84,7 @@ export const GameCard = ({
               gap={1}
               sx={(theme) => ({ position: 'absolute', bottom: theme.spacing(-3), right: theme.spacing(-1.5) })}
             >
-              {langs?.map((lang) => (
-                <LangItem key={lang} lang={lang} />
-              ))}
+              {langs?.map((lang) => <LangItem key={lang} lang={lang} />)}
             </Stack>
           )}
         </Box>
@@ -167,9 +165,7 @@ export const GameCard = ({
                   {t('search.form.mechanics.label')}
                 </Typography>
                 <Stack direction="row" gap={1} flexWrap="wrap">
-                  {mechanics?.map((item) => (
-                    <Chip variant="outlined" key={item} label={t(`bgg.mechanics.${item}`)} />
-                  ))}
+                  {mechanics?.map((item) => <Chip variant="outlined" key={item} label={t(`bgg.mechanics.${item}`)} />)}
                 </Stack>
               </>
             )}

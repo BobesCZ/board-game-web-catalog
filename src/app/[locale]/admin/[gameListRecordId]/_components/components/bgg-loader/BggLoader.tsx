@@ -1,16 +1,16 @@
+import { Sync } from '@mui/icons-material';
 import { Alert, AlertTitle, Box, Button, LinearProgress, Stack, Typography } from '@mui/material';
+import { isEqual } from 'lodash-es';
+import { enqueueSnackbar } from 'notistack';
 import { useCallback, useEffect, useMemo, useState, useTransition } from 'react';
-import { UnfinishedOverview } from '../unfinished-overview';
-import { Log } from '../log';
-import { Game, LogRecord, Status } from '@/types';
-import { getEstimatedMinutes, getEstimatedSeconds, processGameList } from '../../utils';
+import { useBeforeunload } from 'react-beforeunload';
 import { updateGameListRecord } from '@/actions';
 import { GameListRecord } from '@/actions/types';
-import { isEqual } from 'lodash-es';
-import { Sync } from '@mui/icons-material';
-import { enqueueSnackbar } from 'notistack';
+import { Game, LogRecord, Status } from '@/types';
+import { getEstimatedMinutes, getEstimatedSeconds, processGameList } from '../../utils';
 import { Countdown } from '../countdown';
-import { useBeforeunload } from 'react-beforeunload';
+import { Log } from '../log';
+import { UnfinishedOverview } from '../unfinished-overview';
 
 type Props = {
   gameListRecord: GameListRecord;

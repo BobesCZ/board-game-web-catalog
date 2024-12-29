@@ -2,9 +2,9 @@
 
 import { kv } from '@vercel/kv';
 import { revalidatePath, revalidateTag, unstable_cache } from 'next/cache';
+import { Urls } from '@/config';
 import { ACTIVE_GAMELIST_RECORD_KEY } from './config';
 import { CacheTags } from './types';
-import { Urls } from '@/config';
 
 const getActiveGameListRecordPromise = async () => {
   const activeId = await kv.get<string | null>(ACTIVE_GAMELIST_RECORD_KEY);

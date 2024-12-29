@@ -1,7 +1,7 @@
-import { Game } from '@/types';
 import { LocationOnOutlined } from '@mui/icons-material';
 import { Chip, Tooltip } from '@mui/material';
 import { useTranslations } from 'next-intl';
+import { Game } from '@/types';
 
 type Props = {
   location: Game['location'];

@@ -1,9 +1,9 @@
 'use server';
 
 import { kv } from '@vercel/kv';
-import { USER_AUTH_RECORDS_KEY } from './config';
 import { Session } from 'next-auth';
 import { UserAuthRecord, UserAuthStatus } from '@/app/[locale]/admin/_components/userAuth';
+import { USER_AUTH_RECORDS_KEY } from './config';
 import { revalidateAllAdminPaths } from './utils';
 
 export const getUserAuthRecords = async (): Promise<UserAuthRecord[]> => await kv.zrange(USER_AUTH_RECORDS_KEY, 0, -1);
@@ -33,7 +33,10 @@ export const authorizeUserAuthRecord = async (record: UserAuthRecord) => {
   };
 
   await kv.zremrangebyscore(USER_AUTH_RECORDS_KEY, record.recordId, record.recordId);
-  await kv.zadd<UserAuthRecord>(USER_AUTH_RECORDS_KEY, { score: record.recordId, member: userAuthRecord });
+  await kv.zadd<UserAuthRecord>(USER_AUTH_RECORDS_KEY, {
+    score: record.recordId,
+    member: userAuthRecord,
+  });
 
   revalidateAllAdminPaths();
 };

@@ -1,6 +1,6 @@
 import { Box, Container, Typography } from '@mui/material';
-import { DENSE_PADDING, STANDARD_PADDING } from './config';
 import { useTranslations } from 'next-intl';
+import { DENSE_PADDING, STANDARD_PADDING } from './config';
 
 type Props = {
   i18nKey: string;

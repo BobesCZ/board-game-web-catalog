@@ -2,12 +2,12 @@
 
 import { Container, Stack } from '@mui/material';
 import { ReactNode } from 'react';
-import { ThemeRegistry } from './theme/ThemeRegistry';
 import { AppNav } from './AppNav';
-import { UserAuth } from './userAuth/UserAuth';
-import { UserAuthRecord, useUserAuth } from './userAuth';
 import LeftMenu from './LeftMenu';
 import { SnackbarCustomProvider } from './snackbar';
+import { ThemeRegistry } from './theme/ThemeRegistry';
+import { UserAuthRecord, useUserAuth } from './userAuth';
+import { UserAuth } from './userAuth/UserAuth';
 
 type Props = {
   userAuthRecords: UserAuthRecord[];

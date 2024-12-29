@@ -1,4 +1,4 @@
-import { CsvColumnsOptions, CsvColumnLangsOption } from '@/csvParser';
+import { CsvColumnLangsOption, CsvColumnsOptions } from '@/csvParser';
 import { Game, Lang } from '@/types';
 
 export const getColumnValue = (

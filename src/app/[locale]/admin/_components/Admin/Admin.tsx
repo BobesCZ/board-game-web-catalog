@@ -1,8 +1,8 @@
 'use client';
 
-import { GameListRecords } from './components';
 import { GameListRecord } from '@/actions/types';
 import { UserAuthRecord } from '../userAuth';
+import { GameListRecords } from './components';
 
 type Props = {
   gameListRecords: GameListRecord[];

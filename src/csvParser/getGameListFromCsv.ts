@@ -1,6 +1,6 @@
 import { takeWhile } from 'lodash-es';
-import { CsvColumnsOptions, CsvGame } from './types';
 import { getGameFromCsv } from './getGameFromCsv';
+import { CsvColumnsOptions, CsvGame } from './types';
 
 /**
  * Every row with empty TYPE is merged to nearest upper row with TYPE = typeGame into its `notes`

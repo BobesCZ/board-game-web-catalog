@@ -1,5 +1,5 @@
-import { Game } from '@/types';
 import { useTranslations } from 'next-intl';
+import { Game } from '@/types';
 
 type Props = Pick<Game, 'minplayers' | 'maxplayers'>;
 

@@ -1,11 +1,11 @@
 'use client';
 
 import { Box, Container, Tabs, alpha } from '@mui/material';
+import { useTranslations } from 'next-intl';
 import { SyntheticEvent, useState } from 'react';
+import { usePathname } from '@/navigation';
 import { LinkTab } from './components';
 import { APP_TABS } from './config';
-import { useTranslations } from 'next-intl';
-import { usePathname } from '@/navigation';
 
 export function AppTabs() {
   const t = useTranslations();
@@ -21,7 +21,12 @@ export function AppTabs() {
   return (
     <Box sx={(theme) => ({ backgroundColor: theme.palette.secondary.light })}>
       <Container>
-        <Box sx={(theme) => ({ borderBottom: 1, borderColor: alpha(theme.palette.text.secondary, 0.15) })}>
+        <Box
+          sx={(theme) => ({
+            borderBottom: 1,
+            borderColor: alpha(theme.palette.text.secondary, 0.15),
+          })}
+        >
           <Tabs
             value={tab}
             onChange={handleTabChange}

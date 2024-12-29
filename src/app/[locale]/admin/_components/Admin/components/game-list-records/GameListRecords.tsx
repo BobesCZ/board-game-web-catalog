@@ -1,5 +1,6 @@
 'use client';
 
+import { Add, Delete, Done, QueryBuilder, Settings, Visibility, VisibilityOff } from '@mui/icons-material';
 import {
   Button,
   Paper,
@@ -12,15 +13,14 @@ import {
   TableRow,
   Typography,
 } from '@mui/material';
-import { useState } from 'react';
 import dynamic from 'next/dynamic';
+import { useState } from 'react';
 import { GameListRecord, GameListRecordStatus } from '@/actions/types';
-import { Add, Delete, Done, QueryBuilder, Settings, Visibility, VisibilityOff } from '@mui/icons-material';
-import { Game, Status } from '@/types';
-import { ConfirmDeleteModal } from '../confirm-delete-modal';
-import { IS_DEVELOPMENT } from '../../../config';
 import { Link } from '@/components';
 import { Urls } from '@/config';
+import { Game, Status } from '@/types';
+import { IS_DEVELOPMENT } from '../../../config';
+import { ConfirmDeleteModal } from '../confirm-delete-modal';
 
 const ReactJson = dynamic(() => import('react-json-view'), {
   ssr: false,

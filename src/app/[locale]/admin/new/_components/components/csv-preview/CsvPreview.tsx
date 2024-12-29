@@ -1,10 +1,10 @@
-import { CSV_COLUMNS_OPTIONS } from '@/app/[locale]/admin/_components/config';
-import { CsvColumnOption } from '@/csvParser';
-import { Game } from '@/types';
 import { Paper, Table, TableBody, TableCell, TableContainer, TableHead, TableRow, Typography } from '@mui/material';
 import { pickBy } from 'lodash-es';
-import { CsvPreviewColumn } from './components';
+import { CSV_COLUMNS_OPTIONS } from '@/app/[locale]/admin/_components/config';
 import { DuplicitGamesAlert } from '@/app/[locale]/admin/_components/duplicit-games-alert';
+import { CsvColumnOption } from '@/csvParser';
+import { Game } from '@/types';
+import { CsvPreviewColumn } from './components';
 
 type Props = {
   gameList: Game[];

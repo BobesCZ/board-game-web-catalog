@@ -1,9 +1,9 @@
-import { getGameFromBggThing } from './parseUtils';
-import { fetchThingData } from './fetchUtils';
-import { getBggId } from './processSearch';
 import { Dispatch, SetStateAction } from 'react';
-import { Game, LogRecord, Status, LogRecordState } from '@/types';
+import { Game, LogRecord, LogRecordState, Status } from '@/types';
 import { PROCESS_GAME_TIMEOUT, TOO_MANY_REQUESTS_TEXT } from '../config';
+import { fetchThingData } from './fetchUtils';
+import { getGameFromBggThing } from './parseUtils';
+import { getBggId } from './processSearch';
 
 export const processGameList = async (
   gameList: Game[],

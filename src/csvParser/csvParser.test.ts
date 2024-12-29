@@ -1,7 +1,7 @@
 import '@testing-library/jest-dom';
 import { getGameListFromCsv } from './getGameListFromCsv';
-import { CsvColumnsOptions } from './types';
 import { testCases, testCasesWithTypeGame } from './test-data';
+import { CsvColumnsOptions } from './types';
 
 const OPTIONS_ALL_ENABLED: CsvColumnsOptions = {
   type: {

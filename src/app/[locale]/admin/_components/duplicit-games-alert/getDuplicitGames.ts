@@ -1,5 +1,5 @@
-import { Game } from '@/types';
 import { countBy, pickBy } from 'lodash-es';
+import { Game } from '@/types';
 
 export const getDuplicitGames = (gameList: Game[]) => {
   const duplicatedUids = Object.keys(pickBy(countBy(gameList, 'uid'), (i) => i > 1));

@@ -1,9 +1,9 @@
 'use client';
 
-import { ReactNode } from 'react';
-import { MaterialDesignContent, SnackbarProvider } from 'notistack';
-import { SnackbarCloseButton } from './SnackbarCloseButton';
 import { styled } from '@mui/material';
+import { MaterialDesignContent, SnackbarProvider } from 'notistack';
+import { ReactNode } from 'react';
+import { SnackbarCloseButton } from './SnackbarCloseButton';
 
 type Props = {
   children: ReactNode;

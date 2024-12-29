@@ -1,11 +1,11 @@
 'use server';
 
 import { kv } from '@vercel/kv';
-import { CacheTags, GameListRecord } from './types';
-import { GAMELIST_RECORDS_KEY } from './config';
-import { getActiveGameListRecord } from './activeGameListRecord';
-import { Game } from '@/types';
 import { unstable_cache } from 'next/cache';
+import { Game } from '@/types';
+import { getActiveGameListRecord } from './activeGameListRecord';
+import { GAMELIST_RECORDS_KEY } from './config';
+import { CacheTags, GameListRecord } from './types';
 
 const getGameListPromise = async (): Promise<Game[]> => {
   const activeGameListRecord = await getActiveGameListRecord();

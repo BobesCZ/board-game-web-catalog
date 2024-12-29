@@ -1,8 +1,8 @@
 'use client';
 
+import { Avatar, ListItem, ListItemAvatar, ListItemText } from '@mui/material';
 import { HTMLAttributes } from 'react';
 import { Game } from '@/types';
-import { Avatar, ListItem, ListItemAvatar, ListItemText } from '@mui/material';
 import { TextWithHighlight } from '../text-with-highlight';
 
 type Props = {

@@ -1,5 +1,5 @@
-import { LogRecordState } from '@/types';
 import { Theme } from '@mui/material';
+import { LogRecordState } from '@/types';
 
 export const getRowColor = (theme: Theme, status: LogRecordState) => {
   const mapColors = {
