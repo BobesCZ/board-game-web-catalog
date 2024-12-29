@@ -10,7 +10,7 @@ import { CATEGORY_DEFAULT_VALUES } from './config';
 import { useFilteredGamesByCategory } from './hooks';
 import { CategoryFilters } from './types';
 
-export default function Search() {
+export function Search() {
   const methods = useForm<CategoryFilters>({
     defaultValues: CATEGORY_DEFAULT_VALUES,
   });

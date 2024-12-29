@@ -4,8 +4,9 @@ import { useMemo } from 'react';
 import { ControlleAutocompleteOption, ControlledSelectOption } from '@/components';
 import { useAppStore } from '@/store';
 import { Game, GameOrdering } from '@/types';
+import { orderGameByRating, orderGameByWeight } from '@/utils';
 import { CategoryFilters, CategoryGroup, MechanicGroup } from '../types';
-import { filterGamebyCategory, orderGameByRating, orderGameByWeight } from '../utils';
+import { filterGamebyCategory } from '../utils';
 import {
   getAutocompleteOptions,
   getCategoryGroup,

@@ -9,7 +9,7 @@ import { RANK_DEFAULT_VALUES } from './config';
 import { useFilteredGamesByRank } from './hooks';
 import { RankFilters } from './types';
 
-export default function Rank() {
+export function Rank() {
   const methods = useForm<RankFilters>({
     defaultValues: RANK_DEFAULT_VALUES,
   });

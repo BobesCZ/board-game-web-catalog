@@ -11,7 +11,7 @@ import { NAME_DEFAULT_VALUES } from './config';
 import { useFilteredGamesByName } from './hooks';
 import { NameFilters } from './types';
 
-export default function Name() {
+export function Name() {
   const searchParams = useSearchParams();
   const searchParamsParsed = new URLSearchParams(searchParams);
   const query = searchParamsParsed.get(NAME_URL_QUERY);
