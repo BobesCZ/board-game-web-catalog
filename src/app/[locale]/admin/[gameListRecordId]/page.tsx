@@ -1,5 +1,5 @@
 import { notFound } from 'next/navigation';
-import { getActiveGameListRecord, getGameListRecords } from '@/actions';
+import { getActiveGameListRecord, getGameListRecords } from '@/admin/actions';
 import { GameListRecordDetail } from './_components/GameListRecordDetail';
 
 type Props = {

@@ -3,7 +3,7 @@
 import { Delete } from '@mui/icons-material';
 import { Box, Button, Modal, Stack, Typography } from '@mui/material';
 import { useTransition } from 'react';
-import { deleteGameListRecords } from '@/actions';
+import { deleteGameListRecords } from '@/admin/actions';
 import { ButtonAction } from '@/components';
 
 const style = {

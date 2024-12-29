@@ -1,6 +1,6 @@
 'use client';
 
-import { GameListRecord } from '@/actions/types';
+import { GameListRecord } from '@/admin/actions';
 import { UserAuthRecord } from '../userAuth';
 import { GameListRecords } from './components';
 

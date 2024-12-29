@@ -5,7 +5,7 @@ import { Box, Button, Divider, Stack, TextField, Typography } from '@mui/materia
 import { enqueueSnackbar } from 'notistack';
 import { parse } from 'papaparse';
 import { ChangeEvent, ChangeEventHandler, useState, useTransition } from 'react';
-import { createGameListRecord } from '@/actions';
+import { createGameListRecord } from '@/admin/actions';
 import { CsvGame, getGameListFromCsv } from '@/admin/csvParser';
 import { ButtonAction, VisuallyHiddenInput, processFileUpload } from '@/components';
 import { Urls } from '@/config';

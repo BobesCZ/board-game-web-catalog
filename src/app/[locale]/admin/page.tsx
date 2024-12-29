@@ -1,5 +1,4 @@
-import { getActiveGameListRecord, getGameListRecords } from '@/actions';
-import { getUserAuthRecords } from '@/actions/userAuth';
+import { getActiveGameListRecord, getGameListRecords, getUserAuthRecords } from '@/admin/actions';
 import Admin from './_components/Admin/Admin';
 
 export default async function AdminPage() {

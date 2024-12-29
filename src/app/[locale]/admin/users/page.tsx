@@ -1,4 +1,4 @@
-import { getUserAuthRecords } from '@/actions/userAuth';
+import { getUserAuthRecords } from '@/admin/actions';
 import { Users } from './_components';
 
 export default async function UsersPage() {

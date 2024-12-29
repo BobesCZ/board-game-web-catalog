@@ -2,7 +2,7 @@
 
 import { Stack, TextField, Typography } from '@mui/material';
 import { ChangeEvent, useState, useTransition } from 'react';
-import { createUserAuthRecord } from '@/actions/userAuth';
+import { createUserAuthRecord } from '@/admin/actions';
 import { ButtonAction } from '@/components';
 
 type Props = {

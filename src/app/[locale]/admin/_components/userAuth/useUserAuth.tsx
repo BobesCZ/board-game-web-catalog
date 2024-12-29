@@ -2,7 +2,7 @@
 
 import { useSession } from 'next-auth/react';
 import { useTransition } from 'react';
-import { createUserAuthRecord } from '@/actions/userAuth';
+import { createUserAuthRecord } from '@/admin/actions';
 import { UseUserAuthReturn, UserAuthRecord } from './types';
 import { getUserAuthRecord } from './utils';
 

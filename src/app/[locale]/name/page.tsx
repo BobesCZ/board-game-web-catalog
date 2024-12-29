@@ -1,4 +1,4 @@
-import { getActiveGameListRecord, getGameList } from '@/actions';
+import { getActiveGameListRecord, getGameList } from '@/admin/actions';
 import { AppLayout } from '@/layouts/AppLayout';
 import Name from '@/layouts/Name/Name';
 

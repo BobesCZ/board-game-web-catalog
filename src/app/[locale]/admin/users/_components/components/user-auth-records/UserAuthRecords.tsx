@@ -17,7 +17,7 @@ import {
 } from '@mui/material';
 import dynamic from 'next/dynamic';
 import { useState, useTransition } from 'react';
-import { authorizeUserAuthRecord, deleteUserAuthRecord } from '@/actions/userAuth';
+import { authorizeUserAuthRecord, deleteUserAuthRecord } from '@/admin/actions';
 import { ButtonAction } from '@/components';
 import { IS_DEVELOPMENT } from '../../../../_components/config';
 import { UserAuthRecord, UserAuthStatus, useUserAuth } from '../../../../_components/userAuth';

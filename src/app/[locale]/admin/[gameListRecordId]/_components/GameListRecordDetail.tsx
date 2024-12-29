@@ -4,8 +4,7 @@ import { ChevronLeft, Delete, Download, ExpandMore, Settings, Visibility, Visibi
 import { Alert, AlertTitle, Box, Button, Divider, Stack, ThemeProvider, Typography } from '@mui/material';
 import dynamic from 'next/dynamic';
 import { useMemo, useState, useTransition } from 'react';
-import { deleteGameListRecord, setActiveGameListRecord } from '@/actions';
-import { GameListRecord, GameListRecordStatus } from '@/actions/types';
+import { GameListRecord, GameListRecordStatus, deleteGameListRecord, setActiveGameListRecord } from '@/admin/actions';
 import { ButtonAction, GameList, Link } from '@/components';
 import { Urls } from '@/config';
 import { useRouter } from '@/navigation';

@@ -15,7 +15,7 @@ import {
 } from '@mui/material';
 import dynamic from 'next/dynamic';
 import { useState } from 'react';
-import { GameListRecord, GameListRecordStatus } from '@/actions/types';
+import { GameListRecord, GameListRecordStatus } from '@/admin/actions';
 import { Link } from '@/components';
 import { Urls } from '@/config';
 import { Game, Status } from '@/types';
