@@ -11,7 +11,7 @@
     "test:watch": "jest --watch"
   },
   "dependencies": {
-    "@code-bucket/board-game-geek": "github:spiotr12/board-game-geek",
+    "@code-bucket/board-game-geek": "git+https://github.com/BobesCZ/board-game-geek.git#collection",
     "@emotion/cache": "^11.11.0",
     "@emotion/react": "^11.11.4",
     "@emotion/server": "^11.11.0",
@@ -40,7 +40,8 @@
     "react-json-view": "^1.21.3",
     "string-similarity-js": "^2.1.4",
     "ts-node": "^10.9.2",
-    "typescript": "^5.4.3"
+    "typescript": "^5.4.3",
+    "usehooks-ts": "^3.1.0"
   },
   "devDependencies": {
     "@testing-library/jest-dom": "^6.4.2",

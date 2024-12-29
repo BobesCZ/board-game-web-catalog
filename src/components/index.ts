@@ -9,3 +9,5 @@ export * from './page-title';
 export * from './pagination';
 export * from './ButtonAction';
 export * from './Link';
+export * from './my-bgg-profile';
+export * from './collection-loader';

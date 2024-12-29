@@ -5,6 +5,7 @@ import {
   BggLink,
   CardActions,
   CardImage,
+  CollectionTag,
   GameInfoItem,
   GameWeight,
   LangItem,
@@ -44,6 +45,7 @@ export const GameCard = ({
     status,
     langs,
     location,
+    myBggStatus,
   },
 }: Props) => {
   const t = useTranslations();
@@ -63,7 +65,7 @@ export const GameCard = ({
         <Box position="relative">
           <CardImage image={image} />
 
-          {(!!location || !!filteredRanks.length) && (
+          {(!!location || !!filteredRanks.length || !!myBggStatus?.collections.length) && (
             <Stack
               alignItems="flex-start"
               gap={1}
@@ -72,6 +74,9 @@ export const GameCard = ({
               {location && <LocationTag location={location} />}
               {filteredRanks.map((rank) => (
                 <RankTag key={rank.name} rank={rank} />
+              ))}
+              {myBggStatus?.collections?.map((name) => (
+                <CollectionTag key={name} name={name} />
               ))}
             </Stack>
           )}
@@ -100,7 +105,30 @@ export const GameCard = ({
           )}
         </Typography>
 
-        {!!averageRating?.value && (
+        {!!myBggStatus?.userRating && (
+          <Box display="flex" mb={1.5}>
+            <Tooltip arrow enterTouchDelay={100} title={t('gameCard.yourBggRating')}>
+              <Stack display="inline-flex" direction="row" alignItems="center" gap={1}>
+                <Rating
+                  size="small"
+                  value={myBggStatus.userRating / 2}
+                  max={5}
+                  precision={0.1}
+                  readOnly
+                  sx={{
+                    '& .MuiRating-iconFilled': {
+                      color: '#3f3a60',
+                    },
+                  }}
+                />
+                <Typography variant="body2" component="span" sx={{ mt: 0.25, lineHeight: 1, color: grey[500] }}>
+                  {(myBggStatus.userRating * 10).toFixed(0)}%
+                </Typography>
+              </Stack>
+            </Tooltip>
+          </Box>
+        )}
+        {!!averageRating?.value && !myBggStatus?.userRating && (
           <Box display="flex" mb={1.5}>
             <Tooltip
               arrow

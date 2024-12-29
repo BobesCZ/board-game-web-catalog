@@ -1,4 +1,4 @@
-import { Game, Lang } from '@/types';
+import { Game, Lang, MyBggCollection } from '@/types';
 import { CATEGORY_PLAYING_TIME_INTERVALS } from './config';
 import { CategoryFilters } from './types';
 import { CategoryKey, MechanicKey } from '@/bggData';
@@ -39,12 +39,31 @@ const hasLangs = (game: Game, { lang }: CategoryFilters): boolean => {
   return !!game.langs?.includes(lang as Lang);
 };
 
+export const hasStatus = (game: Game, { bggStatus }: CategoryFilters): boolean => {
+  switch (bggStatus) {
+    case MyBggCollection.ALL:
+      return true;
+
+    case MyBggCollection.RATED:
+      return !!game.myBggStatus?.userRating;
+
+    case MyBggCollection.UNRATED:
+      return !game.myBggStatus?.userRating;
+
+    case MyBggCollection.WANTTOBUY:
+    case MyBggCollection.WANTTOPLAY:
+    case MyBggCollection.WISHLIST:
+      return !!game.myBggStatus?.collections.includes(bggStatus);
+  }
+};
+
 export const filterGamebyCategory = (game: Game, filters: CategoryFilters): boolean =>
   hasPlayersCount(game, filters) &&
   hasPlayingTime(game, filters) &&
   hasCategories(game, filters) &&
   hasMechanics(game, filters) &&
-  hasLangs(game, filters);
+  hasLangs(game, filters) &&
+  hasStatus(game, filters);
 
 export const orderGameByRating: (game: Game) => unknown = (game) => game.averageRating?.value || 0;
 

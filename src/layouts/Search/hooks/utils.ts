@@ -4,7 +4,7 @@ import { CategoryFilters, CategoryGroup, MechanicGroup, PlayersCount } from '../
 import { GetAutocompleteOptionsProps } from './types';
 import { CategoryKey, MechanicKey } from '@/bggData';
 import { ControlledSelectOption, ControlleAutocompleteOption } from '@/components';
-import { GamePlayingTimeType, GameOrdering, TFunction, Lang } from '@/types';
+import { GamePlayingTimeType, GameOrdering, TFunction, Lang, MyBggCollection } from '@/types';
 
 export const getPlayersCountOptions = (t: TFunction): ControlledSelectOption<CategoryFilters, 'playersCount'>[] => {
   const values: PlayersCount[] = [0, 1, 200, 2, 3, 4, 5, 6, 7];
@@ -70,4 +70,10 @@ export const getOrderingOptions = (t: TFunction): ControlledSelectOption<Categor
   Object.values(GameOrdering).map((value) => ({
     value,
     label: t(`search.form.ordering.options.${value}`),
+  }));
+
+export const getBggStatusOptions = (t: TFunction): ControlledSelectOption<CategoryFilters, 'bggStatus'>[] =>
+  Object.values(MyBggCollection).map((value) => ({
+    value,
+    label: t(`myBgg.collection.${value}`),
   }));

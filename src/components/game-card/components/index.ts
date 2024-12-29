@@ -7,5 +7,6 @@ export * from './lang-item';
 export * from './location-tag';
 export * from './note-tag';
 export * from './players-count-string';
+export * from './collection-tag';
 export * from './rank-tag';
 export * from './zh-link';
