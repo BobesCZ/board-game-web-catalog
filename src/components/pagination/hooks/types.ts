@@ -1,5 +1,5 @@
 import { ChangeEvent } from 'react';
-import { GameGroupedList } from '@/components/game-list';
+import { GameGroupedList } from '@/components';
 import { Game } from '@/types';
 
 export type UsePaginationReturn = {

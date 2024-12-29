@@ -9,7 +9,7 @@ import { GameListRecord, GameListRecordStatus } from '@/actions/types';
 import { ButtonAction, GameList, Link } from '@/components';
 import { Urls } from '@/config';
 import { useRouter } from '@/navigation';
-import { theme } from '@/theme/theme';
+import { theme } from '@/theme';
 import { Status } from '@/types';
 import { IS_DEVELOPMENT } from '../../_components/config';
 import { DuplicitGamesAlert } from '../../_components/duplicit-games-alert';

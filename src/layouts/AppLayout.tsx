@@ -4,7 +4,7 @@ import { Box, Stack } from '@mui/material';
 import { ReactNode } from 'react';
 import { AppFooter, AppLoader, AppNav } from '@/components';
 import { AppStoreProvider, AppStoreValue } from '@/store';
-import { ThemeRegistry } from '@/theme/ThemeRegistry';
+import { ThemeRegistry } from '@/theme';
 
 type Props = {
   children?: ReactNode;

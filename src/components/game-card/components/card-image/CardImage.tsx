@@ -12,6 +12,7 @@ export const CardImage = ({ image }: Props) => {
   return image ? (
     <CardMedia component="img" image={image} alt="" sx={styles} />
   ) : (
+    // eslint-disable-next-line jsx-a11y/alt-text
     <Image sx={{ ...styles, width: '100%' }} color="secondary" />
   );
 };

@@ -5,8 +5,9 @@ import { useSearchParams } from 'next/navigation';
 import { useEffect, useRef } from 'react';
 import { FormProvider, useForm } from 'react-hook-form';
 import { AppTabs, GameList, PageTitle, Pagination, usePagination } from '@/components';
+import { NAME_URL_QUERY } from '@/config';
 import { NameForm } from './components';
-import { NAME_DEFAULT_VALUES, NAME_URL_QUERY } from './config';
+import { NAME_DEFAULT_VALUES } from './config';
 import { useFilteredGamesByName } from './hooks';
 import { NameFilters } from './types';
 

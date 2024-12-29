@@ -15,3 +15,5 @@ export enum Urls {
 export const MAX_RANK_LIMIT = 100;
 
 export const MIN_CHARACTERS_TO_SEARCH = 2;
+
+export const NAME_URL_QUERY = 'query';

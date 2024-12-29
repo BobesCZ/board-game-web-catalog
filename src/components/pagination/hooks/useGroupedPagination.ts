@@ -1,5 +1,5 @@
 import { ChangeEvent, MutableRefObject, useCallback, useMemo, useState } from 'react';
-import { GameGroupedList } from '@/components/game-list';
+import { GameGroupedList } from '@/components';
 import { PAGINATION_GROUPS_COUNT } from '../config';
 import { UseGroupedPaginationReturn } from './types';
 

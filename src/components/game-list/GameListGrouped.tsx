@@ -1,6 +1,6 @@
 import { Alert, AlertTitle, Box, Typography } from '@mui/material';
 import { useTranslations } from 'next-intl';
-import { GameCard } from '@/components/game-card';
+import { GameCard } from '../game-card';
 import { GameGroupedList } from './types';
 
 type Props = {
