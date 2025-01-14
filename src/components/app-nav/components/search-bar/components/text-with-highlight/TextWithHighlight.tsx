@@ -1,8 +1,8 @@
 'use client';
 
 import { Typography, TypographyProps } from '@mui/material';
-import parse from 'autosuggest-highlight/parse';
 import match from 'autosuggest-highlight/match';
+import parse from 'autosuggest-highlight/parse';
 
 type Props = TypographyProps & {
   text?: string;

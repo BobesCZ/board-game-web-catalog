@@ -1,14 +1,12 @@
-import { useMemo } from 'react';
-
 import { orderBy } from 'lodash-es';
-
+import { useTranslations } from 'next-intl';
+import { useMemo } from 'react';
+import { ControlledSelectOption } from '@/components';
+import { useAppStore } from '@/store';
+import { Game } from '@/types';
 import { RankFilters } from '../types';
 import { filterGamebyRank, getOrderGameByRank } from '../utils';
 import { getRankNameOptions } from './utils';
-import { Game } from '@/types';
-import { ControlledSelectOption } from '@/components';
-import { useTranslations } from 'next-intl';
-import { useAppStore } from '@/store';
 
 type Props = {
   filters: RankFilters;

@@ -1,7 +1,7 @@
-import { Link, LinkProps } from '@/components';
 import { Launch } from '@mui/icons-material';
 import { ListItem, ListItemButton, Stack } from '@mui/material';
 import { useTranslations } from 'next-intl';
+import { Link, LinkProps } from '@/components';
 
 type Props = {
   to: LinkProps['href'];

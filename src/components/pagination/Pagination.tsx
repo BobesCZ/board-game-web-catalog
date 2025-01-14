@@ -1,6 +1,6 @@
 import { Button, Pagination as MuiPagination, Stack } from '@mui/material';
-import { UsePaginationReturn } from './hooks';
 import { useTranslations } from 'next-intl';
+import { UsePaginationReturn } from './hooks';
 
 type Props = Omit<UsePaginationReturn, 'currentPageGameList'> & { isGrouped?: boolean };
 

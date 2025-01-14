@@ -1,11 +1,11 @@
-import { useMemo } from 'react';
 import { groupBy, orderBy } from 'lodash-es';
 import { useLocale, useTranslations } from 'next-intl';
-import { orderGameByAdded } from '@/layouts/Search/utils';
-import { getGroupGameByAdded } from './utils';
+import { useMemo } from 'react';
 import { GameGroupedList } from '@/components';
 import { useAppStore } from '@/store';
+import { orderGameByAdded } from '@/utils';
 import { DEFAULT_GROUP_TITLE } from './config';
+import { getGroupGameByAdded } from './utils';
 
 type Return = {
   gameGroupedList: GameGroupedList;

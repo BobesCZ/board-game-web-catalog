@@ -1,9 +1,9 @@
 import { useMemo } from 'react';
-import { filterGameByName } from '../utils';
-import { NameFilters } from '../types';
-import { Game } from '@/types';
-import { useAppStore } from '@/store';
 import { MIN_CHARACTERS_TO_SEARCH } from '@/config';
+import { useAppStore } from '@/store';
+import { Game } from '@/types';
+import { NameFilters } from '../types';
+import { filterGameByName } from '../utils';
 
 type Props = {
   filters: NameFilters;

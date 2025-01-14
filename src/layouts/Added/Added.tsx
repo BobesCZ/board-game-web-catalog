@@ -5,7 +5,7 @@ import { useRef } from 'react';
 import { AppTabs, GameListGrouped, PageTitle, Pagination, useGroupedPagination } from '@/components';
 import { useGroupedGamesByAdded } from './hooks';
 
-export default function Added() {
+export function Added() {
   const ref = useRef<HTMLDivElement>(null);
 
   const { gameGroupedList } = useGroupedGamesByAdded();

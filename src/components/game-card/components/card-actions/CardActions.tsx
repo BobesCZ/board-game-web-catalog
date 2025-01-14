@@ -1,8 +1,8 @@
-import { Game } from '@/types';
 import { ExpandLess, ExpandMore, NotListedLocationOutlined } from '@mui/icons-material';
-import { CardActions as CardActionsComponent, Button } from '@mui/material';
+import { Button, CardActions as CardActionsComponent } from '@mui/material';
 import { useTranslations } from 'next-intl';
 import { useState } from 'react';
+import { Game } from '@/types';
 import { LocationDialog } from '../location-dialog';
 
 type Props = {

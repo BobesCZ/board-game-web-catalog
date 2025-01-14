@@ -1,8 +1,7 @@
+import { CategoryKey, MechanicKey } from '@/bggData';
 import { Game, Lang } from '@/types';
 import { CATEGORY_PLAYING_TIME_INTERVALS } from './config';
 import { CategoryFilters } from './types';
-import { CategoryKey, MechanicKey } from '@/bggData';
-import { getDateFromCzechDate } from '@/utils';
 
 const hasPlayersCount = (game: Game, { playersCount }: CategoryFilters): boolean => {
   switch (playersCount) {
@@ -45,13 +44,3 @@ export const filterGamebyCategory = (game: Game, filters: CategoryFilters): bool
   hasCategories(game, filters) &&
   hasMechanics(game, filters) &&
   hasLangs(game, filters);
-
-export const orderGameByRating: (game: Game) => unknown = (game) => game.averageRating?.value || 0;
-
-export const orderGameByWeight: (game: Game) => unknown = (game) => game.averageWeight?.value || 0;
-
-export const orderGameByAdded: (game: Game) => unknown = (game) => {
-  const date = getDateFromCzechDate(game.added);
-
-  return date;
-};

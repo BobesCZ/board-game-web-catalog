@@ -1,8 +1,8 @@
-import { auth } from '@/app/api/auth/[...nextauth]/auth';
-import { SessionProvider } from './_components/SessionProvider';
 import { ReactNode } from 'react';
-import { Layout } from './_components/Layout';
-import { getUserAuthRecords } from '@/actions/userAuth';
+import { getUserAuthRecords } from '@/admin/actions';
+import { SessionProvider } from '@/admin/components';
+import { AppAdminLayout } from '@/admin/layouts';
+import { auth } from '@/app/api/auth/[...nextauth]/auth';
 
 type Props = {
   children: ReactNode;
@@ -14,7 +14,7 @@ export default async function AdminLayout({ children }: Props) {
 
   return (
     <SessionProvider session={session}>
-      <Layout userAuthRecords={userAuthRecords}>{children}</Layout>
+      <AppAdminLayout userAuthRecords={userAuthRecords}>{children}</AppAdminLayout>
     </SessionProvider>
   );
 }

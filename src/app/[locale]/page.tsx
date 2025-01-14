@@ -1,6 +1,5 @@
-import { getActiveGameListRecord, getGameList } from '@/actions';
-import { AppLayout } from '@/layouts/AppLayout';
-import Search from '@/layouts/Search/Search';
+import { getActiveGameListRecord, getGameList } from '@/admin/actions';
+import { AppLayout, Search } from '@/layouts';
 
 export default async function SearchPage() {
   const gameList = await getGameList();

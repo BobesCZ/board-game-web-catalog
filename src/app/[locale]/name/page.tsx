@@ -1,6 +1,5 @@
-import { getActiveGameListRecord, getGameList } from '@/actions';
-import { AppLayout } from '@/layouts/AppLayout';
-import Name from '@/layouts/Name/Name';
+import { getActiveGameListRecord, getGameList } from '@/admin/actions';
+import { AppLayout, Name } from '@/layouts';
 
 export default async function NamePage() {
   const gameList = await getGameList();

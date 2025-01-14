@@ -9,7 +9,7 @@ Návod pro _programátory_.
 
 ## Vercel
 
-Pokud máte na svém účtu více projektů využívajících Redis databázi, změňte **src\app\[locale]\admin_components\config.ts** > `DB_PREFIX`
+Pokud máte na svém účtu více projektů využívajících Redis databázi, změňte **src\admin\config\config.ts** > `DB_PREFIX`
 
 1. Vytvořte nový projekt přes **Dashboard > Add New Project**
 2. Importujte váš repozitář

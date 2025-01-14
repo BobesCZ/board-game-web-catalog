@@ -1,6 +1,5 @@
-import { getActiveGameListRecord, getGameList } from '@/actions';
-import { AppLayout } from '@/layouts/AppLayout';
-import Rank from '@/layouts/Rank/Rank';
+import { getActiveGameListRecord, getGameList } from '@/admin/actions';
+import { AppLayout, Rank } from '@/layouts';
 
 export default async function RankPage() {
   const gameList = await getGameList();

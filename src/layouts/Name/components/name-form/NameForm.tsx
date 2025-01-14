@@ -1,8 +1,8 @@
 import { Box, Container, Grid } from '@mui/material';
-import { useFormContext } from 'react-hook-form';
-import { NameFilters } from '../../types';
 import { useTranslations } from 'next-intl';
+import { useFormContext } from 'react-hook-form';
 import { ControlledTextField } from '@/components';
+import { NameFilters } from '../../types';
 
 export const NameForm = () => {
   const t = useTranslations();

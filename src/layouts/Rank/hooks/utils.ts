@@ -1,7 +1,7 @@
-import { TFunction } from '@/types';
-import { RankFilters } from '../types';
 import { BGG_RANK_NAMES } from '@/bggData';
 import { ControlledSelectOption } from '@/components';
+import { TFunction } from '@/types';
+import { RankFilters } from '../types';
 
 export const getRankNameOptions = (t: TFunction): ControlledSelectOption<RankFilters, 'rankName'>[] =>
   Object.values(BGG_RANK_NAMES).map((value) => ({

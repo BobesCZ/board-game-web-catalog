@@ -1,10 +1,9 @@
-import { Box, Container, Grid } from '@mui/material';
-import { useFormContext } from 'react-hook-form';
-
-import { RankFilters } from '../../types';
 import { Group } from '@mui/icons-material';
-import { ControlledSelect, ControlledSelectOption } from '@/components';
+import { Box, Container, Grid } from '@mui/material';
 import { useTranslations } from 'next-intl';
+import { useFormContext } from 'react-hook-form';
+import { ControlledSelect, ControlledSelectOption } from '@/components';
+import { RankFilters } from '../../types';
 
 type Props = {
   rankNameOptions: ControlledSelectOption<RankFilters, 'rankName'>[];

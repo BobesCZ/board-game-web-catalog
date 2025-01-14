@@ -1,10 +1,10 @@
 'use client';
 
-import { Box, Divider, Drawer, IconButton, List } from '@mui/material';
 import { Menu as MenuIcon } from '@mui/icons-material';
-import { useState, KeyboardEvent, MouseEvent } from 'react';
-import { MenuLink } from './components';
+import { Box, Divider, Drawer, IconButton, List } from '@mui/material';
+import { KeyboardEvent, MouseEvent, useState } from 'react';
 import { Urls } from '@/config';
+import { MenuLink } from './components';
 
 export const AppMenu = () => {
   const [open, setOpen] = useState(false);

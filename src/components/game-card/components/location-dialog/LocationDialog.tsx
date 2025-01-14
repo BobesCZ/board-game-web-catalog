@@ -1,8 +1,8 @@
-import { Game } from '@/types';
 import { Dialog, DialogContent, DialogTitle, Divider } from '@mui/material';
 import { useTranslations } from 'next-intl';
-import FloorPlan from './FloorPlan.svg';
 import { useCallback } from 'react';
+import { Game } from '@/types';
+import FloorPlan from './FloorPlan.svg';
 import { SHELF_FILL_COLOR } from './config';
 
 type Props = {

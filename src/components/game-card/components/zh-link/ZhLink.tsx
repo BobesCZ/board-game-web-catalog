@@ -1,9 +1,9 @@
 import { Launch } from '@mui/icons-material';
 import { Link, Stack } from '@mui/material';
-import { parseName } from './utils';
-import { Urls } from '@/config';
 import { useTranslations } from 'next-intl';
+import { Urls } from '@/config';
 import { Game } from '@/types';
+import { parseName } from './utils';
 
 type Props = Pick<Game, 'sourceName'>;
 

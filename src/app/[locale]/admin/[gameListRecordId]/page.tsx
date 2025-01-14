@@ -1,6 +1,6 @@
-import { getActiveGameListRecord, getGameListRecords } from '@/actions';
 import { notFound } from 'next/navigation';
-import { GameListRecordDetail } from './_components/GameListRecordDetail';
+import { getActiveGameListRecord, getGameListRecords } from '@/admin/actions';
+import { GameListRecordDetail } from '@/admin/layouts';
 
 type Props = {
   params: {
