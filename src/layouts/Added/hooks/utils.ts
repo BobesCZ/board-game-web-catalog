@@ -1,6 +1,6 @@
+import { capitalize } from 'lodash-es';
 import { Game } from '@/types';
 import { getDateFromCzechDate } from '@/utils';
-import { capitalize } from 'lodash-es';
 import { DEFAULT_GROUP_TITLE } from './config';
 
 export const getGroupGameByAdded =

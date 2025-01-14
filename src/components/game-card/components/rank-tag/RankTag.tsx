@@ -1,7 +1,7 @@
-import { Rank } from '@/types';
 import { EmojiEvents } from '@mui/icons-material';
 import { Chip } from '@mui/material';
 import { useTranslations } from 'next-intl';
+import { Rank } from '@/types';
 
 type Props = {
   rank: Rank;

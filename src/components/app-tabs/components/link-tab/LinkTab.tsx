@@ -1,7 +1,7 @@
 'use client';
 
-import { Link, LinkProps } from '@/components';
 import { Tab } from '@mui/material';
+import { Link, LinkProps } from '@/components';
 
 type LinkTabProps = {
   label: string;

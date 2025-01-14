@@ -1,11 +1,11 @@
 'use client';
 
-import { useSearchParams } from 'next/navigation';
-import { useLocale } from 'next-intl';
 import { ToggleButton, ToggleButtonGroup, alpha } from '@mui/material';
-import { localeLangOptions } from './config';
+import { useLocale } from 'next-intl';
+import { useSearchParams } from 'next/navigation';
 import { MouseEvent } from 'react';
 import { usePathname, useRouter } from '@/navigation';
+import { localeLangOptions } from './config';
 
 export function LangSwitch() {
   const locale = useLocale();

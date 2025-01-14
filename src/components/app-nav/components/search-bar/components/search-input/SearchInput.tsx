@@ -1,15 +1,14 @@
 'use client';
 
-import { Autocomplete, AutocompleteProps, Box, ListItemProps, TextField, createFilterOptions } from '@mui/material';
-import { SyntheticEvent, useState } from 'react';
 import { Search } from '@mui/icons-material';
-import { Game } from '@/types';
-import { MIN_CHARACTERS_TO_SEARCH, Urls } from '@/config';
-import { NAME_URL_QUERY } from '@/layouts/Name/config';
-import { AutocompleteOption } from '../autocomplete-option';
-import { useAppStore } from '@/store';
+import { Autocomplete, AutocompleteProps, Box, ListItemProps, TextField, createFilterOptions } from '@mui/material';
 import { useTranslations } from 'next-intl';
+import { SyntheticEvent, useState } from 'react';
+import { MIN_CHARACTERS_TO_SEARCH, NAME_URL_QUERY, Urls } from '@/config';
 import { useRouter } from '@/navigation';
+import { useAppStore } from '@/store';
+import { Game } from '@/types';
+import { AutocompleteOption } from '../autocomplete-option';
 
 type Props = {
   handleDrawerClose?: () => void;

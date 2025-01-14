@@ -1,16 +1,17 @@
 'use client';
 
 import { Box, Container } from '@mui/material';
+import { useSearchParams } from 'next/navigation';
 import { useEffect, useRef } from 'react';
 import { FormProvider, useForm } from 'react-hook-form';
-import { useFilteredGamesByName } from './hooks';
-import { PageTitle, GameList, usePagination, Pagination, AppTabs } from '@/components';
-import { NAME_DEFAULT_VALUES, NAME_URL_QUERY } from './config';
-import { NameFilters } from './types';
+import { AppTabs, GameList, PageTitle, Pagination, usePagination } from '@/components';
+import { NAME_URL_QUERY } from '@/config';
 import { NameForm } from './components';
-import { useSearchParams } from 'next/navigation';
+import { NAME_DEFAULT_VALUES } from './config';
+import { useFilteredGamesByName } from './hooks';
+import { NameFilters } from './types';
 
-export default function Name() {
+export function Name() {
   const searchParams = useSearchParams();
   const searchParamsParsed = new URLSearchParams(searchParams);
   const query = searchParamsParsed.get(NAME_URL_QUERY);

@@ -1,16 +1,16 @@
 'use client';
 
-import Container from '@mui/material/Container';
 import Box from '@mui/material/Box';
-import { AppTabs, GameList, PageTitle, Pagination, usePagination } from '@/components';
-import { FormProvider, useForm } from 'react-hook-form';
-import { CategoryFilters } from './types';
-import { CATEGORY_DEFAULT_VALUES } from './config';
+import Container from '@mui/material/Container';
 import { useRef } from 'react';
-import { useFilteredGamesByCategory } from './hooks';
+import { FormProvider, useForm } from 'react-hook-form';
+import { AppTabs, GameList, PageTitle, Pagination, usePagination } from '@/components';
 import { CategoryForm, OrderingSelect } from './components';
+import { CATEGORY_DEFAULT_VALUES } from './config';
+import { useFilteredGamesByCategory } from './hooks';
+import { CategoryFilters } from './types';
 
-export default function Search() {
+export function Search() {
   const methods = useForm<CategoryFilters>({
     defaultValues: CATEGORY_DEFAULT_VALUES,
   });

@@ -1,3 +1,5 @@
+'use client';
+
 import { SvgIconComponent } from '@mui/icons-material';
 import { InputAdornment, MenuItem, TextField, TextFieldProps } from '@mui/material';
 import { Controller, ControllerProps, FieldPath, FieldValues } from 'react-hook-form';

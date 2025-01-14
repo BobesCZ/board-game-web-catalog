@@ -1,6 +1,6 @@
 import { CategoryKey, MechanicKey } from '@/bggData';
+import { GameOrdering, GamePlayingTimeInterval, GamePlayingTimeType, Lang } from '@/types';
 import { CategoryFilters, CategoryGroup, MechanicGroup } from './types';
-import { GamePlayingTimeType, GameOrdering, GamePlayingTimeInterval, Lang } from '@/types';
 
 export const CATEGORY_DEFAULT_VALUES: CategoryFilters = {
   playersCount: 2,

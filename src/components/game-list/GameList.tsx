@@ -1,6 +1,8 @@
-import { Game } from '@/types';
+'use client';
+
 import { Alert, AlertTitle, Box, Typography } from '@mui/material';
 import { useTranslations } from 'next-intl';
+import { Game } from '@/types';
 import { GameCard } from '../game-card';
 
 type Props = {

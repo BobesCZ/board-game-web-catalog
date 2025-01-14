@@ -1,6 +1,6 @@
 import { BggGame, BggRank, BggThing } from '@code-bucket/board-game-geek';
-import { CategoryKey, MechanicKey, RankNameKey } from '@/bggData';
 import { useTranslations } from 'next-intl';
+import { CategoryKey, MechanicKey, RankNameKey } from '@/bggData';
 
 export type Rank = Pick<BggRank, 'value'> & {
   name: `${RankNameKey}`;

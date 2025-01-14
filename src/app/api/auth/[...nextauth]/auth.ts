@@ -1,11 +1,11 @@
 import type { GetServerSidePropsContext, NextApiRequest, NextApiResponse } from 'next';
 import type { NextAuthOptions } from 'next-auth';
 import { getServerSession } from 'next-auth';
-import GoogleProvider from 'next-auth/providers/google';
 import CredentialsProvider from 'next-auth/providers/credentials';
-import { getUserAuthRecords } from '@/actions/userAuth';
-import { getUserAuthRecordByPassword } from '@/app/[locale]/admin/_components/userAuth/utils';
-import { DISABLE_CREDENTIALS_ON_PRODUCTION, IS_DEVELOPMENT } from '@/app/[locale]/admin/_components/config';
+import GoogleProvider from 'next-auth/providers/google';
+import { getUserAuthRecords } from '@/admin/actions';
+import { getUserAuthRecordByPassword } from '@/admin/components';
+import { DISABLE_CREDENTIALS_ON_PRODUCTION, IS_DEVELOPMENT } from '@/admin/config';
 
 const providers = [];
 
