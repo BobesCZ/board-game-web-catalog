@@ -5,7 +5,7 @@ import { Autocomplete, AutocompleteProps, Box, ListItemProps, TextField, createF
 import { useTranslations } from 'next-intl';
 import { SyntheticEvent, useState } from 'react';
 import { MIN_CHARACTERS_TO_SEARCH, NAME_URL_QUERY, Urls } from '@/config';
-import { useRouter } from '@/navigation';
+import { useRouter } from '@/i18n';
 import { useAppStore } from '@/store';
 import { Game } from '@/types';
 import { AutocompleteOption } from '../autocomplete-option';

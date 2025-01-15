@@ -7,7 +7,7 @@ import { ChangeEventHandler, useTransition } from 'react';
 import { GameListRecord, createGameListRecord, revalidateAllAdminPaths, revalidateAllTags } from '@/admin/actions';
 import { ButtonAction, VisuallyHiddenInput, processFileUpload } from '@/components';
 import { Urls } from '@/config';
-import { useRouter } from '@/navigation';
+import { useRouter } from '@/i18n';
 
 export const Settings = () => {
   const [isPending, startTransition] = useTransition();

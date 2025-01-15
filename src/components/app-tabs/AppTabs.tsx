@@ -3,7 +3,7 @@
 import { Box, Container, Tabs, alpha } from '@mui/material';
 import { useTranslations } from 'next-intl';
 import { SyntheticEvent, useState } from 'react';
-import { usePathname } from '@/navigation';
+import { usePathname } from '@/i18n';
 import { LinkTab } from './components';
 import { APP_TABS } from './config';
 
