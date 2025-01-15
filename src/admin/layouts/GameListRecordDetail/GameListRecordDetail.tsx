@@ -9,7 +9,7 @@ import { DuplicitGamesAlert } from '@/admin/components';
 import { IS_DEVELOPMENT } from '@/admin/config';
 import { ButtonAction, GameList, Link } from '@/components';
 import { Urls } from '@/config';
-import { useRouter } from '@/navigation';
+import { useRouter } from '@/i18n';
 import { theme } from '@/theme';
 import { Status } from '@/types';
 import { BggLoader } from './components';

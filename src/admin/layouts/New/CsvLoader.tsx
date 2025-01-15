@@ -10,7 +10,7 @@ import { CSV_COLUMNS_OPTIONS } from '@/admin/config';
 import { CsvGame, getGameListFromCsv } from '@/admin/csvParser';
 import { ButtonAction, VisuallyHiddenInput, processFileUpload } from '@/components';
 import { Urls } from '@/config';
-import { useRouter } from '@/navigation';
+import { useRouter } from '@/i18n';
 import { Game } from '@/types';
 import { CsvHelp, CsvPreview } from './components';
 

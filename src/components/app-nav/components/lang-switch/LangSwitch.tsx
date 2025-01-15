@@ -4,7 +4,7 @@ import { ToggleButton, ToggleButtonGroup, alpha } from '@mui/material';
 import { useLocale } from 'next-intl';
 import { useSearchParams } from 'next/navigation';
 import { MouseEvent } from 'react';
-import { usePathname, useRouter } from '@/navigation';
+import { usePathname, useRouter } from '@/i18n';
 import { localeLangOptions } from './config';
 
 export function LangSwitch() {
@@ -15,7 +15,7 @@ export function LangSwitch() {
 
   const handleChange = (_e: MouseEvent<HTMLElement>, newValue: string | null) => {
     if (newValue !== null) {
-      const url = `/${pathname}?${searchParams}`;
+      const url = `${pathname}?${searchParams}`;
       replace(url, { locale: newValue });
     }
   };

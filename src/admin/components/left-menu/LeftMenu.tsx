@@ -5,7 +5,7 @@ import { Divider, Drawer, List, ListItem, ListItemButton, ListItemIcon, ListItem
 import { LEFT_MENU_WIDTH } from '@/admin/config';
 import { Link } from '@/components';
 import { Urls } from '@/config';
-import { usePathname } from '@/navigation';
+import { usePathname } from '@/i18n';
 
 export function LeftMenu() {
   const pathname = usePathname();
