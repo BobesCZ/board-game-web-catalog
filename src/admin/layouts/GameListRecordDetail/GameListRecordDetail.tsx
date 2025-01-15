@@ -10,7 +10,7 @@ import { IS_DEVELOPMENT } from '@/admin/config';
 import { ButtonAction, GameList, Link } from '@/components';
 import { Urls } from '@/config';
 import { useRouter } from '@/i18n';
-import { theme } from '@/theme';
+import { APP_THEME_DEFAULT } from '@/theme/config';
 import { Status } from '@/types';
 import { BggLoader } from './components';
 
@@ -158,12 +158,12 @@ export const GameListRecordDetail = ({ activeGameListRecord, gameListRecord }: P
           color="primary"
           onClick={handleShowGameList}
           startIcon={<ExpandMore />}
-          sx={{
+          sx={(theme) => ({
             '.MuiButton-startIcon': {
               transition: theme.transitions.create('transform'),
               transform: `rotate(${showGameList ? -180 : 0}deg)`,
             },
-          }}
+          })}
         >
           {showGameList ? 'Skrýt' : 'Zobrazit'} náhled seznamu her
         </Button>
@@ -178,7 +178,7 @@ export const GameListRecordDetail = ({ activeGameListRecord, gameListRecord }: P
 
       {showBggLoader && <BggLoader gameListRecord={gameListRecord} />}
 
-      <ThemeProvider theme={theme}>
+      <ThemeProvider theme={APP_THEME_DEFAULT.theme}>
         {showGameList && <GameList gameList={gameList} gameTotalCount={gameList.length} />}
       </ThemeProvider>
 

@@ -8,20 +8,20 @@ import { ThemeRegistry } from '@/theme';
 
 type Props = {
   children?: ReactNode;
-  value: AppStoreValue;
+  value: Pick<AppStoreValue, 'gameList' | 'activeGameListRecord'>;
   isLoading?: boolean;
 };
 
 export function AppLayout({ children, value, isLoading }: Props) {
   return (
-    <ThemeRegistry>
-      <AppStoreProvider value={value}>
+    <AppStoreProvider value={value}>
+      <ThemeRegistry>
         <Stack sx={{ minHeight: '100vh' }}>
           <AppNav />
           {isLoading ? <AppLoader /> : <Box flexGrow={1}>{children}</Box>}
           <AppFooter />
         </Stack>
-      </AppStoreProvider>
-    </ThemeRegistry>
+      </ThemeRegistry>
+    </AppStoreProvider>
   );
 }
