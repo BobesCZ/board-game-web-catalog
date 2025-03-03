@@ -1,5 +1,4 @@
-import { DB_PREFIX } from '@/admin/config';
+import { DB_SCHEMA } from '@/admin/config';
 
-export const GAMELIST_RECORDS_KEY = `${DB_PREFIX}gameListRecords`;
-export const ACTIVE_GAMELIST_RECORD_KEY = `${DB_PREFIX}activeGameListRecord`;
-export const USER_AUTH_RECORDS_KEY = `${DB_PREFIX}userAuthRecords`;
+export const GAMELIST_RECORDS_TABLE = `"${DB_SCHEMA}"."gameListRecords"`;
+export const USER_AUTH_RECORDS_TABLE = `"${DB_SCHEMA}"."userAuthRecords"`;

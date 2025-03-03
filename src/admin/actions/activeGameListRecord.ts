@@ -1,15 +1,23 @@
 'use server';
 
-import { kv } from '@vercel/kv';
+import { neon } from '@neondatabase/serverless';
 import { revalidatePath, revalidateTag, unstable_cache } from 'next/cache';
 import { Urls } from '@/config';
-import { ACTIVE_GAMELIST_RECORD_KEY } from './config';
-import { CacheTags } from './types';
+import { GAMELIST_RECORDS_TABLE } from './config';
+import { CacheTags, GameListRecord } from './types';
+
+const sql = neon(process.env.DATABASE_URL ?? '');
 
 const getActiveGameListRecordPromise = async () => {
-  const activeId = await kv.get<string | null>(ACTIVE_GAMELIST_RECORD_KEY);
+  const query = `
+    SELECT * FROM ${GAMELIST_RECORDS_TABLE}
+    WHERE "isActive" = true
+    LIMIT 1;
+  `;
 
-  return activeId ? parseInt(activeId) : undefined;
+  const result = (await sql(query)) as GameListRecord[];
+
+  return result?.[0];
 };
 
 export const getActiveGameListRecord = unstable_cache(getActiveGameListRecordPromise, ['getActiveGameListRecord'], {
@@ -17,7 +25,23 @@ export const getActiveGameListRecord = unstable_cache(getActiveGameListRecordPro
 });
 
 export const setActiveGameListRecord = async (recordId: number) => {
-  await kv.set(ACTIVE_GAMELIST_RECORD_KEY, recordId);
+  // Deactivate all records
+  const deactivateQuery = `
+    UPDATE ${GAMELIST_RECORDS_TABLE}
+    SET "isActive" = false;
+  `;
+
+  await sql(deactivateQuery);
+
+  // Activate specific record
+  const activateQuery = `
+   UPDATE ${GAMELIST_RECORDS_TABLE}
+   SET "isActive" = true
+   WHERE "recordId" = ${recordId}
+   RETURNING "recordId";
+ `;
+
+  await sql(activateQuery);
 
   revalidateTag(CacheTags.ACTIVE_GAMELIST);
   revalidatePath(Urls.ADMIN);

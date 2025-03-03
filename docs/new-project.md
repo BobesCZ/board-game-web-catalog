@@ -9,15 +9,19 @@ Návod pro _programátory_.
 
 ## Vercel
 
-Pokud máte na svém účtu více projektů využívajících Redis databázi, změňte **src\admin\config\config.ts** > `DB_PREFIX`
-
 1. Vytvořte nový projekt přes **Dashboard > Add New Project**
 2. Importujte váš repozitář
 3. V sekci **Configure Project > Build and Output Settings** nastavte **Install Command** na `npm install --force`
 4. Klikněte na **Deploy** pro založení projektu (build skončí chybou)
-5. Přejděte na **Storage > Create New Database > KV Durable Redis**
-6. V terminálu spusťte `npx vercel link` a poté `npx vercel env pull .env.development.local` (více informací [zde](https://vercel.com/docs/storage/vercel-kv/quickstart))
-7. Ve Vercelu proveďte **Redeploy** (build by měl proběhnout v pořádku)
+5. _Tento bod pravděpodobně není nutný_ V terminálu spusťte `npx vercel link` a poté `npx vercel env pull .env.development.local` (více informací [zde](https://vercel.com/docs/storage/vercel-kv/quickstart))
+
+## Neon
+
+1. Přejděte na **Storage > Create Database > Marketplace Database Providers > Neon** a vytvořte Postgres databázi
+2. V sekci Quickstart klikněte na Show Secrets a zkopírujte proměnnou `DATABASE_URL` do **env.local** > `DATABASE_URL`
+3. Klikněte na **Connect Project** a připojte Vercel projekt
+4. Ve Vercelu proveďte **Redeploy** (build by měl proběhnout v pořádku)
+5. Změňte proměnnou v **src\admin\config\config.ts** > `DB_SCHEMA` (ve formátu snake_case)
 
 ## Next-auth - Google
 

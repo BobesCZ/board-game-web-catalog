@@ -9,7 +9,7 @@ export const AppFooter = () => {
   const t = useTranslations();
   const { gameList, activeGameListRecord } = useAppStore();
   const gamesCount = gameList?.length;
-  const recordCreated = activeGameListRecord;
+  const recordCreated = activeGameListRecord?.created;
 
   return (
     <Box sx={(theme) => ({ backgroundColor: theme.palette.secondary.dark })}>

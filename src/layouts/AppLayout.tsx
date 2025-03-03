@@ -2,20 +2,23 @@
 
 import { Box, Stack } from '@mui/material';
 import { ReactNode } from 'react';
+import { GameListRecord } from '@/admin/actions';
 import { AppFooter, AppLoader, AppNav } from '@/components';
-import { AppStoreProvider, AppStoreValue } from '@/store';
+import { AppStoreProvider } from '@/store';
 import { ThemeRegistry } from '@/theme';
 
 type Props = {
   children?: ReactNode;
-  value: AppStoreValue;
+  activeGameListRecord: GameListRecord | undefined;
   isLoading?: boolean;
 };
 
-export function AppLayout({ children, value, isLoading }: Props) {
+export function AppLayout({ children, activeGameListRecord, isLoading }: Props) {
+  const gameList = activeGameListRecord?.gameList ?? [];
+
   return (
     <ThemeRegistry>
-      <AppStoreProvider value={value}>
+      <AppStoreProvider value={{ activeGameListRecord, gameList }}>
         <Stack sx={{ minHeight: '100vh' }}>
           <AppNav />
           {isLoading ? <AppLoader /> : <Box flexGrow={1}>{children}</Box>}

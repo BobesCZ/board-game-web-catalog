@@ -19,11 +19,10 @@ const ReactJson = dynamic(() => import('react-json-view'), {
 });
 
 type Props = {
-  activeGameListRecord?: number;
   gameListRecord: GameListRecord;
 };
 
-export const GameListRecordDetail = ({ activeGameListRecord, gameListRecord }: Props) => {
+export const GameListRecordDetail = ({ gameListRecord }: Props) => {
   const [isPending, startTransition] = useTransition();
   const { push } = useRouter();
 
@@ -58,7 +57,7 @@ export const GameListRecordDetail = ({ activeGameListRecord, gameListRecord }: P
     const link = document.createElement('a');
     const file = new Blob([content], { type: 'text/plain' });
     link.href = URL.createObjectURL(file);
-    const created = new Date(gameListRecord.recordId ?? 0).toISOString().split('T')[0];
+    const created = gameListRecord.created.toISOString().split('T')[0];
     link.download = `record ${created} ${gameListRecord.recordName}.json`;
     link.click();
     URL.revokeObjectURL(link.href);
@@ -78,7 +77,7 @@ export const GameListRecordDetail = ({ activeGameListRecord, gameListRecord }: P
       <Typography variant="h2" gutterBottom mt={2}>
         {gameListRecord.recordName || ''}{' '}
         <Box component="span" fontWeight="normal">
-          ({new Date(gameListRecord.recordId).toLocaleString()})
+          ({new Date(gameListRecord.created).toLocaleString()})
         </Box>
       </Typography>
 
@@ -87,9 +86,7 @@ export const GameListRecordDetail = ({ activeGameListRecord, gameListRecord }: P
           color="success"
           onClick={handleActivate}
           isPending={isPending}
-          disabled={
-            gameListRecord.status !== GameListRecordStatus.COMPLETED || activeGameListRecord === gameListRecord.recordId
-          }
+          disabled={gameListRecord.status !== GameListRecordStatus.COMPLETED || gameListRecord.isActive}
           startIcon={<Visibility />}
         >
           Označit jako aktivní
@@ -104,7 +101,7 @@ export const GameListRecordDetail = ({ activeGameListRecord, gameListRecord }: P
           onClick={handleDelete}
           isPending={isPending}
           startIcon={<Delete />}
-          disabled={activeGameListRecord === gameListRecord.recordId}
+          disabled={gameListRecord.isActive}
         >
           Smazat seznam
         </ButtonAction>
@@ -123,7 +120,7 @@ export const GameListRecordDetail = ({ activeGameListRecord, gameListRecord }: P
           </Alert>
         )}
 
-        {activeGameListRecord === gameListRecord.recordId ? (
+        {gameListRecord.isActive ? (
           <Alert severity="info" icon={<Visibility />} sx={{ width: '50%' }}>
             <AlertTitle>Zveřejněno</AlertTitle>
             Seznam je aktuálně viditelný pro uživatele.

@@ -4,9 +4,9 @@ export const LEFT_MENU_WIDTH = 224;
 export const IS_DEVELOPMENT = process.env.NODE_ENV === 'development';
 
 /**
- * If you run multiple projects on one Vercel account, you can separate the databases by this prefix
+ * If you run multiple projects on one Vercel account, you can separate the databases by this schema
  */
-export const DB_PREFIX = 'DEMO_';
+export const DB_SCHEMA = 'board_game_web_catalog';
 
 /**
  * On development environment, Admin is fully accessible regardless on authentication

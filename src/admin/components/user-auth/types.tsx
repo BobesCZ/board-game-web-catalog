@@ -6,10 +6,8 @@ export enum UserAuthStatus {
 export type UserAuthRecord = {
   recordId: number;
   status: `${UserAuthStatus}`;
-  user: {
-    name: string;
-    email: string;
-  };
+  name: string;
+  email?: string;
   password?: string;
 };
 

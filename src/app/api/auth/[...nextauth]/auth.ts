@@ -41,8 +41,8 @@ if (IS_DEVELOPMENT || vercelEnv === 'preview' || (vercelEnv === 'production' && 
 
         return {
           id: userAuthRecord.recordId.toString(),
-          name: userAuthRecord.user.name,
-          email: userAuthRecord.user.email,
+          name: userAuthRecord.name,
+          email: userAuthRecord.email,
         };
       },
     }),

@@ -46,8 +46,8 @@ export const UserAuthRecords = ({ userAuthRecords }: Props) => {
     setShowAddNewUser((prev) => !prev);
   };
 
-  const handleAuthorize = async (record: UserAuthRecord) => {
-    startTransition(() => authorizeUserAuthRecord(record));
+  const handleAuthorize = async (recordId: number) => {
+    startTransition(() => authorizeUserAuthRecord(recordId));
   };
 
   const handleDelete = async (recordId: number) => {
@@ -94,13 +94,13 @@ export const UserAuthRecords = ({ userAuthRecords }: Props) => {
                 })}
               >
                 <TableCell component="td" scope="row">
-                  {record.user.name}
+                  {record.name}
                 </TableCell>
                 <TableCell component="td" scope="row">
                   {record.password && getPassword(record.password)}
                 </TableCell>
                 <TableCell component="td" scope="row">
-                  {record.user.email}
+                  {record.email}
                 </TableCell>
                 <TableCell component="td" scope="row">
                   <Stack direction="row" alignItems="center" gap={1}>
@@ -112,7 +112,7 @@ export const UserAuthRecords = ({ userAuthRecords }: Props) => {
                   <Stack direction={'row'} gap={1}>
                     <ButtonAction
                       color="primary"
-                      onClick={() => handleAuthorize(record)}
+                      onClick={() => handleAuthorize(record.recordId)}
                       isPending={isPending}
                       startIcon={<Done />}
                       disabled={!IS_DEVELOPMENT || record?.status === UserAuthStatus.Authorized}

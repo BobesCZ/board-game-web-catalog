@@ -7,9 +7,15 @@ export enum GameListRecordStatus {
 
 export type GameListRecord = {
   recordId: number;
+  created: Date;
   recordName: string;
   status: `${GameListRecordStatus}`;
   gameList: Game[];
+  isActive: boolean;
+};
+
+export type GameListRecordItem = Omit<GameListRecord, 'gameList'> & {
+  gameListCount: number;
 };
 
 export enum CacheTags {

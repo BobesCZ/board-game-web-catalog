@@ -15,11 +15,10 @@ import {
 } from '@mui/material';
 import dynamic from 'next/dynamic';
 import { useState } from 'react';
-import { GameListRecord, GameListRecordStatus } from '@/admin/actions';
+import { GameListRecordItem, GameListRecordStatus } from '@/admin/actions';
 import { IS_DEVELOPMENT } from '@/admin/config';
 import { Link } from '@/components';
 import { Urls } from '@/config';
-import { Game, Status } from '@/types';
 import { ConfirmDeleteModal } from './components';
 
 const ReactJson = dynamic(() => import('react-json-view'), {
@@ -27,11 +26,10 @@ const ReactJson = dynamic(() => import('react-json-view'), {
 });
 
 type Props = {
-  gameListRecords: GameListRecord[];
-  activeGameListRecord?: number;
+  gameListRecords: GameListRecordItem[];
 };
 
-export const GameListRecords = ({ gameListRecords, activeGameListRecord }: Props) => {
+export const GameListRecords = ({ gameListRecords }: Props) => {
   const [showDbScan, setShowDbScan] = useState(false);
 
   const [isModalOpened, setIsModalOpened] = useState(false);
@@ -42,15 +40,13 @@ export const GameListRecords = ({ gameListRecords, activeGameListRecord }: Props
     setShowDbScan((prev) => !prev);
   };
 
-  const getCellSx = (recordId: number) => ({ fontWeight: activeGameListRecord === recordId ? 'bold' : undefined });
+  const getCellSx = (isActive: boolean) => ({ fontWeight: isActive ? 'bold' : undefined });
 
   const getStatusIcon = (status: `${GameListRecordStatus}`) =>
     status === GameListRecordStatus.COMPLETED ? <Done fontSize="small" /> : <QueryBuilder fontSize="small" />;
 
-  const getStatusText = (status: `${GameListRecordStatus}`, gameList: Game[]) =>
-    status === GameListRecordStatus.COMPLETED
-      ? 'Staženo'
-      : `Chybí ${gameList?.filter((game) => game.status === Status.NEW).length}`;
+  const getStatusText = (status: `${GameListRecordStatus}`) =>
+    status === GameListRecordStatus.COMPLETED ? 'Staženo' : `Čeká na stažení`;
 
   return (
     <>
@@ -66,11 +62,11 @@ export const GameListRecords = ({ gameListRecords, activeGameListRecord }: Props
               <TableCell component="div">Vytvořeno</TableCell>
               <TableCell component="div">Název</TableCell>
               <TableCell component="div">Stav loaderu</TableCell>
-              <TableCell component="div">Nenalezeno / Celkem her</TableCell>
+              <TableCell component="div">Počet her</TableCell>
             </TableRow>
           </TableHead>
           <TableBody component="div">
-            {gameListRecords?.map(({ recordId, status, recordName, gameList }, index) => (
+            {gameListRecords?.map(({ recordId, status, recordName, gameListCount, created, isActive }, index) => (
               <TableRow
                 key={`${recordId}_${index}`}
                 sx={(theme) => ({
@@ -82,26 +78,22 @@ export const GameListRecords = ({ gameListRecords, activeGameListRecord }: Props
                 component={Link}
                 href={`${Urls.ADMIN}/${recordId}`}
               >
-                <TableCell component="div" scope="row" sx={getCellSx(recordId)}>
-                  {activeGameListRecord === recordId ? (
-                    <Visibility fontSize="small" />
-                  ) : (
-                    <VisibilityOff fontSize="small" color="disabled" />
-                  )}
+                <TableCell component="div" scope="row" sx={getCellSx(isActive)}>
+                  {isActive ? <Visibility fontSize="small" /> : <VisibilityOff fontSize="small" color="disabled" />}
                 </TableCell>
-                <TableCell component="div" scope="row" sx={getCellSx(recordId)}>
-                  {new Date(recordId).toLocaleString()}
+                <TableCell component="div" scope="row" sx={getCellSx(isActive)}>
+                  {new Date(created).toLocaleString()}
                 </TableCell>
-                <TableCell component="div" scope="row" sx={getCellSx(recordId)}>
+                <TableCell component="div" scope="row" sx={getCellSx(isActive)}>
                   {recordName}
                 </TableCell>
-                <TableCell component="div" scope="row" sx={getCellSx(recordId)}>
+                <TableCell component="div" scope="row" sx={getCellSx(isActive)}>
                   <Stack direction="row" alignItems="center" gap={1}>
-                    {getStatusIcon(status)} {getStatusText(status, gameList)}
+                    {getStatusIcon(status)} {getStatusText(status)}
                   </Stack>
                 </TableCell>
-                <TableCell component="div" scope="row" sx={getCellSx(recordId)}>
-                  {gameList?.filter((game) => game.status === Status.UNFINISHED).length} / {gameList.length}
+                <TableCell component="div" scope="row" sx={getCellSx(isActive)}>
+                  {gameListCount}
                 </TableCell>
               </TableRow>
             ))}

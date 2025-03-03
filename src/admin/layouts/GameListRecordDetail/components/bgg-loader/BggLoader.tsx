@@ -48,9 +48,9 @@ export const BggLoader = ({ gameListRecord }: Props) => {
 
   const handleSaveGameList = useCallback(
     async (mergedGameList: Game[]) => {
-      if (gameListRecord && mergedGameList.length) {
+      if (gameListRecord?.recordId && mergedGameList.length) {
         startTransition(async () => {
-          await updateGameListRecord(gameListRecord, mergedGameList);
+          await updateGameListRecord(gameListRecord.recordId, mergedGameList);
           setNewGameList([]);
 
           enqueueSnackbar('Načtení her proběhlo úspěšně, nyní můžete opustit stránku', {
@@ -60,7 +60,7 @@ export const BggLoader = ({ gameListRecord }: Props) => {
         });
       }
     },
-    [gameListRecord],
+    [gameListRecord.recordId],
   );
 
   useEffect(() => {
