@@ -9,6 +9,7 @@ import { CategoryFilters, CategoryGroup, MechanicGroup } from '../types';
 import { filterGamebyCategory } from '../utils';
 import {
   getAutocompleteOptions,
+  getBggStatusOptions,
   getCategoryGroup,
   getLangOptions,
   getMechanicGroup,
@@ -29,6 +30,7 @@ type Return = {
   mechanicsOptions: ControlleAutocompleteOption[];
   langOptions: ControlledSelectOption<CategoryFilters, 'lang'>[];
   orderingOptions: ControlledSelectOption<CategoryFilters, 'ordering'>[];
+  bggStatusOptions: ControlledSelectOption<CategoryFilters, 'bggStatus'>[];
 };
 
 export const useFilteredGamesByCategory = ({ filters }: Props): Return => {
@@ -81,6 +83,7 @@ export const useFilteredGamesByCategory = ({ filters }: Props): Return => {
 
   const langOptions = useMemo(() => getLangOptions(t), [t]);
   const orderingOptions = useMemo(() => getOrderingOptions(t), [t]);
+  const bggStatusOptions = useMemo(() => getBggStatusOptions(t), [t]);
 
   return {
     gameFilteredList,
@@ -90,5 +93,6 @@ export const useFilteredGamesByCategory = ({ filters }: Props): Return => {
     mechanicsOptions,
     langOptions,
     orderingOptions,
+    bggStatusOptions,
   };
 };

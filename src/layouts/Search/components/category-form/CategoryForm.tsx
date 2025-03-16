@@ -1,4 +1,4 @@
-import { Alarm, Group } from '@mui/icons-material';
+import { AccountCircle, Alarm, Group } from '@mui/icons-material';
 import { Box, Container, Grid, Stack } from '@mui/material';
 import { useTranslations } from 'next-intl';
 import { useFormContext } from 'react-hook-form';
@@ -16,6 +16,7 @@ type Props = {
   categoryOptions: ControlleAutocompleteOption[];
   mechanicsOptions: ControlleAutocompleteOption[];
   langOptions: ControlledSelectOption<CategoryFilters, 'lang'>[];
+  bggStatusOptions: ControlledSelectOption<CategoryFilters, 'bggStatus'>[];
 };
 
 export const CategoryForm = ({
@@ -24,6 +25,7 @@ export const CategoryForm = ({
   categoryOptions,
   mechanicsOptions,
   langOptions,
+  bggStatusOptions,
 }: Props) => {
   const t = useTranslations();
   const { control } = useFormContext<CategoryFilters>();
@@ -75,6 +77,14 @@ export const CategoryForm = ({
                 label={t('search.form.mechanics.label')}
                 options={mechanicsOptions}
                 noOptionsText={t('common.noOptionsText')}
+              />
+
+              <ControlledSelect<CategoryFilters, 'bggStatus'>
+                control={control}
+                name="bggStatus"
+                label={t('search.form.bggStatus.label')}
+                options={bggStatusOptions}
+                Icon={AccountCircle}
               />
             </Stack>
           </Grid>

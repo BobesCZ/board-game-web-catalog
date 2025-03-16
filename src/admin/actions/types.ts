@@ -18,6 +18,12 @@ export type GameListRecordItem = Omit<GameListRecord, 'gameList'> & {
   gameListCount: number;
 };
 
+export type MyBggRecord = {
+  lastUpdated: string;
+  username: string;
+  gameListCount: number;
+};
+
 export enum CacheTags {
   ACTIVE_GAMELIST = 'activeGameList',
   GAMELIST_RECORDS = 'gameListRecords',
