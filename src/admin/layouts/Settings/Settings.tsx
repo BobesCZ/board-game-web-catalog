@@ -1,10 +1,16 @@
 'use client';
 
-import { Cached, Upload } from '@mui/icons-material';
+import { Cached, TableView, Upload } from '@mui/icons-material';
 import { Box, Divider, FormControl, FormControlLabel, Radio, RadioGroup, Stack, Typography } from '@mui/material';
 import { enqueueSnackbar } from 'notistack';
 import { ChangeEvent, ChangeEventHandler, useState, useTransition } from 'react';
-import { GameListRecord, createGameListRecord, revalidateAllAdminPaths, revalidateAllTags } from '@/admin/actions';
+import {
+  GameListRecord,
+  createGameListRecord,
+  createTables,
+  revalidateAllAdminPaths,
+  revalidateAllTags,
+} from '@/admin/actions';
 import { ButtonAction, VisuallyHiddenInput, processFileUpload } from '@/components';
 import { Urls } from '@/config';
 import { useRouter } from '@/navigation';
@@ -24,6 +30,15 @@ export const Settings = () => {
       revalidateAllAdminPaths();
       revalidateAllTags();
       enqueueSnackbar('Chache byla úspěšně vymazána', {
+        variant: 'success',
+      });
+    });
+  };
+
+  const handleCreateTables = () => {
+    startTransition(() => {
+      createTables();
+      enqueueSnackbar('DB tabulky byly aktualizovány', {
         variant: 'success',
       });
     });
@@ -58,6 +73,10 @@ export const Settings = () => {
       <Stack direction="row" gap={2} my={4}>
         <ButtonAction color="error" startIcon={<Cached />} onClick={handleRevalidateAdmin} isPending={isPending}>
           Vymazat cache
+        </ButtonAction>
+
+        <ButtonAction color="warning" startIcon={<TableView />} onClick={handleCreateTables} isPending={isPending}>
+          Aktualizovat DB tabulky
         </ButtonAction>
       </Stack>
 
