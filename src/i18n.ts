@@ -35,6 +35,10 @@ export const APP_PATHNAMES = {
     cs: Urls.ADMIN_USERS,
     en: Urls.ADMIN_USERS,
   },
+  [Urls.ADMIN_WEB_EVENTS]: {
+    cs: Urls.ADMIN_WEB_EVENTS,
+    en: Urls.ADMIN_WEB_EVENTS,
+  },
   [Urls.ADMIN + '/[gameListRecordId]']: {
     cs: '/admin/[gameListRecordId]',
     en: '/admin/[gameListRecordId]',

@@ -18,6 +18,18 @@ export type GameListRecordItem = Omit<GameListRecord, 'gameList'> & {
   gameListCount: number;
 };
 
+export enum WebEventType {
+  SEARCH = 'Search',
+}
+
+export type WebEventRecord = {
+  recordId: number;
+  created: Date;
+  type: WebEventType;
+  place: string;
+  data: string;
+};
+
 export enum CacheTags {
   ACTIVE_GAMELIST = 'activeGameList',
   GAMELIST_RECORDS = 'gameListRecords',

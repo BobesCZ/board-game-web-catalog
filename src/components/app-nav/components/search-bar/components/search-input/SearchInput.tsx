@@ -4,6 +4,7 @@ import { Search } from '@mui/icons-material';
 import { Autocomplete, AutocompleteProps, Box, ListItemProps, TextField, createFilterOptions } from '@mui/material';
 import { useTranslations } from 'next-intl';
 import { SyntheticEvent, useState } from 'react';
+import { WebEventType, createWebEventRecord } from '@/admin/actions';
 import { MIN_CHARACTERS_TO_SEARCH, NAME_URL_QUERY, Urls } from '@/config';
 import { useRouter } from '@/navigation';
 import { useAppStore } from '@/store';
@@ -18,6 +19,8 @@ export const SearchInput = ({ handleDrawerClose }: Props) => {
   const t = useTranslations();
   const { gameList } = useAppStore();
   const { push } = useRouter();
+
+  const [inputValue, setInputValue] = useState('');
   const [open, setOpen] = useState(false);
 
   const getOptionLabel = (option: string | Game) => (typeof option === 'string' ? option : option.sourceName);
@@ -29,17 +32,29 @@ export const SearchInput = ({ handleDrawerClose }: Props) => {
   const handleChange = (_e: SyntheticEvent, newValue: string | Game) => {
     const query = getOptionLabel(newValue);
 
-    if (!!query.length) {
-      const params = new URLSearchParams();
-      params.set(NAME_URL_QUERY, query);
+    if (!query.length) return;
 
-      const url = `${Urls.NAME}?${params}`;
-      push(url);
-    }
+    const webEvent = { type: WebEventType.SEARCH, place: 'SearchInput', data: { inputValue, query } };
+    createWebEventRecord(webEvent);
+
+    const params = new URLSearchParams();
+    params.set(NAME_URL_QUERY, query);
+
+    const url = `${Urls.NAME}?${params}`;
+    push(url);
   };
 
-  const handleInputChange = (_e: SyntheticEvent, newValue: string) =>
+  const handleBlur = () => {
+    if (!inputValue.length) return;
+
+    const webEvent = { type: WebEventType.SEARCH, place: 'SearchInput', data: { inputValue } };
+    createWebEventRecord(webEvent);
+  };
+
+  const handleInputChange = (_e: SyntheticEvent, newValue: string) => {
+    setInputValue(newValue);
     setOpen(newValue.length >= MIN_CHARACTERS_TO_SEARCH);
+  };
 
   const handleKeyDown: AutocompleteProps<Game, false, true, true>['onKeyDown'] = (event) => {
     if (event.key === 'Enter' && handleDrawerClose) {
@@ -68,6 +83,7 @@ export const SearchInput = ({ handleDrawerClose }: Props) => {
         filterOptions={filterOptions}
         open={open}
         onChange={handleChange}
+        onBlur={handleBlur}
         onInputChange={handleInputChange}
         onClose={handleClose}
         onKeyDown={handleKeyDown}

@@ -3,6 +3,7 @@ export enum Urls {
   ADMIN_NEW = '/admin/new',
   ADMIN_USERS = '/admin/users',
   ADMIN_SETTINGS = '/admin/settings',
+  ADMIN_WEB_EVENTS = '/admin/web-events',
   ADDED = '/added',
   NAME = '/name',
   RANK = '/rank',

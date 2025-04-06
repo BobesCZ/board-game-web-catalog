@@ -1,4 +1,5 @@
 import {
+  Box,
   Paper,
   Table,
   TableBody,
@@ -54,7 +55,7 @@ export const CsvHelp = () => {
   };
 
   return (
-    <>
+    <Box mt={2}>
       <Typography variant="h3">Nastavení CSV sloupců</Typography>
 
       <TableContainer component={Paper} elevation={4} sx={{ my: 4, maxHeight: '500px', overflow: 'auto' }}>
@@ -96,6 +97,6 @@ export const CsvHelp = () => {
         * Tyto sloupce vyplňte pouze v případě, že hru nelze dohledat v BGG. Hra, která má vyplněný aspoň 1 z těchto
         sloupců, bude označena jako <i>úspěšně načtená</i> a nebude se již dohledávat na BGG.
       </Typography>
-    </>
+    </Box>
   );
 };

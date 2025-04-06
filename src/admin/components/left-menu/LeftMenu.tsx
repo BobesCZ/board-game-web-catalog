@@ -1,6 +1,6 @@
 'use client';
 
-import { Add, OpenInNewOutlined, People, Settings, ViewList } from '@mui/icons-material';
+import { Add, OpenInNewOutlined, People, Settings, TrendingUp, ViewList } from '@mui/icons-material';
 import { Divider, Drawer, List, ListItem, ListItemButton, ListItemIcon, ListItemText, Toolbar } from '@mui/material';
 import { LEFT_MENU_WIDTH } from '@/admin/config';
 import { Link } from '@/components';
@@ -40,6 +40,18 @@ export function LeftMenu() {
               <Add />
             </ListItemIcon>
             <ListItemText primary="Nový seznam" />
+          </ListItemButton>
+        </ListItem>
+        <ListItem disablePadding>
+          <ListItemButton
+            LinkComponent={Link}
+            href={Urls.ADMIN_WEB_EVENTS}
+            selected={pathname === Urls.ADMIN_WEB_EVENTS}
+          >
+            <ListItemIcon sx={{ minWidth: 44 }}>
+              <TrendingUp />
+            </ListItemIcon>
+            <ListItemText primary="Analytika" />
           </ListItemButton>
         </ListItem>
 

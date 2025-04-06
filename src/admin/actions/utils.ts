@@ -4,7 +4,7 @@ import { neon } from '@neondatabase/serverless';
 import { revalidatePath, revalidateTag } from 'next/cache';
 import { Urls } from '@/config';
 import { DB_SCHEMA } from '../config';
-import { GAMELIST_RECORDS_TABLE, USER_AUTH_RECORDS_TABLE } from './config';
+import { GAMELIST_RECORDS_TABLE, USER_AUTH_RECORDS_TABLE, WEB_EVENTS_RECORDS_TABLE } from './config';
 import { CacheTags } from './types';
 
 const sql = neon(process.env.DATABASE_URL ?? '');
@@ -42,6 +42,16 @@ export const createTables = async () => {
       "name" TEXT NOT NULL,
       "email" TEXT,
       "password" TEXT
+    );
+  `);
+
+  await sql(`
+    CREATE TABLE IF NOT EXISTS ${WEB_EVENTS_RECORDS_TABLE} (
+      "recordId" INTEGER PRIMARY KEY GENERATED ALWAYS AS IDENTITY,
+      "created" TIMESTAMP WITH TIME ZONE NOT NULL DEFAULT now(),
+      "type" TEXT NOT NULL,
+      "place" TEXT NOT NULL,
+      "data" JSONB
     );
   `);
 };
