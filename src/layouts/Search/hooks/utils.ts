@@ -1,7 +1,7 @@
 import { findKey, uniq } from 'lodash-es';
 import { CategoryKey, MechanicKey } from '@/bggData';
 import { ControlleAutocompleteOption, ControlledSelectOption } from '@/components';
-import { GameOrdering, GamePlayingTimeType, Lang, TFunction } from '@/types';
+import { GameOrdering, GamePlayingTimeType, Lang, MyBggCollection, TFunction } from '@/types';
 import { GROUPED_CATEGORIES, GROUPED_MECHANICS } from '../config';
 import { CategoryFilters, CategoryGroup, MechanicGroup, PlayersCount } from '../types';
 import { GetAutocompleteOptionsProps } from './types';
@@ -70,4 +70,10 @@ export const getOrderingOptions = (t: TFunction): ControlledSelectOption<Categor
   Object.values(GameOrdering).map((value) => ({
     value,
     label: t(`search.form.ordering.options.${value}`),
+  }));
+
+export const getBggStatusOptions = (t: TFunction): ControlledSelectOption<CategoryFilters, 'bggStatus'>[] =>
+  Object.values(MyBggCollection).map((value) => ({
+    value,
+    label: t(`myBgg.collection.${value}`),
   }));

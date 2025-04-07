@@ -8,6 +8,7 @@ export enum Urls {
   NAME = '/name',
   RANK = '/rank',
   SEARCH = '/',
+  MY_BGG = '/my-bgg',
   EXTERNAL_CLIENT = '/',
   EXTERNAL_BGG = 'https://boardgamegeek.com/boardgame/',
   EXTERNAL_ZH = 'https://www.zatrolene-hry.cz/katalog-her/',
