@@ -17,14 +17,14 @@ export function AppLayout({ children, activeGameListRecord, isLoading }: Props) 
   const gameList = activeGameListRecord?.gameList ?? [];
 
   return (
-    <ThemeRegistry>
-      <AppStoreProvider value={{ activeGameListRecord, gameList }}>
+    <AppStoreProvider value={{ activeGameListRecord, gameList }}>
+      <ThemeRegistry>
         <Stack sx={{ minHeight: '100vh' }}>
           <AppNav />
           {isLoading ? <AppLoader /> : <Box flexGrow={1}>{children}</Box>}
           <AppFooter />
         </Stack>
-      </AppStoreProvider>
-    </ThemeRegistry>
+      </ThemeRegistry>
+    </AppStoreProvider>
   );
 }

@@ -1,8 +1,8 @@
 'use client';
 
 import { createTheme } from '@mui/material/styles';
-import { LIGHT_THEME } from './config';
 import { GoogleFont } from './fonts';
+import { LIGHT_THEME } from './config';
 
 const theme = createTheme({
   typography: {
@@ -62,4 +62,4 @@ theme.typography.body2 = {
   },
 };
 
-export { theme };
+export { theme as mysticaTheme };
