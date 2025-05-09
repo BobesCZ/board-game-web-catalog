@@ -6,6 +6,7 @@ Návod pro _programátory_.
 
 1. Udělejte `fork` / `import` tohoto repozitáře
 2. Proveďte `clone` vašeho nově vytvořeného repozitáře na lokální disk
+3. V naklonovaném repoziráře spusťte `git remote add origin-base https://github.com/BobesCZ/board-game-web-catalog.git`
 
 ## Vercel
 
@@ -13,7 +14,7 @@ Návod pro _programátory_.
 2. Importujte váš repozitář
 3. V sekci **Configure Project > Build and Output Settings** nastavte **Install Command** na `npm install --force`
 4. Klikněte na **Deploy** pro založení projektu (build skončí chybou)
-5. _Tento bod pravděpodobně není nutný_ V terminálu spusťte `npx vercel link` a poté `npx vercel env pull .env.development.local` (více informací [zde](https://vercel.com/docs/storage/vercel-kv/quickstart))
+5. V **Settings > Environments > Production** nastavte branch na `production` místo `master`
 
 ## Neon
 
@@ -21,7 +22,8 @@ Návod pro _programátory_.
 2. V sekci Quickstart klikněte na Show Secrets a zkopírujte proměnnou `DATABASE_URL` do **env.local** > `DATABASE_URL`
 3. Klikněte na **Connect Project** a připojte Vercel projekt
 4. Ve Vercelu proveďte **Redeploy** (build by měl proběhnout v pořádku)
-5. Změňte proměnnou v **src\admin\config\config.ts** > `DB_SCHEMA` (ve formátu snake_case)
+5. Klikněte na **Open in Neon > Tables > Create schema** a vytvořte schéma (ve formátu snake_case)
+6. Změňte proměnnou v **src\admin\config\config.ts** > `DB_SCHEMA`
 
 ## Next-auth - Google
 
@@ -46,6 +48,7 @@ Návod pro _programátory_.
 1. Ve Vercelu proveďte **Redeploy**
 2. Zkontrolujte homepage produkčního webu i administraci
 3. V terminálu spusťte `npm run dev` a zkontrolujte lokální verzi
+4. Otevřete `http://localhost:3000/admin`, vytvoří se prázdné tabulky v DB
 
 ## Klientská grafika
 
