@@ -37,6 +37,7 @@ export const AppMenu = () => {
             <MenuLink to={Urls.NAME} i18nKey="name.pageTitle" />
             <MenuLink to={Urls.RANK} i18nKey="rank.pageTitle" />
             <MenuLink to={Urls.ADDED} i18nKey="added.pageTitle" />
+            <MenuLink to={Urls.MY_BGG} i18nKey="myBgg.pageTitle" />
 
             <Divider sx={{ my: 1 }} />
 

@@ -51,6 +51,10 @@ export const APP_PATHNAMES = {
     cs: '/hledat-podle-jmena',
     en: '/search-by-name',
   },
+  [Urls.MY_BGG]: {
+    cs: '/muj-bgg',
+    en: '/my-bgg',
+  },
   [Urls.RANK]: {
     cs: '/nejlepsi-hry',
     en: '/best-games',

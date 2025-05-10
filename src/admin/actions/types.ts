@@ -20,6 +20,7 @@ export type GameListRecordItem = Omit<GameListRecord, 'gameList'> & {
 
 export enum WebEventType {
   SEARCH = 'Search',
+  MY_BGG = 'MyBgg',
 }
 
 export type WebEventRecord = {
