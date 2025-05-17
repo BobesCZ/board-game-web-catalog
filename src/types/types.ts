@@ -25,6 +25,22 @@ export enum Status {
   UNFINISHED = 'unfinished',
 }
 
+export enum MyBggCollection {
+  ALL = 'all',
+  RATED = 'rated',
+  UNRATED = 'unrated',
+  WANTTOBUY = 'wanttobuy',
+  WANTTOPLAY = 'wanttoplay',
+  WISHLIST = 'wishlist',
+}
+
+export type MyBggStatusCollection = MyBggCollection.WANTTOBUY | MyBggCollection.WANTTOPLAY | MyBggCollection.WISHLIST;
+
+export type MyBggStatus = {
+  collections: `${MyBggStatusCollection}`[];
+  userRating: number | undefined;
+};
+
 export type Game = Partial<Pick<BggThing, 'id' | 'primaryName' | 'yearpublished' | 'image'>> &
   Partial<Pick<BggGame, 'playingtime' | 'minplayers' | 'maxplayers' | 'minage'>> & {
     uid: string;
@@ -40,6 +56,7 @@ export type Game = Partial<Pick<BggThing, 'id' | 'primaryName' | 'yearpublished'
     averageRating?: Rating;
     averageWeight?: Rating;
     ranks?: Rank[];
+    myBggStatus?: MyBggStatus;
   };
 
 export enum GamePlayingTimeType {

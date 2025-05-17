@@ -1,5 +1,5 @@
 import { CategoryKey, MechanicKey } from '@/bggData';
-import { GameOrdering, GamePlayingTimeInterval, GamePlayingTimeType, Lang } from '@/types';
+import { GameOrdering, GamePlayingTimeInterval, GamePlayingTimeType, Lang, MyBggCollection } from '@/types';
 import { CategoryFilters, CategoryGroup, MechanicGroup } from './types';
 
 export const CATEGORY_DEFAULT_VALUES: CategoryFilters = {
@@ -9,6 +9,7 @@ export const CATEGORY_DEFAULT_VALUES: CategoryFilters = {
   mechanics: [],
   lang: Lang.All,
   ordering: GameOrdering.RATING,
+  bggStatus: MyBggCollection.ALL,
 };
 
 export const CATEGORY_PLAYING_TIME_INTERVALS: Record<GamePlayingTimeType, GamePlayingTimeInterval> = {

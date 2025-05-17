@@ -21,6 +21,7 @@
     "goToBgg": "BoardGameGeek.com",
     "goToZh": "Zatrolene-hry.cz",
     "usersCount": "{usersCount} hodnocení",
+    "yourBggRating": "Vaše BGG hodnocení",
     "noInfo": "O této hře nemáme více informací",
     "langs": {
       "irrelevant": "jazykově nezávislé",
@@ -121,6 +122,9 @@
           "rating": "Podle hodnocení",
           "weight": "Podle obtížnosti"
         }
+      },
+      "bggStatus": {
+        "label": "Můj BGG"
       }
     }
   },
@@ -374,5 +378,41 @@
     "recordCreated": "Poslední aktualizace {recordCreated}.",
     "createdBy": "Vytvořil"
   },
-  "searchBar": "Vyhledat hru"
+  "searchBar": "Vyhledat hru",
+  "myBgg": {
+    "pageTitle": "Můj BoardGameGeek",
+    "tabLabel": "Můj BGG",
+    "bggLoader": "Načtěte svůj profil",
+    "myProfile": "Můj profil",
+    "infoText1": "Po zadání vašeho uživatelského jména na BoardGameGeeku se stáhnou veřejně dostupná data bez nutnosti přihlášení.",
+    "infoText2": "Data jsou uložena lokálně v prohlížeči na vašem zařízení.",
+    "created": "Načteno {created}",
+    "reload": "Načíst aktuální data",
+    "catalogCount": "V tomto katalogu",
+    "bggCount": "Můj BGG",
+    "loadButton": "Načíst profil",
+    "clearButton": "Zrušit propojení",
+    "backButton": "Zpět na katalog",
+    "usernameError": "Uživatel nenalezen.",
+    "benefits": {
+      "title": "Výhody propojení s BGG",
+      "rating": "U her uvidíte vaše hodnocení (modré hvězdičky) namísto průměrného BGG hodnocení (žluté hvězdičky)",
+      "filters1": "Můžete filtrovat jen vámi hodnocené/nehodnocené hry",
+      "filters2": "Můžete filtrovat podle kolekcí Want To Play, Want To Buy a Wishlist"
+    },
+    "form": {
+      "username": {
+        "label": "Username"
+      }
+    },
+    "collection": {
+      "all": "– vše –",
+      "rated": "Ohodnoceno na BGG",
+      "unrated": "Nehodnoceno na BGG",
+      "wanttoplay": "Want To Play",
+      "wanttobuy": "Want To Buy",
+      "wishlist": "Wishlist"
+    },
+    "addProfile": "Přidat profil"
+  }
 }

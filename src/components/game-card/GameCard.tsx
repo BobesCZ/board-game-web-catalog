@@ -1,5 +1,5 @@
 import { Alarm, Group } from '@mui/icons-material';
-import { Box, Card, CardContent, Chip, Collapse, Rating, Stack, Tooltip, Typography } from '@mui/material';
+import { Box, Card, CardContent, Chip, Collapse, Stack, Typography, lighten } from '@mui/material';
 import { grey } from '@mui/material/colors';
 import { useLocale, useTranslations } from 'next-intl';
 import { useState } from 'react';
@@ -9,7 +9,9 @@ import {
   BggLink,
   CardActions,
   CardImage,
+  CollectionTag,
   GameInfoItem,
+  GameRating,
   GameWeight,
   LangItem,
   LocationTag,
@@ -44,6 +46,7 @@ export const GameCard = ({
     status,
     langs,
     location,
+    myBggStatus,
   },
 }: Props) => {
   const t = useTranslations();
@@ -54,7 +57,16 @@ export const GameCard = ({
 
   return (
     <Card
-      sx={{ display: 'flex', flexDirection: 'column', justifyContent: 'space-between', p: 1 }}
+      sx={{
+        display: 'flex',
+        flexDirection: 'column',
+        justifyContent: 'space-between',
+        p: 1,
+        backgroundImage: !!myBggStatus?.userRating
+          ? `linear-gradient(${lighten('#3f3a60', 0.91)}, ${lighten('#3f3a60', 0.93)})`
+          : undefined,
+        border: !!myBggStatus?.userRating ? `1px solid ${lighten('#3f3a60', 0.5)}` : undefined,
+      }}
       elevation={3}
       data-uid={uid}
       data-id={id}
@@ -63,7 +75,7 @@ export const GameCard = ({
         <Box position="relative">
           <CardImage image={image} />
 
-          {(!!location || !!filteredRanks.length) && (
+          {(!!location || !!filteredRanks.length || !!myBggStatus?.collections.length) && (
             <Stack
               alignItems="flex-start"
               gap={1}
@@ -73,6 +85,7 @@ export const GameCard = ({
               {filteredRanks.map((rank) => (
                 <RankTag key={rank.name} rank={rank} />
               ))}
+              {myBggStatus?.collections?.map((name) => <CollectionTag key={name} name={name} />)}
             </Stack>
           )}
           {!!averageWeight?.value && <GameWeight averageWeight={averageWeight} />}
@@ -98,23 +111,16 @@ export const GameCard = ({
           )}
         </Typography>
 
-        {!!averageRating?.value && (
-          <Box display="flex" mb={1.5}>
-            <Tooltip
-              arrow
-              enterTouchDelay={100}
-              title={t('gameCard.usersCount', {
-                usersCount: averageRating.usersCount.toLocaleString(resolvedLanguage),
-              })}
-            >
-              <Stack display="inline-flex" direction="row" alignItems="center" gap={1}>
-                <Rating size="small" value={averageRating.value / 2} max={5} precision={0.1} readOnly />
-                <Typography variant="body2" component="span" sx={{ mt: 0.25, lineHeight: 1, color: grey[500] }}>
-                  {(averageRating.value * 10).toFixed(0)}%
-                </Typography>
-              </Stack>
-            </Tooltip>
-          </Box>
+        {!!myBggStatus?.userRating && (
+          <GameRating rating={myBggStatus.userRating} title={t('gameCard.yourBggRating')} isMyBgg />
+        )}
+        {!!averageRating?.value && !myBggStatus?.userRating && (
+          <GameRating
+            rating={averageRating.value}
+            title={t('gameCard.usersCount', {
+              usersCount: averageRating.usersCount.toLocaleString(resolvedLanguage),
+            })}
+          />
         )}
 
         <Stack gap={1.5} direction="row">

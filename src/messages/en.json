@@ -21,6 +21,7 @@
     "goToBgg": "BoardGameGeek.com",
     "goToZh": "Zatrolene-hry.cz",
     "usersCount": "{usersCount} votes",
+    "yourBggRating": "Your BGG rating",
     "noInfo": "No additional information",
     "langs": {
       "irrelevant": "language independent",
@@ -121,6 +122,9 @@
           "rating": "By rating",
           "weight": "By complexity"
         }
+      },
+      "bggStatus": {
+        "label": "My BGG"
       }
     }
   },
@@ -374,5 +378,41 @@
     "recordCreated": "Last update {recordCreated}.",
     "createdBy": "Created by"
   },
-  "searchBar": "Search"
+  "searchBar": "Search",
+  "myBgg": {
+    "pageTitle": "My BoardGameGeek",
+    "tabLabel": "My BGG",
+    "bggLoader": "Load your profile",
+    "myProfile": "My profile",
+    "infoText1": "Entering your BoardGameGeek username will download publicly available data without the need to log in.",
+    "infoText2": "Data is stored locally in the browser on your device.",
+    "created": "Created {created}",
+    "reload": "Reload data",
+    "catalogCount": "In this catalog",
+    "bggCount": "My BGG",
+    "loadButton": "Load your profile",
+    "clearButton": "Delete connection",
+    "backButton": "Back to catalog",
+    "usernameError": "User not found.",
+    "benefits": {
+      "title": "Benefits of connection with BGG",
+      "rating": "Showing your BGG rating (blue stars) instead of average BGG rating (yellow stars)",
+      "filters1": "Filtering only rated/unrated games",
+      "filters2": "Filtering by Want To Play, Want To Buy and Wishlist collections"
+    },
+    "form": {
+      "username": {
+        "label": "Username"
+      }
+    },
+    "collection": {
+      "all": "– all –",
+      "rated": "Rated on BGG",
+      "unrated": "Unrated on BGG",
+      "wanttoplay": "Want To Play",
+      "wanttobuy": "Want To Buy",
+      "wishlist": "Wishlist"
+    },
+    "addProfile": "Add profile"
+  }
 }

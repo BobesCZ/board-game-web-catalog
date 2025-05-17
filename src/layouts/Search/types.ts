@@ -1,5 +1,5 @@
 import { ControlleAutocompleteOption } from '@/components';
-import { GameOrdering, GamePlayingTimeType, Lang } from '@/types';
+import { GameOrdering, GamePlayingTimeType, Lang, MyBggCollection } from '@/types';
 
 export type PlayersCount = 0 | 1 | 2 | 200 | 3 | 4 | 5 | 6 | 7;
 
@@ -10,6 +10,7 @@ export type CategoryFilters = {
   mechanics: ControlleAutocompleteOption[];
   lang: `${Lang}`;
   ordering: `${GameOrdering}`;
+  bggStatus: `${MyBggCollection}`;
 };
 
 export enum CategoryGroup {

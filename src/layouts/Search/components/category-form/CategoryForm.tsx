@@ -1,5 +1,5 @@
-import { Alarm, Group } from '@mui/icons-material';
-import { Box, Container, Grid, Stack } from '@mui/material';
+import { AccountCircle, Alarm, Group } from '@mui/icons-material';
+import { Box, Button, Container, Grid, Stack } from '@mui/material';
 import { useTranslations } from 'next-intl';
 import { useFormContext } from 'react-hook-form';
 import {
@@ -7,7 +7,10 @@ import {
   ControlledAutocomplete,
   ControlledSelect,
   ControlledSelectOption,
+  Link,
 } from '@/components';
+import { Urls } from '@/config';
+import { useAppStore } from '@/store';
 import { CategoryFilters } from '../../types';
 
 type Props = {
@@ -16,6 +19,7 @@ type Props = {
   categoryOptions: ControlleAutocompleteOption[];
   mechanicsOptions: ControlleAutocompleteOption[];
   langOptions: ControlledSelectOption<CategoryFilters, 'lang'>[];
+  bggStatusOptions: ControlledSelectOption<CategoryFilters, 'bggStatus'>[];
 };
 
 export const CategoryForm = ({
@@ -24,9 +28,11 @@ export const CategoryForm = ({
   categoryOptions,
   mechanicsOptions,
   langOptions,
+  bggStatusOptions,
 }: Props) => {
   const t = useTranslations();
   const { control } = useFormContext<CategoryFilters>();
+  const { myBggData } = useAppStore();
 
   return (
     <Box py={4} sx={(theme) => ({ backgroundColor: theme.palette.secondary.light })}>
@@ -76,6 +82,43 @@ export const CategoryForm = ({
                 options={mechanicsOptions}
                 noOptionsText={t('common.noOptionsText')}
               />
+
+              <Stack direction="row" alignItems="center" gap={3} flexWrap="wrap">
+                <ControlledSelect<CategoryFilters, 'bggStatus'>
+                  control={control}
+                  name="bggStatus"
+                  label={t('search.form.bggStatus.label')}
+                  options={bggStatusOptions}
+                  Icon={AccountCircle}
+                  sx={{
+                    width: 'auto',
+                    flexGrow: 1,
+                    '& .MuiSvgIcon-root': {
+                      color: '#3f3a60',
+                    },
+                  }}
+                />
+
+                {!myBggData && (
+                  <Button
+                    component={Link}
+                    variant="outlined"
+                    size="large"
+                    color="inherit"
+                    startIcon={<AccountCircle sx={{ color: '#3f3a60' }} />}
+                    sx={{
+                      flexGrow: { xs: 1, sm: 0 },
+                      flexShrink: 0,
+                      height: 56,
+                      color: '#3f3a60',
+                      borderColor: '#3f3a60',
+                    }}
+                    href={Urls.MY_BGG}
+                  >
+                    {t('myBgg.addProfile')}
+                  </Button>
+                )}
+              </Stack>
             </Stack>
           </Grid>
         </Grid>

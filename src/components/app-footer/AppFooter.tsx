@@ -32,6 +32,7 @@ export const AppFooter = () => {
             <Grid item lg={6}>
               <Stack alignItems="flex-start" gap={1}>
                 <FooterLink to={Urls.ADDED} i18nKey="added.pageTitle" />
+                <FooterLink to={Urls.MY_BGG} i18nKey="myBgg.pageTitle" />
                 <FooterLink to={Urls.EXTERNAL_CLIENT} i18nKey="footer.goToClient" external />
               </Stack>
             </Grid>
@@ -50,6 +51,7 @@ export const AppFooter = () => {
             <FooterLink to={Urls.NAME} i18nKey="name.pageTitle" />
             <FooterLink to={Urls.RANK} i18nKey="rank.pageTitle" />
             <FooterLink to={Urls.ADDED} i18nKey="added.pageTitle" />
+            <FooterLink to={Urls.MY_BGG} i18nKey="myBgg.pageTitle" />
             <FooterLink to={Urls.EXTERNAL_CLIENT} i18nKey="footer.goToClient" external />
           </Stack>
         </Stack>

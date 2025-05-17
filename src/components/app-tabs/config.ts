@@ -18,4 +18,8 @@ export const APP_TABS: AppTab[] = [
     url: Urls.ADDED,
     label: 'added.tabLabel',
   },
+  {
+    url: Urls.MY_BGG,
+    label: 'myBgg.tabLabel',
+  },
 ];
