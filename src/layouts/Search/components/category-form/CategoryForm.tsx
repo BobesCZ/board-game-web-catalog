@@ -1,5 +1,5 @@
 import { AccountCircle, Alarm, Group } from '@mui/icons-material';
-import { Box, Button, Container, Grid2, Stack } from '@mui/material';
+import { Box, Button, Container, Grid, Stack } from '@mui/material';
 import { useTranslations } from 'next-intl';
 import { useFormContext } from 'react-hook-form';
 import {
@@ -37,8 +37,8 @@ export const CategoryForm = ({
   return (
     <Box py={4} sx={(theme) => ({ backgroundColor: theme.palette.secondary.light })}>
       <Container>
-        <Grid2 container rowSpacing={3} columnSpacing={6}>
-          <Grid2 size={{ xs: 12, md: 6 }}>
+        <Grid container rowSpacing={3} columnSpacing={6}>
+          <Grid size={{ xs: 12, md: 6 }}>
             <Stack gap={3}>
               <ControlledSelect<CategoryFilters, 'playersCount'>
                 control={control}
@@ -63,9 +63,9 @@ export const CategoryForm = ({
                 options={langOptions}
               />
             </Stack>
-          </Grid2>
+          </Grid>
 
-          <Grid2 size={{ xs: 12, md: 6 }}>
+          <Grid size={{ xs: 12, md: 6 }}>
             <Stack gap={3}>
               <ControlledAutocomplete<CategoryFilters, 'categories'>
                 control={control}
@@ -120,8 +120,8 @@ export const CategoryForm = ({
                 )}
               </Stack>
             </Stack>
-          </Grid2>
-        </Grid2>
+          </Grid>
+        </Grid>
       </Container>
     </Box>
   );
