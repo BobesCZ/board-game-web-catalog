@@ -15,7 +15,7 @@ const getActiveGameListRecordPromise = async () => {
     LIMIT 1;
   `;
 
-  const result = (await sql(query)) as GameListRecord[];
+  const result = (await sql.query(query)) as GameListRecord[];
 
   return result?.[0];
 };
@@ -31,7 +31,7 @@ export const setActiveGameListRecord = async (recordId: number) => {
     SET "isActive" = false;
   `;
 
-  await sql(deactivateQuery);
+  await sql.query(deactivateQuery);
 
   // Activate specific record
   const activateQuery = `
@@ -41,7 +41,7 @@ export const setActiveGameListRecord = async (recordId: number) => {
    RETURNING "recordId";
  `;
 
-  await sql(activateQuery);
+  await sql.query(activateQuery);
 
   revalidateTag(CacheTags.ACTIVE_GAMELIST);
   revalidatePath(Urls.ADMIN);

@@ -22,9 +22,9 @@ export const revalidateAllTags = () => {
 };
 
 export const createTables = async () => {
-  await sql(`CREATE SCHEMA IF NOT EXISTS "${DB_SCHEMA}";`);
+  await sql.query(`CREATE SCHEMA IF NOT EXISTS "${DB_SCHEMA}";`);
 
-  await sql(`
+  await sql.query(`
     CREATE TABLE IF NOT EXISTS ${GAMELIST_RECORDS_TABLE} (
       "recordId" INTEGER PRIMARY KEY GENERATED ALWAYS AS IDENTITY,
       "created" TIMESTAMP WITH TIME ZONE NOT NULL DEFAULT now(),
@@ -35,7 +35,7 @@ export const createTables = async () => {
     );
   `);
 
-  await sql(`
+  await sql.query(`
     CREATE TABLE IF NOT EXISTS ${USER_AUTH_RECORDS_TABLE} (
       "recordId" INTEGER PRIMARY KEY GENERATED ALWAYS AS IDENTITY,
       "status" TEXT NOT NULL,
@@ -45,7 +45,7 @@ export const createTables = async () => {
     );
   `);
 
-  await sql(`
+  await sql.query(`
     CREATE TABLE IF NOT EXISTS ${WEB_EVENTS_RECORDS_TABLE} (
       "recordId" INTEGER PRIMARY KEY GENERATED ALWAYS AS IDENTITY,
       "created" TIMESTAMP WITH TIME ZONE NOT NULL DEFAULT now(),

@@ -22,7 +22,7 @@ const getGameListRecordsPromise = async (): Promise<GameListRecordItem[]> => {
     ORDER BY "recordId" ASC;
   `;
 
-  return (await sql(query)) as GameListRecordItem[];
+  return (await sql.query(query)) as GameListRecordItem[];
 };
 
 export const getGameListRecords = unstable_cache(getGameListRecordsPromise, ['getGameListRecords'], {
@@ -35,7 +35,7 @@ export const getGameListRecord = async (recordId: number): Promise<GameListRecor
     WHERE "recordId" = $1
   `;
 
-  const result = (await sql(query, [recordId])) as GameListRecord[];
+  const result = (await sql.query(query, [recordId])) as GameListRecord[];
 
   return result?.[0];
 };
@@ -71,7 +71,7 @@ export const createGameListRecord = async (
     RETURNING "recordId";
   `;
 
-  const result = await sql(query);
+  const result = await sql.query(query);
 
   revalidateTag(CacheTags.GAMELIST_RECORDS);
   revalidatePath(Urls.ADMIN);
@@ -90,7 +90,7 @@ export const updateGameListRecord = async (recordId: number, gameList: Game[]) =
     RETURNING "recordId";
   `;
 
-  await sql(query, [status, JSON.stringify(gameList), recordId]);
+  await sql.query(query, [status, JSON.stringify(gameList), recordId]);
 
   revalidateTag(CacheTags.GAMELIST_RECORDS);
   revalidatePath(Urls.ADMIN);
@@ -103,7 +103,7 @@ export const deleteGameListRecord = async (recordId: number) => {
     RETURNING "recordId";
   `;
 
-  await sql(query, [recordId]);
+  await sql.query(query, [recordId]);
 
   revalidateTag(CacheTags.GAMELIST_RECORDS);
   revalidatePath(Urls.ADMIN);
@@ -114,7 +114,7 @@ export const deleteGameListRecords = async () => {
     DELETE FROM ${GAMELIST_RECORDS_TABLE}
   `;
 
-  await sql(query);
+  await sql.query(query);
 
   revalidateTag(CacheTags.GAMELIST_RECORDS);
   revalidatePath(Urls.ADMIN);
