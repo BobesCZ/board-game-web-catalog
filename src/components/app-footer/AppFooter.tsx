@@ -1,4 +1,4 @@
-import { Box, Container, Divider, Grid, Stack, Typography } from '@mui/material';
+import { Box, Container, Divider, Grid2, Stack, Typography } from '@mui/material';
 import { useTranslations } from 'next-intl';
 import { Urls } from '@/config';
 import { useAppStore } from '@/store';
@@ -21,22 +21,22 @@ export const AppFooter = () => {
             </Typography>
           </Box>
 
-          <Grid container columnSpacing={3}>
-            <Grid item lg={6}>
+          <Grid2 container columnSpacing={3}>
+            <Grid2 size={{ lg: 6 }}>
               <Stack alignItems="flex-start" gap={1}>
                 <FooterLink to={Urls.SEARCH} i18nKey="search.pageTitle" />
                 <FooterLink to={Urls.NAME} i18nKey="name.pageTitle" />
                 <FooterLink to={Urls.RANK} i18nKey="rank.pageTitle" />
               </Stack>
-            </Grid>
-            <Grid item lg={6}>
+            </Grid2>
+            <Grid2 size={{ lg: 6 }}>
               <Stack alignItems="flex-start" gap={1}>
                 <FooterLink to={Urls.ADDED} i18nKey="added.pageTitle" />
                 <FooterLink to={Urls.MY_BGG} i18nKey="myBgg.pageTitle" />
                 <FooterLink to={Urls.EXTERNAL_CLIENT} i18nKey="footer.goToClient" external />
               </Stack>
-            </Grid>
-          </Grid>
+            </Grid2>
+          </Grid2>
         </Box>
 
         <Stack alignItems="center" sx={{ display: { lg: 'none' } }}>
