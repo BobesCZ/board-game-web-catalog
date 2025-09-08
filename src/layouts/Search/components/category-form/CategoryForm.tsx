@@ -38,7 +38,7 @@ export const CategoryForm = ({
     <Box py={4} sx={(theme) => ({ backgroundColor: theme.palette.secondary.light })}>
       <Container>
         <Grid container rowSpacing={3} columnSpacing={6}>
-          <Grid item xs={12} md={6}>
+          <Grid size={{ xs: 12, md: 6 }}>
             <Stack gap={3}>
               <ControlledSelect<CategoryFilters, 'playersCount'>
                 control={control}
@@ -65,7 +65,7 @@ export const CategoryForm = ({
             </Stack>
           </Grid>
 
-          <Grid item xs={12} md={6}>
+          <Grid size={{ xs: 12, md: 6 }}>
             <Stack gap={3}>
               <ControlledAutocomplete<CategoryFilters, 'categories'>
                 control={control}

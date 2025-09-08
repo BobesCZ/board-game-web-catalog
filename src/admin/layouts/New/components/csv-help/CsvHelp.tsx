@@ -72,10 +72,10 @@ export const CsvHelp = () => {
             {Object.entries(columns).map(([column, { demand, values, description }]) => (
               <TableRow
                 key={column}
-                sx={(theme) => ({
+                sx={{
                   '&:last-child td, &:last-child th': { border: 0 },
                   backgroundColor: alpha(getRowBackground(column as keyof CsvColumnsOptions), 0.6),
-                })}
+                }}
               >
                 <TableCell component="td" scope="row">
                   {CSV_COLUMNS_OPTIONS[column as keyof CsvColumnsOptions].colName}

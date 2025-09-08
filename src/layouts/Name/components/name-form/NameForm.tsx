@@ -12,7 +12,7 @@ export const NameForm = () => {
     <Box py={4} sx={(theme) => ({ backgroundColor: theme.palette.secondary.light })}>
       <Container>
         <Grid container rowSpacing={3} columnSpacing={3}>
-          <Grid item xs={12}>
+          <Grid size={12}>
             <ControlledTextField<NameFilters, 'name'> control={control} name="name" label={t('name.form.name.label')} />
           </Grid>
         </Grid>

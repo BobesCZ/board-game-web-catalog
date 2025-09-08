@@ -1,5 +1,5 @@
 import { groupBy, orderBy } from 'lodash-es';
-import { useLocale, useTranslations } from 'next-intl';
+import { useLocale } from 'next-intl';
 import { useMemo } from 'react';
 import { GameGroupedList } from '@/components';
 import { useAppStore } from '@/store';
@@ -14,8 +14,6 @@ type Return = {
 export const useGroupedGamesByAdded = (): Return => {
   const { gameList } = useAppStore();
   const locale = useLocale();
-
-  const t = useTranslations();
 
   const gameGroupedList = useMemo(() => {
     const orderedList = orderBy(gameList || [], orderGameByAdded, 'desc');

@@ -11,7 +11,7 @@ const sql = neon(process.env.DATABASE_URL ?? '');
 export const getUserAuthRecords = async (): Promise<UserAuthRecord[]> => {
   const query = `SELECT * FROM ${USER_AUTH_RECORDS_TABLE}`;
 
-  return (await sql(query)) as UserAuthRecord[];
+  return (await sql.query(query)) as UserAuthRecord[];
 };
 
 export const getUserAuthRecordsWithFallback = async () => {
@@ -50,7 +50,7 @@ export const createUserAuthRecord = async (user: Session['user'], password?: str
     VALUES (${values.join(', ')})
   `;
 
-  await sql(query);
+  await sql.query(query);
 
   revalidateAllAdminPaths();
 };
@@ -65,7 +65,7 @@ export const authorizeUserAuthRecord = async (recordId: number) => {
     RETURNING "recordId";
   `;
 
-  await sql(query, [status, recordId]);
+  await sql.query(query, [status, recordId]);
 
   revalidateAllAdminPaths();
 };
@@ -77,7 +77,7 @@ export const deleteUserAuthRecord = async (recordId: number) => {
      RETURNING "recordId";
    `;
 
-  await sql(query, [recordId]);
+  await sql.query(query, [recordId]);
 
   revalidateAllAdminPaths();
 };

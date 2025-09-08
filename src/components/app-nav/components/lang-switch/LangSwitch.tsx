@@ -9,14 +9,14 @@ import { localeLangOptions } from './config';
 
 export function LangSwitch() {
   const locale = useLocale();
-  const { replace } = useRouter();
+  const { push } = useRouter();
   const pathname = usePathname();
   const searchParams = useSearchParams();
 
   const handleChange = (_e: MouseEvent<HTMLElement>, newValue: string | null) => {
     if (newValue !== null) {
-      const url = `/${pathname}?${searchParams}`;
-      replace(url, { locale: newValue });
+      const url = `${pathname}?${searchParams}`;
+      push(url, { locale: newValue });
     }
   };
 

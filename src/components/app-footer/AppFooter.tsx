@@ -22,14 +22,14 @@ export const AppFooter = () => {
           </Box>
 
           <Grid container columnSpacing={3}>
-            <Grid item lg={6}>
+            <Grid size={{ lg: 6 }}>
               <Stack alignItems="flex-start" gap={1}>
                 <FooterLink to={Urls.SEARCH} i18nKey="search.pageTitle" />
                 <FooterLink to={Urls.NAME} i18nKey="name.pageTitle" />
                 <FooterLink to={Urls.RANK} i18nKey="rank.pageTitle" />
               </Stack>
             </Grid>
-            <Grid item lg={6}>
+            <Grid size={{ lg: 6 }}>
               <Stack alignItems="flex-start" gap={1}>
                 <FooterLink to={Urls.ADDED} i18nKey="added.pageTitle" />
                 <FooterLink to={Urls.MY_BGG} i18nKey="myBgg.pageTitle" />

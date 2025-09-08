@@ -13,7 +13,7 @@ export const getWebEventRecords = async (): Promise<WebEventRecord[]> => {
     WHERE "created" >= NOW() - INTERVAL '14 days'
   `;
 
-  return (await sql(query)) as WebEventRecord[];
+  return (await sql.query(query)) as WebEventRecord[];
 };
 
 export const createWebEventRecord = async (
@@ -36,5 +36,5 @@ export const createWebEventRecord = async (
     VALUES (${values.join(', ')})
   `;
 
-  await sql(query);
+  await sql.query(query);
 };

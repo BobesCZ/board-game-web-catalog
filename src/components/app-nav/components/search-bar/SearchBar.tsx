@@ -1,7 +1,7 @@
 'use client';
 
 import { Search } from '@mui/icons-material';
-import { Drawer, Hidden, IconButton } from '@mui/material';
+import { Box, Drawer, IconButton } from '@mui/material';
 import { useState } from 'react';
 import { SearchInput } from './components';
 
@@ -12,10 +12,10 @@ export const SearchBar = () => {
 
   return (
     <>
-      <Hidden mdDown implementation="css">
+      <Box sx={{ display: { xs: 'none', md: 'block' } }}>
         <SearchInput />
-      </Hidden>
-      <Hidden mdUp implementation="css">
+      </Box>
+      <Box sx={{ display: { xs: 'block', md: 'none' } }}>
         <IconButton color="secondary" onClick={() => setOpen(true)}>
           <Search />
         </IconButton>
@@ -27,7 +27,7 @@ export const SearchBar = () => {
         >
           <SearchInput handleDrawerClose={handleDrawerClose} />
         </Drawer>
-      </Hidden>
+      </Box>
     </>
   );
 };

@@ -1,14 +1,5 @@
-import { createLocalizedPathnamesNavigation } from 'next-intl/navigation';
-import { APP_LOCALES, APP_LOCALE_PREFIX, APP_PATHNAMES } from './i18n';
+// i18n/navigation.ts
+import { createNavigation } from 'next-intl/navigation';
+import { routing } from '@/i18n/routing';
 
-export const {
-  Link: NextLink,
-  redirect,
-  usePathname,
-  useRouter,
-  getPathname,
-} = createLocalizedPathnamesNavigation({
-  locales: APP_LOCALES,
-  localePrefix: APP_LOCALE_PREFIX,
-  pathnames: APP_PATHNAMES,
-});
+export const { Link: NextLink, redirect, usePathname, useRouter, getPathname } = createNavigation(routing);

@@ -11,9 +11,7 @@ import { useAppStore } from '@/store';
 import { Game } from '@/types';
 import { AutocompleteOption } from '../autocomplete-option';
 
-type Props = {
-  handleDrawerClose?: () => void;
-};
+type Props = { handleDrawerClose?: () => void };
 
 export const SearchInput = ({ handleDrawerClose }: Props) => {
   const t = useTranslations();
@@ -66,15 +64,11 @@ export const SearchInput = ({ handleDrawerClose }: Props) => {
   const handleClose = () => setOpen(false);
 
   return (
-    <Box
-      sx={(theme) => ({ backgroundColor: theme.palette.secondary.light, borderRadius: theme.shape.borderRadius / 4 })}
-    >
+    <Box sx={(theme) => ({ backgroundColor: theme.palette.secondary.light, borderRadius: '4px' })}>
       <Autocomplete<Game, false, true, true>
         freeSolo
         disableClearable
-        sx={(theme) => ({
-          [theme.breakpoints.up('md')]: { width: 320 },
-        })}
+        sx={(theme) => ({ [theme.breakpoints.up('md')]: { width: 320 } })}
         size="small"
         color="white"
         forcePopupIcon={false}
@@ -109,11 +103,7 @@ export const SearchInput = ({ handleDrawerClose }: Props) => {
             })}
           />
         )}
-        componentsProps={{
-          popper: {
-            modifiers: [{ name: 'offset', options: { offset: [0, 10] } }],
-          },
-        }}
+        componentsProps={{ popper: { modifiers: [{ name: 'offset', options: { offset: [0, 10] } }] } }}
         renderOption={(props, option, { inputValue }) => {
           const { key, ...itemProps } = props as ListItemProps;
 

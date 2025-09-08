@@ -69,11 +69,11 @@ export const GameListRecords = ({ gameListRecords }: Props) => {
             {gameListRecords?.map(({ recordId, status, recordName, gameListCount, created, isActive }, index) => (
               <TableRow
                 key={`${recordId}_${index}`}
-                sx={(theme) => ({
+                sx={{
                   '&:last-child td, &:last-child th': { border: 0 },
                   textDecoration: 'none',
                   cursor: 'pointer',
-                })}
+                }}
                 hover
                 component={Link}
                 href={`${Urls.ADMIN}/${recordId}`}

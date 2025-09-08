@@ -3,9 +3,7 @@ import { Chip, Tooltip } from '@mui/material';
 import { useTranslations } from 'next-intl';
 import { Game } from '@/types';
 
-type Props = {
-  location: Game['location'];
-};
+type Props = { location: NonNullable<Game['location']> };
 
 export const LocationTag = ({ location }: Props) => {
   const t = useTranslations();
@@ -21,9 +19,7 @@ export const LocationTag = ({ location }: Props) => {
           borderTopLeftRadius: 0,
           borderBottomLeftRadius: 0,
           backgroundColor: theme.palette.background.paper,
-          '.MuiChip-icon': {
-            fontSize: 18,
-          },
+          '.MuiChip-icon': { fontSize: 18 },
         })}
       />
     </Tooltip>
