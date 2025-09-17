@@ -1,7 +1,9 @@
 'use client';
 
+import { BggCollectionGame } from '@code-bucket/board-game-geek';
 import { Upload } from '@mui/icons-material';
 import { Box, Button, Divider, Stack, TextField, Typography } from '@mui/material';
+import { camelCase } from 'lodash-es';
 import { enqueueSnackbar } from 'notistack';
 import { parse } from 'papaparse';
 import { ChangeEvent, ChangeEventHandler, useState, useTransition } from 'react';
@@ -10,8 +12,9 @@ import { CSV_COLUMNS_OPTIONS } from '@/admin/config';
 import { CsvGame, getGameListFromCsv } from '@/admin/csvParser';
 import { ButtonAction, VisuallyHiddenInput, processFileUpload } from '@/components';
 import { Urls } from '@/config';
+import { processCollectionGames } from '@/layouts/MyBgg/utils';
 import { useRouter } from '@/navigation';
-import { Game } from '@/types';
+import { Game, Status } from '@/types';
 import { CsvHelp, CsvPreview } from './components';
 
 export const CsvLoader = () => {
@@ -34,6 +37,34 @@ export const CsvLoader = () => {
     setGameList(newGameList);
   };
 
+  const getGameFromCollection = (username: string, { id, name }: BggCollectionGame): Game => {
+    const sourceName = name;
+    const location = username;
+    const status = Status.NEW;
+
+    return {
+      uid: camelCase(`${sourceName} ${id ?? ''} ${username}`),
+      sourceName,
+      id,
+      location,
+      status: status,
+    };
+  };
+
+  const handleCollectionLoad = async () => {
+    const username = 'kukiz';
+
+    const bggCollectionGameList = await processCollectionGames(username);
+    console.log('🚀 ~ bggCollectionGameList:', bggCollectionGameList);
+
+    if (bggCollectionGameList) {
+      const newGameList = bggCollectionGameList.map((item) => getGameFromCollection(username, item));
+      setGameList(newGameList);
+    } else {
+      console.log('ERROR');
+    }
+  };
+
   const handleCreateGameList = async () => {
     startTransition(async () => {
       const { recordId } = await createGameListRecord(gameList, recordName || 'Seznam her');
@@ -54,6 +85,10 @@ export const CsvLoader = () => {
       <Button component="label" variant="contained" startIcon={<Upload />} sx={{ mt: 3, mb: 5 }}>
         Nahrát
         <VisuallyHiddenInput type="file" onChange={handleFileUpload} />
+      </Button>
+
+      <Button onClick={handleCollectionLoad} variant="contained" startIcon={<Upload />} sx={{ mt: 3, mb: 5 }}>
+        Nahrát BGG
       </Button>
 
       {!!gameList.length && (
