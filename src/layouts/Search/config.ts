@@ -1,4 +1,4 @@
-import { CategoryKey, MechanicKey } from '@/bggData';
+import { CategoryKey, MechanicKey } from '@/bgg/data';
 import { GameOrdering, GamePlayingTimeInterval, GamePlayingTimeType, Lang, MyBggCollection } from '@/types';
 import { CategoryFilters, CategoryGroup, MechanicGroup } from './types';
 

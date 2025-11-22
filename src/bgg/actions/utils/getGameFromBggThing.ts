@@ -1,6 +1,6 @@
 import { BggGame, BggThing, BggThingType } from '@code-bucket/board-game-geek';
 import { findKey, uniq } from 'lodash-es';
-import { BGG_CATEGORIES, BGG_MECHANICS, CategoryKey, MechanicKey, RankNameKey } from '@/bggData';
+import { BGG_CATEGORIES, BGG_MECHANICS, CategoryKey, MechanicKey, RankNameKey } from '@/bgg/data';
 import { Game, Rank } from '@/types';
 
 export const getGameFromBggThing = (game: Game, bggThing?: BggThing): Game => {

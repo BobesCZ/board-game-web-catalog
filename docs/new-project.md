@@ -43,6 +43,11 @@ Návod pro _programátory_.
 
 > **POZNÁMKA:** Na lokálním prostředí je Administrace z praktických důvodů přístupná i bez přihlášení (tzn. není rozdíl mezi přihlášeným a nepřihlášeným uživatelem), toto chování upravuje config proměnná `DISABLE_USER_AUTH_ON_DEVELOPMENT`.
 
+## BGG TOKEN
+
+1. Registrujte se na boardgamegeek.com pro získání tokenu (bez něj nelze API používat) [viz návod](https://boardgamegeek.com/using_the_xml_api)
+2. Uložte do **env.local** > `BGG_API_TOKEN` a do Vercelu přes **Settings > Environment Variables** [viz návod](https://vercel.com/guides/how-to-add-vercel-environment-variables)
+
 ## Kontrola nastavení
 
 1. Ve Vercelu proveďte **Redeploy**

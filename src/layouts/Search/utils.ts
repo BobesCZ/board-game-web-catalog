@@ -1,4 +1,4 @@
-import { CategoryKey, MechanicKey } from '@/bggData';
+import { CategoryKey, MechanicKey } from '@/bgg/data';
 import { Game, Lang, MyBggCollection } from '@/types';
 import { CATEGORY_PLAYING_TIME_INTERVALS } from './config';
 import { CategoryFilters } from './types';

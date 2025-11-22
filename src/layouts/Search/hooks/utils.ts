@@ -1,5 +1,5 @@
 import { findKey, uniq } from 'lodash-es';
-import { CategoryKey, MechanicKey } from '@/bggData';
+import { CategoryKey, MechanicKey } from '@/bgg/data';
 import { ControlleAutocompleteOption, ControlledSelectOption } from '@/components';
 import { GameOrdering, GamePlayingTimeType, Lang, MyBggCollection, TFunction } from '@/types';
 import { GROUPED_CATEGORIES, GROUPED_MECHANICS } from '../config';

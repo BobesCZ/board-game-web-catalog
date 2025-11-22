@@ -1,10 +1,10 @@
 import { BggCollectionGame } from '@code-bucket/board-game-geek';
+import { getCollectionData } from '@/bgg/actions';
 import { PROCESS_COLLECTION_TIMEOUT } from '../config';
-import { fetchCollectionData } from './fetchUtils';
 
 export const processCollectionGames = async (username: string): Promise<BggCollectionGame[] | undefined> => {
   try {
-    const result = await fetchCollectionData(username);
+    const result = await getCollectionData(username);
 
     if (result === null) {
       await new Promise((resolve) => setTimeout(resolve, PROCESS_COLLECTION_TIMEOUT));

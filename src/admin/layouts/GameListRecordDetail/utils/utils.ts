@@ -1,9 +1,7 @@
 import { Dispatch, SetStateAction } from 'react';
+import { getBggIdData, getGameData } from '@/bgg/actions';
 import { Game, LogRecord, LogRecordState, Status } from '@/types';
 import { PROCESS_GAME_TIMEOUT, TOO_MANY_REQUESTS_TEXT } from '../config';
-import { fetchThingData } from './fetchUtils';
-import { getGameFromBggThing } from './parseUtils';
-import { getBggId } from './processSearch';
 
 export const processGameList = async (
   gameList: Game[],
@@ -19,10 +17,8 @@ export const processGameList = async (
       if (status === Status.FINISHED) {
         setLog((prev) => [...prev, { sourceName, status: LogRecordState.SKIPPED }]);
       } else {
-        const bggId = id ?? (await getBggId(sourceName));
-        const bggThing = await fetchThingData(bggId);
-
-        const parsedGame = getGameFromBggThing(game, bggThing);
+        const bggId = id ?? (await getBggIdData(sourceName));
+        const parsedGame = await getGameData(bggId, game);
 
         newGameList.push({ ...parsedGame, status: Status.FINISHED });
         setLog((prev) => [...prev, { sourceName, status: LogRecordState.SUCCESS }]);

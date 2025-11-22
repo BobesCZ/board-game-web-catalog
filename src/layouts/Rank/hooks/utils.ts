@@ -1,4 +1,4 @@
-import { BGG_RANK_NAMES } from '@/bggData';
+import { BGG_RANK_NAMES } from '@/bgg/data';
 import { ControlledSelectOption } from '@/components';
 import { TFunction } from '@/types';
 import { RankFilters } from '../types';

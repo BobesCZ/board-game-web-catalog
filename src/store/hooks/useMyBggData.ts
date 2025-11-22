@@ -18,11 +18,7 @@ export const useMyBggData = () => {
     (username: string, bggCollectionGameList: BggCollectionGame[]) => {
       const created = Date.now();
 
-      const fixedGameList = bggCollectionGameList.map((item) => ({
-        ...item,
-        userRating: item.userRating,
-      }));
-      const newMyBggData: MyBggData = { created, username, bggCollectionGameList: fixedGameList };
+      const newMyBggData: MyBggData = { created, username, bggCollectionGameList };
 
       setMyBggData((prev) => {
         const webEvent = {
