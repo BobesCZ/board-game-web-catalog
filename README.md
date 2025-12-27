@@ -36,4 +36,7 @@ npm run dev
 
 ## Places using this project
 
-- [Hrana stolu](https://hry.hranastolu.cz/)
+- [Hrana stolu](https://hry.hranastolu.cz)
+- [Za Zrcadlem](https://games.cajovnazazrcadlem.cz)
+- [Black Oil](https://board-game-web-catalog-blackoil.vercel.app)
+- [Deskoherní klub Rosnička](https://board-game-web-catalog-rosnicka.vercel.app)
