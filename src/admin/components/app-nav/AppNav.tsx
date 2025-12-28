@@ -24,7 +24,7 @@ export const AppNav = ({ userAuthRecord }: Props) => {
             {session ? (
               <Stack direction="row" alignItems="center" gap={1}>
                 <Avatar alt="Remy Sharp" src={session?.user?.image ?? undefined} sx={{ width: 32, height: 32 }} />
-                <Typography title={session.user?.email || ''}>{session.user?.name}</Typography>
+                <Typography title={session.user?.email || ''}>{userAuthRecord?.name}</Typography>
                 <Button variant="outlined" sx={{ color: '#fff', borderColor: '#fff', ml: 2 }} onClick={() => signOut()}>
                   Odhlásit se
                 </Button>
