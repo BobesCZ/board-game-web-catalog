@@ -59,4 +59,35 @@ export const createTables = async () => {
       "data" JSONB
     );
   `);
+
+  await sql.query(`
+    DO $$
+    BEGIN
+      -- přidání sloupce, pokud neexistuje
+      IF NOT EXISTS (
+        SELECT 1
+        FROM information_schema.columns
+        WHERE table_name = '${GAMELIST_RECORDS_TABLE}'
+          AND column_name = 'userRecordId'
+      ) THEN
+        ALTER TABLE ${GAMELIST_RECORDS_TABLE}
+        ADD COLUMN "userRecordId" INTEGER;
+      END IF;
+
+      -- přidání FK constraintu, pokud neexistuje
+      IF NOT EXISTS (
+        SELECT 1
+        FROM information_schema.table_constraints
+        WHERE table_name = '${GAMELIST_RECORDS_TABLE}'
+          AND constraint_name = 'fk_user_auth_record'
+      ) THEN
+        ALTER TABLE ${GAMELIST_RECORDS_TABLE}
+        ADD CONSTRAINT fk_user_auth_record
+        FOREIGN KEY ("userRecordId")
+        REFERENCES ${USER_AUTH_RECORDS_TABLE}("recordId")
+        ON DELETE SET NULL;
+      END IF;
+    END $$;
+
+  `);
 };
