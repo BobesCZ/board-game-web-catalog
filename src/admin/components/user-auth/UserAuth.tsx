@@ -3,6 +3,7 @@
 import { Alert, Box, Container } from '@mui/material';
 import { ReactNode } from 'react';
 import { ButtonAction } from '@/components';
+import { UserAuthContext } from './UserAuthContext';
 import { APPLY_AUTH } from './config';
 import { UseUserAuthReturn, UserAuthStatus } from './types';
 
@@ -43,7 +44,7 @@ export function UserAuth({ userAuthRecord, handleCreateUserAuth, isPending, chil
   }
 
   if (!APPLY_AUTH || (APPLY_AUTH && userAuthRecord?.status === UserAuthStatus.Authorized)) {
-    return <>{children}</>;
+    return <UserAuthContext value={userAuthRecord}>{children}</UserAuthContext>;
   }
 
   return null;

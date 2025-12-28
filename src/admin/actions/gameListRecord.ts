@@ -4,7 +4,7 @@ import { neon } from '@neondatabase/serverless';
 import { revalidatePath, revalidateTag, unstable_cache } from 'next/cache';
 import { Urls } from '@/config';
 import { Game, Status } from '@/types';
-import { GAMELIST_RECORDS_TABLE } from './config';
+import { GAMELIST_RECORDS_TABLE, USER_AUTH_RECORDS_TABLE } from './config';
 import { CacheTags, GameListRecord, GameListRecordItem, GameListRecordStatus } from './types';
 
 const sql = neon(process.env.DATABASE_URL ?? '');
@@ -12,14 +12,18 @@ const sql = neon(process.env.DATABASE_URL ?? '');
 const getGameListRecordsPromise = async (): Promise<GameListRecordItem[]> => {
   const query = `
     SELECT 
-      "recordId",
-      "created",
-      "recordName",
-      "status",
-      jsonb_array_length("gameList") AS "gameListCount",
-      "isActive"
-    FROM ${GAMELIST_RECORDS_TABLE}
-    ORDER BY "recordId" ASC;
+      g."recordId",
+      g."created",
+      g."recordName",
+      g."status",
+      jsonb_array_length(g."gameList") AS "gameListCount",
+      g."isActive",
+      g."userRecordId"::INTEGER AS "userRecordId",
+      u."name"  AS "createdBy"
+    FROM ${GAMELIST_RECORDS_TABLE} g
+    LEFT JOIN ${USER_AUTH_RECORDS_TABLE} u
+      ON g."userRecordId" = u."recordId"
+    ORDER BY g."recordId" ASC;
   `;
 
   return (await sql.query(query)) as GameListRecordItem[];
@@ -31,8 +35,19 @@ export const getGameListRecords = unstable_cache(getGameListRecordsPromise, ['ge
 
 export const getGameListRecord = async (recordId: number): Promise<GameListRecord> => {
   const query = `
-    SELECT * FROM ${GAMELIST_RECORDS_TABLE}
-    WHERE "recordId" = $1
+    SELECT 
+      g."recordId",
+      g."created",
+      g."recordName",
+      g."status",
+      g."gameList",
+      g."isActive",
+      g."userRecordId",
+      u."name"  AS "createdBy"
+    FROM ${GAMELIST_RECORDS_TABLE} g
+    LEFT JOIN ${USER_AUTH_RECORDS_TABLE} u
+      ON g."userRecordId" = u."recordId"
+    WHERE g."recordId" = $1
   `;
 
   const result = (await sql.query(query, [recordId])) as GameListRecord[];
@@ -43,6 +58,7 @@ export const getGameListRecord = async (recordId: number): Promise<GameListRecor
 export const createGameListRecord = async (
   gameList: Game[],
   recordName: string,
+  userRecordId: number,
   status?: `${GameListRecordStatus}`,
   created?: Date,
 ): Promise<{ recordId: number }> => {
@@ -51,6 +67,7 @@ export const createGameListRecord = async (
     status: status ?? GameListRecordStatus.INCOMPLETED,
     gameList,
     created,
+    userRecordId,
   };
 
   const { columns, values } = Object.entries(gameListRecord).reduce(

@@ -77,7 +77,11 @@ export const GameListRecordDetail = ({ gameListRecord }: Props) => {
       <Typography variant="h2" gutterBottom mt={2}>
         {gameListRecord.recordName || ''}{' '}
         <Box component="span" fontWeight="normal">
-          ({new Date(gameListRecord.created).toLocaleString()})
+          ({new Date(gameListRecord.created).toLocaleString()},{' '}
+          <Box component="span" sx={{ color: 'text.secondary' }}>
+            {gameListRecord.createdBy}
+          </Box>
+          )
         </Box>
       </Typography>
 

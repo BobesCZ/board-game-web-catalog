@@ -2,6 +2,7 @@
 
 import { Add, Delete, Done, QueryBuilder, Settings, Visibility, VisibilityOff } from '@mui/icons-material';
 import {
+  Box,
   Button,
   Paper,
   Stack,
@@ -66,37 +67,42 @@ export const GameListRecords = ({ gameListRecords }: Props) => {
             </TableRow>
           </TableHead>
           <TableBody component="div">
-            {gameListRecords?.map(({ recordId, status, recordName, gameListCount, created, isActive }, index) => (
-              <TableRow
-                key={`${recordId}_${index}`}
-                sx={{
-                  '&:last-child td, &:last-child th': { border: 0 },
-                  textDecoration: 'none',
-                  cursor: 'pointer',
-                }}
-                hover
-                component={Link}
-                href={`${Urls.ADMIN}/${recordId}`}
-              >
-                <TableCell component="div" scope="row" sx={getCellSx(isActive)}>
-                  {isActive ? <Visibility fontSize="small" /> : <VisibilityOff fontSize="small" color="disabled" />}
-                </TableCell>
-                <TableCell component="div" scope="row" sx={getCellSx(isActive)}>
-                  {new Date(created).toLocaleString()}
-                </TableCell>
-                <TableCell component="div" scope="row" sx={getCellSx(isActive)}>
-                  {recordName}
-                </TableCell>
-                <TableCell component="div" scope="row" sx={getCellSx(isActive)}>
-                  <Stack direction="row" alignItems="center" gap={1}>
-                    {getStatusIcon(status)} {getStatusText(status)}
-                  </Stack>
-                </TableCell>
-                <TableCell component="div" scope="row" sx={getCellSx(isActive)}>
-                  {gameListCount}
-                </TableCell>
-              </TableRow>
-            ))}
+            {gameListRecords?.map(
+              ({ recordId, status, recordName, gameListCount, created, isActive, createdBy }, index) => (
+                <TableRow
+                  key={`${recordId}_${index}`}
+                  sx={{
+                    '&:last-child td, &:last-child th': { border: 0 },
+                    textDecoration: 'none',
+                    cursor: 'pointer',
+                  }}
+                  hover
+                  component={Link}
+                  href={`${Urls.ADMIN}/${recordId}`}
+                >
+                  <TableCell component="div" scope="row" sx={getCellSx(isActive)}>
+                    {isActive ? <Visibility fontSize="small" /> : <VisibilityOff fontSize="small" color="disabled" />}
+                  </TableCell>
+                  <TableCell component="div" scope="row" sx={getCellSx(isActive)}>
+                    {new Date(created).toLocaleString()}{' '}
+                    <Box component="span" sx={{ color: 'text.secondary' }}>
+                      ({createdBy})
+                    </Box>
+                  </TableCell>
+                  <TableCell component="div" scope="row" sx={getCellSx(isActive)}>
+                    {recordName}
+                  </TableCell>
+                  <TableCell component="div" scope="row" sx={getCellSx(isActive)}>
+                    <Stack direction="row" alignItems="center" gap={1}>
+                      {getStatusIcon(status)} {getStatusText(status)}
+                    </Stack>
+                  </TableCell>
+                  <TableCell component="div" scope="row" sx={getCellSx(isActive)}>
+                    {gameListCount}
+                  </TableCell>
+                </TableRow>
+              ),
+            )}
           </TableBody>
         </Table>
       </TableContainer>

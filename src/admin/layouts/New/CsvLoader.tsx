@@ -6,6 +6,7 @@ import { enqueueSnackbar } from 'notistack';
 import { parse } from 'papaparse';
 import { ChangeEvent, ChangeEventHandler, useState, useTransition } from 'react';
 import { createGameListRecord } from '@/admin/actions';
+import { useUserAuthContext } from '@/admin/components';
 import { CSV_COLUMNS_OPTIONS } from '@/admin/config';
 import { CsvGame, getGameListFromCsv } from '@/admin/csvParser';
 import { ButtonAction, VisuallyHiddenInput, processFileUpload } from '@/components';
@@ -15,6 +16,7 @@ import { Game } from '@/types';
 import { CsvHelp, CsvPreview } from './components';
 
 export const CsvLoader = () => {
+  const userAuthRecord = useUserAuthContext();
   const [isPending, startTransition] = useTransition();
   const { push } = useRouter();
   const [recordName, setRecordName] = useState('');
@@ -36,7 +38,9 @@ export const CsvLoader = () => {
 
   const handleCreateGameList = async () => {
     startTransition(async () => {
-      const { recordId } = await createGameListRecord(gameList, recordName || 'Seznam her');
+      if (!userAuthRecord) return;
+
+      const { recordId } = await createGameListRecord(gameList, recordName || 'Seznam her', userAuthRecord.recordId);
       push(`${Urls.ADMIN}/${recordId}`);
     });
   };
@@ -77,7 +81,12 @@ export const CsvLoader = () => {
             />
           </Box>
           <Stack direction="row" gap={2} my={4}>
-            <ButtonAction color="success" onClick={handleCreateGameList} isPending={isPending}>
+            <ButtonAction
+              color="success"
+              onClick={handleCreateGameList}
+              isPending={isPending}
+              disabled={!userAuthRecord}
+            >
               Uložit seznam do DB
             </ButtonAction>
           </Stack>

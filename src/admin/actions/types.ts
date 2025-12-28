@@ -1,3 +1,4 @@
+import { UserAuthRecord } from '@/admin/components';
 import { Game } from '@/types';
 
 export enum GameListRecordStatus {
@@ -12,6 +13,8 @@ export type GameListRecord = {
   status: `${GameListRecordStatus}`;
   gameList: Game[];
   isActive: boolean;
+  userRecordId: number;
+  createdBy: UserAuthRecord['name'];
 };
 
 export type GameListRecordItem = Omit<GameListRecord, 'gameList'> & {
@@ -40,7 +43,6 @@ export const SecretVariablesKeys = {
   GOOGLE_CLIENT_ID: 'GOOGLE_CLIENT_ID',
   GOOGLE_CLIENT_SECRET: 'GOOGLE_CLIENT_SECRET',
   NEXTAUTH_SECRET: 'NEXTAUTH_SECRET',
-  NEXTAUTH_URL: 'NEXTAUTH_URL',
   DATABASE_URL: 'DATABASE_URL',
   BGG_API_TOKEN: 'BGG_API_TOKEN',
 } as const;

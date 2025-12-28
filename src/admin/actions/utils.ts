@@ -31,7 +31,12 @@ export const createTables = async () => {
       "recordName" TEXT NOT NULL,
       "status" TEXT NOT NULL,
       "gameList" JSONB,
-      "isActive" BOOLEAN DEFAULT false
+      "isActive" BOOLEAN DEFAULT false,
+      "userRecordId" INTEGER,
+        CONSTRAINT fk_user_auth_record
+          FOREIGN KEY ("userRecordId")
+          REFERENCES ${USER_AUTH_RECORDS_TABLE}("recordId")
+          ON DELETE SET NULL
     );
   `);
 
