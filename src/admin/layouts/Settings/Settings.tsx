@@ -1,21 +1,20 @@
 'use client';
 
-import { Cached, TableView, Upload } from '@mui/icons-material';
+import { Upload } from '@mui/icons-material';
 import { Box, Divider, FormControl, FormControlLabel, Radio, RadioGroup, Stack, Typography } from '@mui/material';
 import { enqueueSnackbar } from 'notistack';
 import { ChangeEvent, ChangeEventHandler, useState, useTransition } from 'react';
-import {
-  GameListRecord,
-  createGameListRecord,
-  createTables,
-  revalidateAllAdminPaths,
-  revalidateAllTags,
-} from '@/admin/actions';
+import { GameListRecord, SecretVariablesCheck, createGameListRecord } from '@/admin/actions';
+import { AdministrationSettings, ProjectSettings } from '@/admin/layouts/Settings/components';
 import { ButtonAction, VisuallyHiddenInput, processFileUpload } from '@/components';
 import { Urls } from '@/config';
 import { useRouter } from '@/navigation';
 
-export const Settings = () => {
+type Props = {
+  secretVariablesCheck: SecretVariablesCheck;
+};
+
+export const Settings = ({ secretVariablesCheck }: Props) => {
   const [isPending, startTransition] = useTransition();
   const { push } = useRouter();
 
@@ -23,25 +22,6 @@ export const Settings = () => {
 
   const handleCreatedSetting = ({ target }: ChangeEvent<HTMLInputElement>) => {
     setCreatedSetting((target as HTMLInputElement).value);
-  };
-
-  const handleRevalidateAdmin = () => {
-    startTransition(() => {
-      revalidateAllAdminPaths();
-      revalidateAllTags();
-      enqueueSnackbar('Chache byla úspěšně vymazána', {
-        variant: 'success',
-      });
-    });
-  };
-
-  const handleCreateTables = () => {
-    startTransition(() => {
-      createTables();
-      enqueueSnackbar('DB tabulky byly aktualizovány', {
-        variant: 'success',
-      });
-    });
   };
 
   const handleJsonFileUpload: ChangeEventHandler<HTMLInputElement> = async (event) => {
@@ -66,22 +46,9 @@ export const Settings = () => {
 
   return (
     <Box my={4}>
-      <Typography variant="h2" gutterBottom>
-        Nastavení Administrace
-      </Typography>
-
-      <Stack direction="row" gap={2} my={4}>
-        <ButtonAction color="error" startIcon={<Cached />} onClick={handleRevalidateAdmin} isPending={isPending}>
-          Vymazat cache
-        </ButtonAction>
-
-        <ButtonAction color="warning" startIcon={<TableView />} onClick={handleCreateTables} isPending={isPending}>
-          Aktualizovat DB tabulky
-        </ButtonAction>
-      </Stack>
+      <AdministrationSettings />
 
       <Divider sx={{ mb: 3 }} />
-
       <Typography variant="h2" gutterBottom>
         Nahrát zálohu
       </Typography>
@@ -103,6 +70,10 @@ export const Settings = () => {
           </Box>
         </ButtonAction>
       </Stack>
+
+      <Divider sx={{ mb: 3 }} />
+
+      <ProjectSettings secretVariablesCheck={secretVariablesCheck} />
     </Box>
   );
 };

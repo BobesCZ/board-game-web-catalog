@@ -35,3 +35,14 @@ export enum CacheTags {
   ACTIVE_GAMELIST = 'activeGameList',
   GAMELIST_RECORDS = 'gameListRecords',
 }
+
+export const SecretVariablesKeys = {
+  GOOGLE_CLIENT_ID: 'GOOGLE_CLIENT_ID',
+  GOOGLE_CLIENT_SECRET: 'GOOGLE_CLIENT_SECRET',
+  NEXTAUTH_SECRET: 'NEXTAUTH_SECRET',
+  NEXTAUTH_URL: 'NEXTAUTH_URL',
+  DATABASE_URL: 'DATABASE_URL',
+  BGG_API_TOKEN: 'BGG_API_TOKEN',
+} as const;
+
+export type SecretVariablesCheck = Record<keyof typeof SecretVariablesKeys, boolean>;
