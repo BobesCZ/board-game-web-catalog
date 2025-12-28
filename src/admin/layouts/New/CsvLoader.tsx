@@ -4,11 +4,11 @@ import { Upload } from '@mui/icons-material';
 import { Box, Button, Divider, Stack, TextField, Typography } from '@mui/material';
 import { enqueueSnackbar } from 'notistack';
 import { parse } from 'papaparse';
-import { ChangeEvent, ChangeEventHandler, useState, useTransition } from 'react';
+import { ChangeEvent, ChangeEventHandler, useMemo, useState, useTransition } from 'react';
 import { createGameListRecord } from '@/admin/actions';
 import { useUserAuthContext } from '@/admin/components';
 import { CSV_COLUMNS_OPTIONS } from '@/admin/config';
-import { CsvGame, getGameListFromCsv } from '@/admin/csvParser';
+import { CsvColumnsOptions, CsvGame, getGameListFromCsv } from '@/admin/csvParser';
 import { ButtonAction, VisuallyHiddenInput, processFileUpload } from '@/components';
 import { Urls } from '@/config';
 import { useRouter } from '@/navigation';
@@ -21,11 +21,22 @@ export const CsvLoader = () => {
   const { push } = useRouter();
   const [recordName, setRecordName] = useState('');
   const [gameList, setGameList] = useState<Game[]>([]);
+  const [enableTypeGame, setEnableTypeGame] = useState(false);
+  const modifiedCsvColumnsOptions: CsvColumnsOptions = useMemo(
+    () => ({
+      ...CSV_COLUMNS_OPTIONS,
+      type: {
+        ...CSV_COLUMNS_OPTIONS.type,
+        enabled: enableTypeGame,
+      },
+    }),
+    [enableTypeGame],
+  );
 
   const handleFileUpload: ChangeEventHandler<HTMLInputElement> = async (event) => {
     const data = await processFileUpload(event);
     const csvGameList = parse<CsvGame>(data, { header: true }).data;
-    const newGameList = getGameListFromCsv(csvGameList, CSV_COLUMNS_OPTIONS);
+    const newGameList = getGameListFromCsv(csvGameList, modifiedCsvColumnsOptions);
 
     if (!newGameList.length) {
       enqueueSnackbar('Soubor nelze nahrát, pravděpodobně je ve špatném formátu', {
@@ -51,7 +62,11 @@ export const CsvLoader = () => {
         Vytvořit nový seznam
       </Typography>
 
-      <CsvHelp />
+      <CsvHelp
+        enableTypeGame={enableTypeGame}
+        setEnableTypeGame={setEnableTypeGame}
+        modifiedCsvColumnsOptions={modifiedCsvColumnsOptions}
+      />
 
       <Typography variant="h3">Nahrát CSV soubor</Typography>
 
