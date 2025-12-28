@@ -25,6 +25,16 @@ export const createTables = async () => {
   await sql.query(`CREATE SCHEMA IF NOT EXISTS "${DB_SCHEMA}";`);
 
   await sql.query(`
+      CREATE TABLE IF NOT EXISTS ${USER_AUTH_RECORDS_TABLE} (
+        "recordId" INTEGER PRIMARY KEY GENERATED ALWAYS AS IDENTITY,
+        "status" TEXT NOT NULL,
+        "name" TEXT NOT NULL,
+        "email" TEXT,
+        "password" TEXT
+      );
+    `);
+
+  await sql.query(`
     CREATE TABLE IF NOT EXISTS ${GAMELIST_RECORDS_TABLE} (
       "recordId" INTEGER PRIMARY KEY GENERATED ALWAYS AS IDENTITY,
       "created" TIMESTAMP WITH TIME ZONE NOT NULL DEFAULT now(),
@@ -37,16 +47,6 @@ export const createTables = async () => {
           FOREIGN KEY ("userRecordId")
           REFERENCES ${USER_AUTH_RECORDS_TABLE}("recordId")
           ON DELETE SET NULL
-    );
-  `);
-
-  await sql.query(`
-    CREATE TABLE IF NOT EXISTS ${USER_AUTH_RECORDS_TABLE} (
-      "recordId" INTEGER PRIMARY KEY GENERATED ALWAYS AS IDENTITY,
-      "status" TEXT NOT NULL,
-      "name" TEXT NOT NULL,
-      "email" TEXT,
-      "password" TEXT
     );
   `);
 
