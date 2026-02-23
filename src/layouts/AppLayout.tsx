@@ -15,14 +15,14 @@ type Props = {
 
 export function AppLayout({ children, activeGameListRecord, isLoading }: Props) {
   return (
-    <ThemeRegistry>
-      <AppStoreProvider activeGameListRecord={activeGameListRecord}>
+    <AppStoreProvider activeGameListRecord={activeGameListRecord}>
+      <ThemeRegistry>
         <Stack sx={{ minHeight: '100vh' }}>
           <AppNav />
           {isLoading ? <AppLoader /> : <Box flexGrow={1}>{children}</Box>}
           <AppFooter />
         </Stack>
-      </AppStoreProvider>
-    </ThemeRegistry>
+      </ThemeRegistry>
+    </AppStoreProvider>
   );
 }
