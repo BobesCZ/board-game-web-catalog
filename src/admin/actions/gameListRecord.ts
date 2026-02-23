@@ -1,7 +1,7 @@
 'use server';
 
 import { neon } from '@neondatabase/serverless';
-import { revalidatePath, revalidateTag, unstable_cache } from 'next/cache';
+import { revalidatePath, unstable_cache, updateTag } from 'next/cache';
 import { Urls } from '@/config';
 import { Game, Status } from '@/types';
 import { GAMELIST_RECORDS_TABLE, USER_AUTH_RECORDS_TABLE } from './config';
@@ -90,7 +90,7 @@ export const createGameListRecord = async (
 
   const result = await sql.query(query);
 
-  revalidateTag(CacheTags.GAMELIST_RECORDS);
+  updateTag(CacheTags.GAMELIST_RECORDS);
   revalidatePath(Urls.ADMIN);
 
   return { recordId: result[0].recordId };
@@ -109,7 +109,7 @@ export const updateGameListRecord = async (recordId: number, gameList: Game[]) =
 
   await sql.query(query, [status, JSON.stringify(gameList), recordId]);
 
-  revalidateTag(CacheTags.GAMELIST_RECORDS);
+  updateTag(CacheTags.GAMELIST_RECORDS);
   revalidatePath(Urls.ADMIN);
 };
 
@@ -122,7 +122,7 @@ export const deleteGameListRecord = async (recordId: number) => {
 
   await sql.query(query, [recordId]);
 
-  revalidateTag(CacheTags.GAMELIST_RECORDS);
+  updateTag(CacheTags.GAMELIST_RECORDS);
   revalidatePath(Urls.ADMIN);
 };
 
@@ -133,6 +133,6 @@ export const deleteGameListRecords = async () => {
 
   await sql.query(query);
 
-  revalidateTag(CacheTags.GAMELIST_RECORDS);
+  updateTag(CacheTags.GAMELIST_RECORDS);
   revalidatePath(Urls.ADMIN);
 };

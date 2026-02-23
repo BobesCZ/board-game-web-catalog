@@ -1,7 +1,7 @@
 'use server';
 
 import { neon } from '@neondatabase/serverless';
-import { revalidatePath, revalidateTag } from 'next/cache';
+import { revalidatePath, updateTag } from 'next/cache';
 import { Urls } from '@/config';
 import { DB_SCHEMA } from '../config';
 import { GAMELIST_RECORDS_TABLE, USER_AUTH_RECORDS_TABLE, WEB_EVENTS_RECORDS_TABLE } from './config';
@@ -17,8 +17,8 @@ export const revalidateAllAdminPaths = async () => {
 };
 
 export const revalidateAllTags = async () => {
-  revalidateTag(CacheTags.GAMELIST_RECORDS);
-  revalidateTag(CacheTags.ACTIVE_GAMELIST);
+  updateTag(CacheTags.GAMELIST_RECORDS);
+  updateTag(CacheTags.ACTIVE_GAMELIST);
 };
 
 export const createTables = async () => {

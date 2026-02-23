@@ -1,22 +1,16 @@
 'use client';
 
-import { ChevronLeft, Delete, Download, ExpandMore, Settings, Visibility, VisibilityOff } from '@mui/icons-material';
+import { ChevronLeft, Delete, Download, ExpandMore, Visibility, VisibilityOff } from '@mui/icons-material';
 import { Alert, AlertTitle, Box, Button, Divider, Stack, ThemeProvider, Typography } from '@mui/material';
-import dynamic from 'next/dynamic';
 import { useMemo, useState, useTransition } from 'react';
 import { GameListRecord, GameListRecordStatus, deleteGameListRecord, setActiveGameListRecord } from '@/admin/actions';
 import { DuplicitGamesAlert } from '@/admin/components';
-import { IS_DEVELOPMENT } from '@/admin/config';
 import { ButtonAction, GameList, Link } from '@/components';
 import { Urls } from '@/config';
 import { useRouter } from '@/navigation';
 import { theme } from '@/theme';
 import { Status } from '@/types';
 import { BggLoader } from './components';
-
-const ReactJson = dynamic(() => import('react-json-view'), {
-  ssr: false,
-});
 
 type Props = {
   gameListRecord: GameListRecord;
@@ -28,7 +22,6 @@ export const GameListRecordDetail = ({ gameListRecord }: Props) => {
 
   const [showGameList, setShowGameList] = useState(false);
   const [showBggLoader, setShowBggLoader] = useState(true);
-  const [showDbScan, setShowDbScan] = useState(false);
 
   const gameList = gameListRecord.gameList;
 
@@ -65,7 +58,6 @@ export const GameListRecordDetail = ({ gameListRecord }: Props) => {
 
   const handleShowGameList = () => setShowGameList((prev) => !prev);
   const handleShowBggLoader = () => setShowBggLoader((prev) => !prev);
-  const handleShowDbScan = () => setShowDbScan((prev) => !prev);
 
   return (
     <>
@@ -168,11 +160,6 @@ export const GameListRecordDetail = ({ gameListRecord }: Props) => {
         >
           {showGameList ? 'Skrýt' : 'Zobrazit'} náhled seznamu her
         </Button>
-        {IS_DEVELOPMENT && (
-          <Button variant="outlined" color="primary" onClick={handleShowDbScan} startIcon={<Settings />}>
-            Zobrazit DbScan
-          </Button>
-        )}
       </Stack>
 
       <Divider sx={{ mb: 3 }} />
@@ -182,8 +169,6 @@ export const GameListRecordDetail = ({ gameListRecord }: Props) => {
       <ThemeProvider theme={theme}>
         {showGameList && <GameList gameList={gameList} gameTotalCount={gameList.length} />}
       </ThemeProvider>
-
-      {showDbScan && <ReactJson src={gameListRecord} theme="pop" />}
     </>
   );
 };

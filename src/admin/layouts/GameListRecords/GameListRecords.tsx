@@ -22,24 +22,14 @@ import { Link } from '@/components';
 import { Urls } from '@/config';
 import { ConfirmDeleteModal } from './components';
 
-const ReactJson = dynamic(() => import('react-json-view'), {
-  ssr: false,
-});
-
 type Props = {
   gameListRecords: GameListRecordItem[];
 };
 
 export const GameListRecords = ({ gameListRecords }: Props) => {
-  const [showDbScan, setShowDbScan] = useState(false);
-
   const [isModalOpened, setIsModalOpened] = useState(false);
   const handleOpenModal = () => setIsModalOpened(true);
   const handleCloseModal = () => setIsModalOpened(false);
-
-  const handleShowDbScan = () => {
-    setShowDbScan((prev) => !prev);
-  };
 
   const getCellSx = (isActive: boolean) => ({ fontWeight: isActive ? 'bold' : undefined });
 
@@ -114,14 +104,7 @@ export const GameListRecords = ({ gameListRecords }: Props) => {
         <Button variant="contained" color="error" onClick={handleOpenModal} startIcon={<Delete />}>
           Smazat všechny seznamy
         </Button>
-        {IS_DEVELOPMENT && (
-          <Button variant="outlined" color="primary" onClick={handleShowDbScan} startIcon={<Settings />}>
-            Zobrazit DbScan
-          </Button>
-        )}
       </Stack>
-
-      {showDbScan && <ReactJson src={gameListRecords} theme="pop" />}
 
       <ConfirmDeleteModal isModalOpened={isModalOpened} handleCloseModal={handleCloseModal} />
     </>

@@ -1,6 +1,6 @@
 'use client';
 
-import { Add, Delete, Done, Lock, QueryBuilder, Settings } from '@mui/icons-material';
+import { Add, Delete, Done, Lock, QueryBuilder } from '@mui/icons-material';
 import {
   Alert,
   Button,
@@ -15,7 +15,6 @@ import {
   Typography,
   alpha,
 } from '@mui/material';
-import dynamic from 'next/dynamic';
 import { useState, useTransition } from 'react';
 import { authorizeUserAuthRecord, deleteUserAuthRecord } from '@/admin/actions';
 import { UserAuthRecord, UserAuthStatus, useUserAuth } from '@/admin/components';
@@ -23,24 +22,15 @@ import { IS_DEVELOPMENT } from '@/admin/config';
 import { ButtonAction } from '@/components';
 import { AddNewUser } from '../add-new-user';
 
-const ReactJson = dynamic(() => import('react-json-view'), {
-  ssr: false,
-});
-
 type Props = {
   userAuthRecords: UserAuthRecord[];
 };
 
 export const UserAuthRecords = ({ userAuthRecords }: Props) => {
   const [isPending, startTransition] = useTransition();
-  const [showDbScan, setShowDbScan] = useState(false);
   const [showAddNewUser, setShowAddNewUser] = useState(false);
 
   const { userAuthRecord } = useUserAuth(userAuthRecords);
-
-  const handleShowDbScan = () => {
-    setShowDbScan((prev) => !prev);
-  };
 
   const handleShowAddNewUser = () => {
     setShowAddNewUser((prev) => !prev);
@@ -141,13 +131,9 @@ export const UserAuthRecords = ({ userAuthRecords }: Props) => {
           <Button variant="contained" color="success" onClick={handleShowAddNewUser} startIcon={<Add />}>
             Přidat nového uživatele
           </Button>
-          <Button variant="outlined" color="primary" onClick={handleShowDbScan} startIcon={<Settings />}>
-            Zobrazit DbScan
-          </Button>
         </Stack>
       )}
 
-      {showDbScan && <ReactJson src={userAuthRecords} theme="pop" />}
       {showAddNewUser && <AddNewUser onClose={() => setShowAddNewUser(false)} />}
     </>
   );

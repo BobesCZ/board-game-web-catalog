@@ -1,7 +1,7 @@
 'use server';
 
 import { neon } from '@neondatabase/serverless';
-import { revalidatePath, revalidateTag, unstable_cache } from 'next/cache';
+import { revalidatePath, unstable_cache, updateTag } from 'next/cache';
 import { Urls } from '@/config';
 import { GAMELIST_RECORDS_TABLE } from './config';
 import { CacheTags, GameListRecord } from './types';
@@ -43,6 +43,6 @@ export const setActiveGameListRecord = async (recordId: number) => {
 
   await sql.query(activateQuery);
 
-  revalidateTag(CacheTags.ACTIVE_GAMELIST);
+  updateTag(CacheTags.ACTIVE_GAMELIST);
   revalidatePath(Urls.ADMIN);
 };
