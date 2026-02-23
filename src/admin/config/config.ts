@@ -20,7 +20,7 @@ export const DISABLE_USER_AUTH_ON_DEVELOPMENT = true;
  * It is always enabled on development and preview environment
  * You can disable it on production for security reasons
  */
-export const DISABLE_CREDENTIALS_ON_PRODUCTION = true;
+export const DISABLE_CREDENTIALS_ON_PRODUCTION = false;
 
 /**
  * Column options for parsing CSV
@@ -30,7 +30,7 @@ export const DISABLE_CREDENTIALS_ON_PRODUCTION = true;
  */
 export const CSV_COLUMNS_OPTIONS: CsvColumnsOptions = {
   type: {
-    enabled: true,
+    enabled: false,
     colName: 'Hra / Poznámka',
     typeGame: 'GAME',
   },
